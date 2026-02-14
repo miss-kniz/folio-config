@@ -5,20 +5,20 @@
   --background: #ffffff;
   --foreground: #0d0d0d;
   --primary: #7b2cbf;
-  --primary-light: #7a2cbf1b;
+  --primary-light: #7a2cbf0f;
   --primary-dark: #4a148c;
   --font-geist-sans: "Inter", sans-serif;
   --black-light: #666666;
 }
 
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   :root {
     --background: #0e0516;
     --foreground: #ededed;
     --black-light: #99a1af;
     --primary-light: #7a2cbf36;
   }
-} */
+}
 
 @theme inline {
   /* colors */
