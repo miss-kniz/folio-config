@@ -3,13 +3,22 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #0D0D0D;
-  --primary: #7B2CBF;
-  --primary-light: #E7D6F5;
-  --primary-dark: #4A148C;
+  --foreground: #0d0d0d;
+  --primary: #7b2cbf;
+  --primary-light: #7a2cbf1b;
+  --primary-dark: #4a148c;
   --font-geist-sans: "Inter", sans-serif;
-  --black-light: #515050;
+  --black-light: #666666;
 }
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0e0516;
+    --foreground: #ededed;
+    --black-light: #99a1af;
+    --primary-light: #7a2cbf36;
+  }
+} */
 
 @theme inline {
   /* colors */
@@ -18,18 +27,11 @@
   --color-foreground: var(--foreground);
   --color-primary-light: var(--primary-light);
   --color-primary-dark: var(--primary-dark);
-  --color-black-light: var(--color-black-light);
-  --gray-light:var(--black-light);
+  --color-black-light: var(--black-light);
+
   /* fonts */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0e0516;
-    --foreground: #ededed;
-  }
 }
 
 body {
@@ -40,7 +42,12 @@ body {
   padding: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Urbanist", sans-serif;
 }
 
@@ -48,7 +55,7 @@ h1, h2, h3, h4, h5, h6 {
 html {
   scroll-behavior: smooth;
 }
-button{
+button {
   cursor: pointer;
 }
 
