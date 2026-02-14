@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Button from "./ui/Button";
 
 export default function Navbar() {
   return (
@@ -13,19 +14,19 @@ export default function Navbar() {
             <Link
               key={item}
               href={`/${item.toLowerCase()}`}
-              className="font-medium hover:text-[#7B2CBF] transition-colors"
+              className="font-medium hover:text-primary transition-colors"
             >
               {item}
             </Link>
           ))}
         </nav>
-
-        <Link
-          href="/contact"
-          className="px-5 py-2.5 bg-[#7B2CBF] text-white rounded-full font-medium hover:bg-[#4A148C] transition-colors shadow-sm"
+        <a
+          href="https://calendar.app.google/fpRU2qDXNfbg4BSK8"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          Contact
-        </Link>
+          <Button variant="primary"> Contact </Button>
+        </a>
       </div>
     </header>
   );

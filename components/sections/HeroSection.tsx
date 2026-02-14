@@ -70,8 +70,20 @@ export default function HeroSection() {
 
           {/* CTA Buttons */}
           <div className="flex justify-center gap-4">
-            <Button variant="primary">Book Clarity</Button>
-            <Button variant="ghost">Connect on LinkedIn</Button>
+            <a
+              href="https://calendar.app.google/fpRU2qDXNfbg4BSK8"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button variant="primary">Book Clarity</Button>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/mehak-fatima-naqvi/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button variant="ghost"> Connect on LinkedIn </Button>
+            </a>
           </div>
 
           {/* Section Divider */}
