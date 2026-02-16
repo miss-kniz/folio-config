@@ -1,30 +1,29 @@
-'use client'
+"use client";
 import { services } from "@/types/services";
 import Heading from "../ui/Heading";
 import ServiceCard from "../ui/ServiceCard";
 import SubHeadingContainer, { SimplePara } from "../ui/SubHeadingContainer";
 import { Lightbulb } from "phosphor-react";
 
-const ServicesSection = () =>
-{
-
-  const handleCardClick = (serviceId: number) =>
-  {
+const ServicesSection = () => {
+  const handleCardClick = (serviceId: number) => {
     console.log("Clicked service:", serviceId);
     // Later: Open modal or navigate to case study page
   };
 
   return (
     <section className="bg-primary-light px-4">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <div className="text-center my-6 md:mb-12">
-          <SubHeadingContainer> <div className="flex items-center gap-2 relative justify-center">
-
-            <span className="inline-block py-1 px-2 rounded-full bg-white">
-              <Lightbulb
-                weight="fill"
-                className="w-4 h-4 text-yellow-500"
-              /></span>Service Section</div></SubHeadingContainer>
+          <SubHeadingContainer>
+            {" "}
+            <div className="flex items-center gap-2 relative justify-center">
+              <span className="inline-block py-1 px-2 rounded-full bg-white">
+                <Lightbulb weight="fill" className="w-4 h-4 text-yellow-500" />
+              </span>
+              Service Section
+            </div>
+          </SubHeadingContainer>
           <Heading as="h2" normalText="What I" highlightText="Help You Build" />
           <SimplePara className="mt-2">
             From clean landing pages to full web apps, I focus on building fast,
