@@ -61,7 +61,9 @@ const ProjectsSection = () =>
               <span className="inline-block py-1 px-2 rounded-full bg-white">
                 <Lightbulb weight="fill" className="w-4 h-4 text-yellow-500" />
               </span>
-              Projects Section
+              <span className="font-medium text-gray-700 uppercase tracking-wide">
+                Projects Section
+              </span>
             </div>
           </SubHeadingContainer>
           <Heading

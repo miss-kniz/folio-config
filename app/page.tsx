@@ -4,6 +4,7 @@ import HeroSection from "@/components/sections/HeroSection";
 import InfiniteScrollProjects from "@/components/sections/InfiniteScrollProjects";
 import ProjectsSection from "@/components/sections/ProjectsSection";
 import ServicesSection from "@/components/sections/ServicesSection";
+import Footer from "@/components/ui/Footer";
 
 export default function HomePage()
 {
@@ -15,6 +16,7 @@ export default function HomePage()
       <ServicesSection />
       <ProjectsSection />
       <AboutSection />
+      <Footer />
     </div>
   );
 }

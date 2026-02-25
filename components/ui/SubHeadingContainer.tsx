@@ -1,3 +1,4 @@
+import { cn } from "@/types/helpers/merge-helper";
 import { ReactNode } from "react";
 
 interface SubHeadingContainerProps
@@ -21,7 +22,7 @@ export default SubHeadingContainer;
 export const SimplePara = ({ children, className }: { children: ReactNode, className?: string }) =>
 {
   return (
-    <p className={`text-black-light max-w-2xl mx-auto text-sm md:text-base ${className}`}>
+    <p className={cn(`text-black-light max-w-2xl mx-auto text-sm md:text-base ${className}`)}>
       {children}
     </p>
   )

@@ -1,3 +1,4 @@
+import { cn } from "@/types/helpers/merge-helper";
 import { forwardRef } from "react";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>
@@ -30,7 +31,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       lg: "h-12 px-8 text-base",
     };
 
-    const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className || ""}`;
+    const classes = cn(baseClasses, variantClasses[variant], sizeClasses[size], className);
 
     return (
       <button ref={ref} className={classes} {...props}>

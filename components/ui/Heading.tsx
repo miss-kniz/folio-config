@@ -22,15 +22,15 @@ export default function Heading({
   const Tag = as;
 
   const sizeStyles = {
-    h1: "text-4xl md:text-5xl lg:text-7xl",
-    h2: "text-3xl md:text-4xl lg:text-5xl",
-    h3: "text-[13px] md:text-lg",
+    h1: "text-4xl  font-bold md:text-5xl lg:text-7xl",
+    h2: "text-3xl  font-bold md:text-4xl lg:text-5xl",
+    h3: "text-[14px] font-medium",
   };
 
   return (
     <Tag
       className={`
-        font-bold leading-tight
+        leading-tight
         ${sizeStyles[as]}
         ${center ? "text-center" : "text-left"}
         ${className}
