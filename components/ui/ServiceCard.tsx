@@ -16,10 +16,10 @@ const ServiceCard = ({ id, title, description, imageUrl, onClick }: ServiceCardP
 {
     return (
         <div
-            className="group p-1 w-full rounded-xl overflow-hidden hover:shadow-md transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+            className="group p-1 flex flex-col lg:flex-row gap-2 shadow-sm w-full rounded-xl overflow-hidden hover:shadow-md transition-all duration-300 hover:-translate-y-1 cursor-pointer"
             onClick={onClick}
         >
-            <div className="w-full aspect-square overflow-hidden rounded-xl shadow-lg">
+            <div className="w-full h-44 lg:w-1/2 overflow-hidden rounded-xl shadow-lg">
                 <img
                     src={imageUrl}
                     alt={title}

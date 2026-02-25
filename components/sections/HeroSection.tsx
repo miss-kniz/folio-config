@@ -86,7 +86,7 @@ export default function HeroSection()
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button variant="ghost"> Connect on LinkedIn </Button>
+              <Button variant="secondary"> Connect on LinkedIn </Button>
             </a>
           </div>
 

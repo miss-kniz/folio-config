@@ -1,10 +1,12 @@
 import Navbar from "@/components/Navbar";
+import AboutSection from "@/components/sections/AboutSection";
 import HeroSection from "@/components/sections/HeroSection";
 import InfiniteScrollProjects from "@/components/sections/InfiniteScrollProjects";
 import ProjectsSection from "@/components/sections/ProjectsSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 
-export default function HomePage() {
+export default function HomePage()
+{
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
@@ -12,6 +14,7 @@ export default function HomePage() {
       <InfiniteScrollProjects />
       <ServicesSection />
       <ProjectsSection />
+      <AboutSection />
     </div>
   );
 }

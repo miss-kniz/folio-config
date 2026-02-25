@@ -15,8 +15,8 @@ const ServicesSection = () =>
 
   return (
     <section className="bg-primary-light md:py-4 px-2">
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center my-6 md:mb-12">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center my-3">
           <SubHeadingContainer>
             <div className="flex items-center gap-2 relative justify-center">
               <span className="inline-block py-1 px-2 rounded-full bg-white">
@@ -32,7 +32,7 @@ const ServicesSection = () =>
           </SimplePara>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
+        <div className="grid grid-cols-2 py-2 md:grid-cols-3 gap-4 md:gap-4">
           {services.map((service) => (
             <ServiceCard
               key={service.id}
