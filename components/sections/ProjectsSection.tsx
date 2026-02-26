@@ -27,8 +27,7 @@ const ProjectsSection = () =>
   {
     if (!showAll)
     {
-      if (windowWidth >= 1024) setVisibleCount(3); // lg
-      else setVisibleCount(2); // md & sm
+      setVisibleCount(2); // lg
     } else
     {
       setVisibleCount(filteredProjects.length);
@@ -97,7 +96,7 @@ const ProjectsSection = () =>
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2  gap-4 md:gap-6 lg:gap-8">
           {filteredProjects.slice(0, visibleCount).map((project: ProjectItem) => (
             <ProjectCard key={project.id} {...project} />
           ))}

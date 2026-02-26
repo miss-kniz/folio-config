@@ -38,7 +38,7 @@ const ServiceCard = ({ id, title, description, imageUrl, onClick }: ServiceCardP
 
                 {/* Title */}
                 <Heading
-                    as="h3"
+                    as="h4"
                     className='text-left'
                     normalText={title}
                 />

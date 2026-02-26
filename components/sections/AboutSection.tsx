@@ -17,17 +17,17 @@ const AboutSection = () =>
     ];
 
     return (
-        <section className="bg-primary-light text-[13px] md:py-12 px-4">
-            <div className="max-w-5xl mx-auto flex flex-col md:flex-row justify-between gap-8 items-center">
+        <section className="bg-primary-light text-[13px] py-4 md:py-8 px-4 mt-2">
+            <div className="max-w-5xl mx-auto flex flex-col md:flex-row justify-between  md:gap-8 items-center">
                 {/* Left Content */}
                 <div className="flex-1">
                     <SubHeadingContainer>
-                        <div className="flex items-center gap-2 justify-start">
-                            <span className="inline-block py-1 px-2 rounded-full bg-white shadow">
-                                <Lightbulb weight="fill" className="w-5 h-5 text-yellow-500" />
+                        <div className="flex items-center gap-2 relative justify-center">
+                            <span className="inline-block py-1 px-1 rounded-full bg-white">
+                                <Lightbulb weight="fill" className="w-4 h-4 text-yellow-500" />
                             </span>
                             <span className="font-medium text-gray-700 uppercase tracking-wide">
-                                About Me
+                                About Section
                             </span>
                         </div>
                     </SubHeadingContainer>
@@ -60,10 +60,10 @@ const AboutSection = () =>
                 {/* Right Image */}
                 <div className="flex-1 mt-6 md:mt-0 flex justify-center">
                     <Image
-                        src="/mehak.png"
+                        src="/Mehak.png"
                         alt="Mehak Fatima Naqvi"
-                        width={500}
-                        height={500}
+                        width={400}
+                        height={400}
                         className="rounded-2xl shadow-xl object-cover max-w-full"
                     />
                 </div>

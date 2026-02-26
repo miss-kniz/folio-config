@@ -33,7 +33,7 @@ export default function ProjectCard({
 
       {/* Content */}
       <div className="flex flex-col flex-1 p-6">
-        <Heading as="h3" normalText={title} center={false} />
+        <Heading as="h4" normalText={title} center={false} />
         {description && (
           <p className="text-sm text-black-light mb-4 flex-1">{description}</p>
         )}
