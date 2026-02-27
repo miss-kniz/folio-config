@@ -15,13 +15,13 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="w-full bg-gray-100 dark:bg-gray-950">
+    <footer className="w-full bg-primary-light">
       <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col items-center gap-6">
         {/* Logo / Name */}
         <Heading as="h2" normalText={firstName} />
 
         {/* Navigation */}
-        <nav className="flex flex-wrap justify-center gap-8 text-sm tracking-wide text-gray-600 font-medium">
+        <nav className="flex flex-wrap justify-center gap-4 md:gap-8 text-sm tracking-wide text-gray-600 font-medium">
           {navLinks.map((link) => (
             <a
               key={link.href}

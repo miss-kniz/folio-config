@@ -4,9 +4,6 @@
 // Edit this file to personalize your portfolio
 // All sections are typed for safety and autocomplete
 
-// ========================================
-// INTERFACES / TYPES
-// ========================================
 
 export interface SocialLink {
     platform: string;
