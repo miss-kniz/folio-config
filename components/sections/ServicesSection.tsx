@@ -1,14 +1,12 @@
 "use client";
-import { services } from "@/types/services";
+import { services } from "@/config/services";
 import Heading from "../ui/Heading";
 import ServiceCard from "../ui/ServiceCard";
 import SubHeadingContainer, { SimplePara } from "../ui/SubHeadingContainer";
 import { Lightbulb } from "phosphor-react";
 
-const ServicesSection = () =>
-{
-  const handleCardClick = (serviceId: number) =>
-  {
+const ServicesSection = () => {
+  const handleCardClick = (serviceId: number) => {
     console.log("Clicked service:", serviceId);
     // Later: Open modal or navigate to case study page
   };

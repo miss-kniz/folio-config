@@ -4,38 +4,37 @@ import Heading from "../ui/Heading";
 import SubHeadingContainer, { SimplePara } from "../ui/SubHeadingContainer";
 import { Lightbulb } from "phosphor-react";
 import ProjectCard from "../ui/ProjectCard";
-import { projects, ProjectItem } from "@/types/projects";
+import { projects, ProjectItem } from "@/config/projects";
 import Button from "../ui/Button";
 
-const ProjectsSection = () =>
-{
+const ProjectsSection = () => {
   const [selectedFilter, setSelectedFilter] = useState<string>("All");
   const [visibleCount, setVisibleCount] = useState<number>(2); // default for mobile
   const [windowWidth, setWindowWidth] = useState<number>(0);
   const [showAll, setShowAll] = useState<boolean>(false);
 
   // Detect window width for responsive default visible count
-  useEffect(() =>
-  {
+  useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     handleResize(); // initialize
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  useEffect(() =>
-  {
-    if (!showAll)
-    {
-      setVisibleCount(2); // lg
-    } else
-    {
+  useEffect(() => {
+    if (!showAll) {
+      if (windowWidth >= 1024)
+        setVisibleCount(3); // lg
+      else setVisibleCount(2); // md & sm
+    } else {
       setVisibleCount(filteredProjects.length);
     }
   }, [windowWidth, showAll]);
 
   // Gather unique categories from all projects
-  const allCategories = Array.from(new Set(projects.flatMap((p) => p.categories)));
+  const allCategories = Array.from(
+    new Set(projects.flatMap((p) => p.categories)),
+  );
   const filterOptions = ["All", ...allCategories];
 
   // Filter projects based on selected category
@@ -44,15 +43,14 @@ const ProjectsSection = () =>
       ? projects
       : projects.filter((p) => p.categories.includes(selectedFilter));
 
-  const handleCardClick = (projectId: number) =>
-  {
+  const handleCardClick = (projectId: number) => {
     console.log("Clicked project:", projectId);
     // Later: Open modal or navigate to case study page
   };
 
   return (
     <section>
-      <div className="max-w-5xl mx-auto md:py-4 px-2">
+      <div className="max-w-7xl mx-auto md:py-4 px-2">
         {/* Header */}
         <div className="text-center my-4">
           <SubHeadingContainer>
@@ -80,15 +78,15 @@ const ProjectsSection = () =>
           {filterOptions.map((category) => (
             <button
               key={category}
-              onClick={() =>
-              {
+              onClick={() => {
                 setSelectedFilter(category);
                 setShowAll(false); // reset "see more" when filter changes
               }}
-              className={`px-4 text-sm md:text-base py-2 rounded-full font-medium ${selectedFilter === category
-                ? "glass-btn-active text-white"
-                : "glass-btn text-black-light"
-                }`}
+              className={`px-4 text-sm md:text-base py-2 rounded-full font-medium ${
+                selectedFilter === category
+                  ? "glass-btn-active text-white"
+                  : "glass-btn text-black-light"
+              }`}
             >
               {category}
             </button>
@@ -96,19 +94,18 @@ const ProjectsSection = () =>
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2  gap-4 md:gap-6 lg:gap-8">
-          {filteredProjects.slice(0, visibleCount).map((project: ProjectItem) => (
-            <ProjectCard key={project.id} {...project} />
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
+          {filteredProjects
+            .slice(0, visibleCount)
+            .map((project: ProjectItem) => (
+              <ProjectCard key={project.id} {...project} />
+            ))}
         </div>
 
         {/* See More / See Less Button */}
         {filteredProjects.length > (windowWidth >= 1024 ? 3 : 2) && (
           <div className="flex justify-center mt-6">
-            <Button
-              onClick={() => setShowAll(!showAll)}
-              variant="ghost"
-            >
+            <Button onClick={() => setShowAll(!showAll)} variant="ghost">
               {showAll ? "See Less" : "See More"}
             </Button>
           </div>
