@@ -1,9 +1,8 @@
 @import "https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap";
 @import "tailwindcss";
-
 :root {
   --background: #ffffff;
-  --foreground: #0d0d0d;
+  --foreground: 13 13 13;
   --primary: #7b2cbf;
   --primary-light: #7a2cbf0f;
   --primary-dark: #4a148c;
@@ -12,14 +11,14 @@
   --glass: rgba(255, 255, 255, 0.05);
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0e0516;
-    --foreground: #ededed;
+    --foreground: 237 237 237;
     --black-light: #99a1af;
     --primary-light: #7a2cbf36;
   }
-}
+} */
 
 @theme inline {
   /* colors */
@@ -29,21 +28,17 @@
   --color-primary-light: var(--primary-light);
   --color-primary-dark: var(--primary-dark);
   --color-black-light: var(--black-light);
-  --color-glass: var(--glass);
-
-  /* fonts */
+  --color-glass: var(--glass); /* fonts */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
-
 body {
   background: var(--background);
-  color: var(--foreground);
+  color: rgb(var(--foreground));
   font-family: "Inter", sans-serif;
   margin: 0;
   padding: 0;
 }
-
 h1,
 h2,
 h3,
@@ -51,89 +46,84 @@ h4,
 h5,
 h6 {
   font-family: "Urbanist", sans-serif;
-}
-
-/* smooth scroll for anchor links */
+} /* smooth scroll for anchor links */
 html {
   scroll-behavior: smooth;
 }
-
 button {
   cursor: pointer;
-}
-
-/* Hide scrollbar */
+} /* Hide scrollbar */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
-
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
-}
-
-/* Infinite horizontal scroll animation */
+} /* Infinite horizontal scroll animation */
 @keyframes infinite-scroll {
   from {
     transform: translateX(0);
   }
-
   to {
     transform: translateX(-50%);
   }
-}
-
-/* Utility class */
+} /* Utility class */
 .animate-infinite-scroll {
   animation: infinite-scroll 25s linear infinite;
 }
-
-
-/* Glassmorphism filter buttons */
 .glass-btn {
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  box-shadow:
+    0 4px 16px rgba(var(--foreground) / 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
   transition: all 0.3s ease;
 }
 
 .glass-btn:hover {
   background: rgba(255, 255, 255, 0.35);
   border-color: rgba(255, 255, 255, 0.6);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  box-shadow:
+    0 6px 20px rgba(var(--foreground) / 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
 .glass-btn-active {
   background: rgba(123, 44, 191, 0.75);
   border-color: rgba(123, 44, 191, 0.5);
-  box-shadow: 0 4px 20px rgba(123, 44, 191, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 4px 20px rgba(var(--foreground) / 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
-
 /* Custom Scrollbar — Modern, Minimal, Theme-Aligned */
 .overflow-y-auto::-webkit-scrollbar {
   width: 4px; /* Thin, clean */
 }
-
 .overflow-y-auto::-webkit-scrollbar-track {
   background: transparent;
 }
-
 .overflow-y-auto::-webkit-scrollbar-thumb {
   background: var(--primary); /* Your #7b2cbf purple */
   border-radius: 4px;
   opacity: 0.7;
   transition: opacity 0.2s ease;
 }
-
 .overflow-y-auto::-webkit-scrollbar-thumb:hover {
   opacity: 1;
   background: var(--primary-dark); /* Slightly darker on hover */
-}
-
-/* Firefox: subtle thumb + track */
+} /* Firefox: subtle thumb + track */
 .overflow-y-auto {
   scrollbar-color: var(--primary) transparent; /* thumb | track */
   scrollbar-width: thin;
+}
+
+.shadow-sm {
+  --tw-shadow:
+    0 1px 3px 0 rgb(var(--foreground) / 0.1),
+    0 1px 2px -1px rgb(var(--foreground) / 0.1);
+  box-shadow:
+    var(--tw-inset-shadow), var(--tw-inset-ring-shadow),
+    var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
 }
