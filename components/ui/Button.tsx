@@ -9,7 +9,14 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
-    { variant = "primary", size = "default", children, className, ...props },
+    {
+      variant = "primary",
+      size = "default",
+      children,
+      className,
+      disabled,
+      ...props
+    },
     ref,
   ) => {
     const baseClasses =
@@ -20,7 +27,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         "bg-primary font-semibold text-white hover:bg-primary-dark shadow-md",
       outline:
         "border border-primary font-semibold text-primary bg-transparent hover:bg-primary-light",
-      ghost: "text-primary bg-primary-light",
+      ghost: "text-primary bg-primary-light hover:bg-primary/80",
       secondary:
         "border border-black-light font-semibold bg-transparent hover:bg-primary-light",
     };
@@ -29,18 +36,24 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       sm: "h-9 px-3 text-xs",
       default: "h-11 px-6 text-sm md:text-medium",
       lg: "h-12 px-8 text-base",
-      icon: "w-10 h-10 p-2. rounded-full",
+      icon: "w-10 h-10 p-2 rounded-full",
     };
+
+    // Disabled classes
+    const disabledClasses = disabled
+      ? "opacity-40 cursor-not-allowed pointer-events-none"
+      : "";
 
     const classes = cn(
       baseClasses,
       variantClasses[variant],
       sizeClasses[size],
+      disabledClasses,
       className,
     );
 
     return (
-      <button ref={ref} className={classes} {...props}>
+      <button ref={ref} className={classes} disabled {...props}>
         {children}
       </button>
     );

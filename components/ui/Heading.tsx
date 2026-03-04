@@ -1,6 +1,6 @@
 import React from "react";
 
-type HeadingLevel = "h1" | "h2" | "h3" | "h4";
+type HeadingLevel = "h1" | "h2" | "h3" | "h4" | "h5";
 
 interface HeadingProps {
   as?: HeadingLevel;
@@ -10,13 +10,13 @@ interface HeadingProps {
   className?: string;
 }
 
-export default function Heading({
+const Heading = ({
   as = "h2",
   normalText,
   highlightText,
   center = true,
   className = "",
-}: HeadingProps) {
+}: HeadingProps) => {
   const Tag = as;
 
   const sizeStyles = {
@@ -24,6 +24,7 @@ export default function Heading({
     h2: "text-2xl  font-bold md:text-4xl lg:text-5xl",
     h3: "text-xl  font-bold md:text-3xl lg:text-4xl",
     h4: "text-[14px] font-medium",
+    h5: "text-base font-semibold uppercase tracking-widest text-primary",
   };
 
   return (
@@ -39,4 +40,6 @@ export default function Heading({
       {highlightText && <span className="text-primary">{highlightText}</span>}
     </Tag>
   );
-}
+};
+
+export default Heading;

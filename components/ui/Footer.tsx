@@ -1,6 +1,8 @@
+"use client";
 import React from "react";
 import Heading from "./Heading";
 import aboutData from "@/config/user-data/about";
+import SocialLinks from "./SocialLinks";
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -35,18 +37,7 @@ const Footer: React.FC = () => {
 
         {/* Social Icons - Now using data from about.ts */}
         <div className="flex flex-wrap justify-center gap-4">
-          {aboutData.socialLinks.map((social) => (
-            <a
-              key={social.platform}
-              href={social.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 flex items-center justify-center rounded-full border border-primary text-primary hover:bg-primary hover:text-white transition-all"
-              aria-label={social.platform}
-            >
-              <i className={`${social.icon} text-2xl`} />
-            </a>
-          ))}
+          <SocialLinks links={aboutData.socialLinks} />
         </div>
 
         {/* Divider */}

@@ -7,6 +7,7 @@ import aboutData from "@/config/user-data/about";
 import Input from "../inputs/Input";
 import Textarea from "../inputs/Textarea";
 import Button from "../ui/Button";
+import SocialLinks from "../ui/SocialLinks";
 
 const ContactSection: React.FC = () => {
   const { contact, socialLinks, name } = aboutData;
@@ -59,22 +60,15 @@ const ContactSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Social - Now using Remix Icons */}
+            {/* Social - Using Button component */}
             <div className="pt-6 border-t border-black/10 dark:border-white/10">
               <p className="mb-4 font-medium">Follow Us :</p>
               <div className="flex gap-4">
-                {aboutData.socialLinks.map((social) => (
-                  <a
-                    key={social.platform}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 flex items-center justify-center rounded-full border hover:bg-primary transition-all"
-                    aria-label={social.platform}
-                  >
-                    <i className={`${social.icon} text-xl`} />
-                  </a>
-                ))}
+                <SocialLinks
+                  links={aboutData.socialLinks}
+                  size="icon"
+                  variant="secondary"
+                />
               </div>
             </div>
           </div>
