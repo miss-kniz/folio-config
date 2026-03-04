@@ -8,7 +8,7 @@ import Heading from "../ui/Heading";
 import SubHeadingContainer, { SimplePara } from "../ui/SubHeadingContainer";
 import Button from "../ui/Button";
 import JourneyModal from "../modals/JourneyModal";
-import aboutData from "@/config/about";
+import aboutData from "@/config/user-data/about";
 
 const AboutSection = () => {
   const { aboutMe } = aboutData;

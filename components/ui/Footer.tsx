@@ -1,6 +1,6 @@
 import React from "react";
 import Heading from "./Heading";
-import aboutData from "@/config/about";
+import aboutData from "@/config/user-data/about";
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();

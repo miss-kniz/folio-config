@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Modal from "./Modal";
-import aboutData from "@/config/about";
+import aboutData from "@/config/user-data/about";
 import Button from "../ui/Button";
 import Heading from "../ui/Heading";
 import ServiceCard from "../ui/ServiceCard";

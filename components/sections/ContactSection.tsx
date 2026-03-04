@@ -3,7 +3,7 @@
 import React from "react";
 import Heading from "../ui/Heading";
 import { MapPin, Phone, Envelope } from "phosphor-react";
-import aboutData from "@/config/about";
+import aboutData from "@/config/user-data/about";
 import Input from "../inputs/Input";
 import Textarea from "../inputs/Textarea";
 import Button from "../ui/Button";

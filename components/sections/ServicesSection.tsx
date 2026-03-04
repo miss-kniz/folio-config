@@ -1,5 +1,5 @@
 "use client";
-import { services } from "@/config/services";
+import { services } from "@/config/user-data/services";
 import Heading from "../ui/Heading";
 import ServiceCard from "../ui/ServiceCard";
 import SubHeadingContainer, { SimplePara } from "../ui/SubHeadingContainer";

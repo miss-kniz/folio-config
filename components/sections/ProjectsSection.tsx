@@ -4,7 +4,7 @@ import Heading from "../ui/Heading";
 import SubHeadingContainer, { SimplePara } from "../ui/SubHeadingContainer";
 import { Lightbulb } from "phosphor-react";
 import ProjectCard from "../ui/ProjectCard";
-import { projects, ProjectItem } from "@/config/projects";
+import { projects, ProjectItem } from "@/config/user-data/projects";
 import Button from "../ui/Button";
 
 const ProjectsSection = () => {
