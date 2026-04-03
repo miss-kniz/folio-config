@@ -16,7 +16,7 @@ const HeroSection = forwardRef<HTMLElement, { portfolioForJob: boolean }>(
     )?.url;
     return (
       <>
-        <section className="relative pt-10 md:pt-16" id="home" ref={ref}>
+        <section className="relative pt-16" id="home" ref={ref}>
           {/* Left Curtain */}
           <div className="absolute left-0 md:-top-65 lg:-top-50 -top-80 w-1/3 h-dvh opacity-30 md:opacity-50">
             <Image
