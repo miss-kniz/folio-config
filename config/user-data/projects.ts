@@ -38,7 +38,7 @@ export const projects: ProjectItem[] = [
     id: 1,
     title: "LeadLyft",
     categories: ["Full-stack", "SaaS"],
-    imageUrl: "projects/leadlyft.webp",
+    imageUrl: "projects/3.webp",
     technologies: [
       TECH_STACK.react,
       TECH_STACK["redux toolkit"],
