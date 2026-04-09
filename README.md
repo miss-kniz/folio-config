@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio Reusable Open-Source Template
 
-## Getting Started
+## Features
 
-First, run the development server:
+- **Theme Adaptive**  
+  Fully adapts to the device theme. Dark theme portfolios appear dark, and light theme portfolios appear light.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Hero Section**
+  - Displays availability and credibility based on context (job seeker availability, freelancer credibility).
+  - Bold heading with horizontal infinite animation.
+  - Quick showcase of your work.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Navigation Bar**
+  - Customizable nav links: choose between Skills section or Service section.
+  - Helps both job seekers and freelancers.
+  - Your name appears on the navbar.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **About Section**
+  - Image with a catchy heading.
+  - Short about text + highlight roles or expertise.
+  - "View My Story" button to share your education, experience, or hobbies.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Project Section**
+  - Projects categorized by type.
+  - Filter projects based on categories.
+  - Default view shows 2 projects with a "See More" button to prevent long scrolling.
 
-## Learn More
+- **Skills Section**
+  - Interactive universe-style animation displaying skill logos.
+  - Top filters provide quick access to particular skills.
 
-To learn more about Next.js, take a look at the following resources:
+- **Service Section**
+  - Visibility of Skills and Service sections can be customized.
+  - Displays images and services to maintain a human touch in the AI era.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Contact Section**
+  - Email, location, social icons, and a contact form.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Footer**
+  - Copyright information.
+  - Social links.
+  - Navigation links.
