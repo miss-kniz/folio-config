@@ -92,7 +92,7 @@ const AboutSection = forwardRef<HTMLElement, {}>(
             <div className="flex-1 mt-6 md:mt-0 flex justify-center">
               <Image
                 src={"/photo-gallery/my-picture.png"}
-                alt={aboutData.name}
+                alt={`Miss kniz - Photo of ${aboutData.name}`}
                 width={400}
                 height={400}
                 className="rounded-2xl shadow-xl object-cover max-w-full"

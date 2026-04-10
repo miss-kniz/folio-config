@@ -62,7 +62,7 @@ export default function ProjectCard({
         <div className="overflow-hidden rounded-xl">
           <img
             src={imageUrl}
-            alt={title}
+            alt={`Mehak Fatima naqvi (miss kniz) - Project ${title}`}
             className="w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
         </div>
