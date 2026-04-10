@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import 'remixicon/fonts/remixicon.css';
+import "remixicon/fonts/remixicon.css";
 
 export const metadata: Metadata = {
   title: "Mehak Naqvi",
@@ -12,8 +12,7 @@ export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
-})
-{
+}) {
   return (
     <html lang="en" className="scroll-smooth">
       <body>{children}</body>

@@ -1,5 +1,7 @@
 import { TECH_STACK } from "@/config/user-data/projects";
 import Heading from "./Heading";
+import { NavigationArrow } from "phosphor-react";
+import { useRouter } from "next/navigation";
 
 interface ProjectCardProps {
   title: string;
@@ -7,6 +9,7 @@ interface ProjectCardProps {
   imageUrl: string;
   technologies: string[];
   liveUrl?: string;
+  id: number;
 }
 
 // Highlight important techs
@@ -30,23 +33,50 @@ export default function ProjectCard({
   imageUrl,
   technologies,
   liveUrl,
+  id,
 }: ProjectCardProps) {
+  const router = useRouter();
+  const navigateToProject = (id: number) => {
+    router.push(`/projects/${id}`);
+  };
   return (
-    <div className="group relative bg-glass rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden h-full flex flex-col">
+    <div
+      className="group relative bg-glass rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden h-full flex flex-col items-start cursor-pointer"
+      onClick={() => navigateToProject(id)}
+    >
       {/* Image */}
-      <div className="relative aspect-video overflow-hidden p-4">
-        <img
-          src={imageUrl}
-          alt={title}
-          className="w-full h-full object-cover group-hover:scale-105 rounded-xl shadow-sm transition-transform duration-300"
-        />
+      <div className="relative w-full h-fit px-2 m-2 overflow-hidden rounded-lg group mx-auto">
+        {liveUrl && (
+          <a
+            href={liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            title="View Live Project"
+            className="absolute text-white right-3 top-3 z-10 flex h-9 w-9 items-center flex-col justify-center rounded-md py-1 bg-primary shadow-md transition-transform duration-200 hover:scale-110"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <NavigationArrow weight="bold" className="h-5 w-5" />
+            <span className="text-xs">Live</span>
+          </a>
+        )}
+        <div className="overflow-hidden rounded-xl">
+          <img
+            src={imageUrl}
+            alt={title}
+            className="w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        </div>
       </div>
 
       {/* Content */}
-      <div className="flex flex-col flex-1 p-6">
+      <div className="flex flex-col justify-start gap-2 flex-1 px-6 w-full">
         <Heading as="h4" normalText={title} center={false} />
         {description && (
-          <p className="text-sm text-black-light mb-4 flex-1">{description}</p>
+          <p className="text-sm text-black-light flex-1">
+            {description.length > 100
+              ? description.slice(0, 100) + "..."
+              : description}
+          </p>
         )}
 
         {/* Technologies as small text chips */}

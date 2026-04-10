@@ -9,6 +9,10 @@ export interface ProjectItem {
   githubUrl?: string;
   isClientProject?: boolean;
   result?: string;
+  bgImageUrl?: string;
+  role?: string;
+  context?: string;
+  period?: string;
 }
 
 export const TECH_STACK = {
@@ -31,6 +35,7 @@ export const TECH_STACK = {
   mui: "MUI",
   pusher: "Pusher",
   bootstrap: "Bootstrap",
+  shadcn: "Shadcn UI",
 };
 
 export const projects: ProjectItem[] = [
@@ -54,23 +59,31 @@ export const projects: ProjectItem[] = [
     liveUrl: "https://app.leadlyft.com",
     githubUrl: undefined,
     isClientProject: true,
-    description: "- Coaching platform for C-level workers",
+    description:
+      "- A coaching platform for executives to improve work and life performance.",
   },
   {
     id: 2,
     title: "Cherished Lives",
     categories: ["Frontend", "Figma to Code"],
-    imageUrl: "services/figma-to-code.webp",
+    imageUrl: "projects/cherished-lives.png",
     technologies: [
       TECH_STACK["next.js"],
       TECH_STACK.typescript,
       TECH_STACK.tailwind,
+      TECH_STACK.shadcn,
+      TECH_STACK.react,
     ],
-    liveUrl: "https://app.cherishedlives.com",
+    liveUrl:
+      "https://app.cherishedlives.com/dashboard/profiles/6981db020d6f16bc1fa6dc15",
     githubUrl: undefined,
     isClientProject: true,
     description:
-      "- Memorial platform, implemented pixel-perfect Figma to code, Integrated Backend APIs, and optimized performance for a seamless user experience.",
+      "An online memorial platform where users can keep the memories of loved ones.",
+    bgImageUrl: "projects/case-study/cherished-lives.png",
+    role: "Frontend Developer",
+    context: "Website development",
+    period: "Late 2025",
   },
 
   {
@@ -89,7 +102,8 @@ export const projects: ProjectItem[] = [
     liveUrl: undefined,
     githubUrl: undefined,
     isClientProject: false,
-    description: "- Recipe and meal planning SaaS",
+    description:
+      "- A web app that helps users plan daily meals and recipes easily.",
   },
   {
     id: 4,
@@ -100,7 +114,7 @@ export const projects: ProjectItem[] = [
     liveUrl: "https://amazon-clone-rho-steel-34.vercel.app/",
     githubUrl: "https://github.com/miss-kniz/Amazon",
     isClientProject: false,
-    description: "- E-commerce UI clone",
+    description: "A demo website that mimics Amazon’s layout",
   },
   {
     id: 5,
@@ -122,7 +136,7 @@ export const projects: ProjectItem[] = [
       "https://github.com/miss-kniz/LikhSpire/blob/main/screenshots/demo.gif",
     isClientProject: false,
     description:
-      "- Blogging CRUD platform, built with Node.js, Express, and PostgreSQL, featuring a REST API and a responsive UI designed with Bootstrap.",
+      "A blogging platform where users can write, edit, and share posts.",
   },
   {
     id: 6,
@@ -133,6 +147,6 @@ export const projects: ProjectItem[] = [
     liveUrl: "https://movie-app-xi-steel-47.vercel.app/",
     githubUrl: "https://github.com/miss-kniz/Movie-App",
     isClientProject: false,
-    description: "- Real-time movie search app",
+    description: "A web app to search and browse movies in real-time.",
   },
 ];

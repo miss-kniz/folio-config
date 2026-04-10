@@ -1,15 +1,18 @@
-@import "https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap";
+@import "https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=League+Spartan:wght@100..900&display=swap";
 @import "tailwindcss";
 
 :root {
   --background: #ffffff;
-  --foreground: 13 13 13;
+  --foreground: 14 5 22;
   --primary: #7b2cbf;
   --primary-light: #7a2cbf0f;
   --primary-dark: #4a148c;
-  --font-geist-sans: "Inter", sans-serif;
   --black-light: #666666;
   --glass: rgba(255, 255, 255, 0.05);
+
+  --font-serif: "Alegreya", serif;
+  --font-geist-sans: "League Spartan", sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -31,13 +34,13 @@
   --color-glass: var(--glass);
 
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-serif);
 }
 
 body {
   background: var(--background);
   color: rgb(var(--foreground));
-  font-family: "Inter", sans-serif;
+  font-family: "League Spartan", sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -48,11 +51,14 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Urbanist", sans-serif;
+  font-family: "League Spartan", sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
+}
+p{
+  font-family: 'Alegreya', serif;
 }
 
 button {

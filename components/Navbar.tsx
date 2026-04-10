@@ -1,14 +1,23 @@
 "use client";
 
+import aboutData from "@/config/user-data/about";
 import Button from "./ui/Button";
 import { useState, useEffect, RefObject } from "react";
+import { useRouter } from "next/navigation";
 
 export type NavbarProps = {
-  sectionRefs: Record<string, RefObject<HTMLElement | null>>;
+  sectionRefs?: Record<string, RefObject<HTMLElement | null>>;
   portfolioForJob?: boolean;
+  showNavLinks?: boolean;
+  navBgOpacity?: string;
 };
 
-export default function Navbar({ sectionRefs, portfolioForJob = true }: NavbarProps) {
+export default function Navbar({
+  sectionRefs,
+  portfolioForJob = true,
+  showNavLinks = true,
+  navBgOpacity = "bg-background/30 shadow-sm backdrop-blur-sm border-b border-gray-100",
+}: NavbarProps) {
   const navItems = [
     "Home",
     "About",
@@ -30,6 +39,7 @@ export default function Navbar({ sectionRefs, portfolioForJob = true }: NavbarPr
 
   // Update active nav on scroll
   useEffect(() => {
+    if (!sectionRefs) return;
     const handleScroll = () => {
       let current = "Home";
 
@@ -51,35 +61,38 @@ export default function Navbar({ sectionRefs, portfolioForJob = true }: NavbarPr
     return () => window.removeEventListener("scroll", handleScroll);
   }, [sectionRefs]);
 
+  const navigate = useRouter().push;
   return (
-    <header className="fixed top-0 z-50 bg-background/30 backdrop-blur-sm w-full border-b border-gray-100 shadow-sm">
+    <header className={`fixed top-0 z-50 w-full  ${navBgOpacity}`}>
       <div className="container mx-auto  px-4 py-3 flex justify-between items-center max-w-7xl">
         {/* Logo */}
         <button
           onClick={() => {
+            navigate("/");
             scrollTo("home");
             setActiveNav("Home");
           }}
-          className="text-xl font-bold tracking-tight"
+          className="text-xl font-semibold tracking-wider font-sans"
         >
-          Mehak
+          {aboutData?.name?.split(" ")[0] || "My Portfolio"}{" "}
         </button>
 
         {/* Navigation */}
         <nav className="hidden md:flex space-x-4">
-          {navItems.map((item) => (
-            <button
-              key={item}
-              onClick={() => scrollTo(item.toLowerCase())}
-              className={`px-4 py-2 rounded-full font-medium text-sm md:text-base transition-colors ${
-                activeNav === item
-                  ? "glass-btn text-foreground border border-gray-200"
-                  : "text-foreground  font-medium hover:bg-primary-light hover:text-primary"
-              }`}
-            >
-              {item}
-            </button>
-          ))}
+          {showNavLinks &&
+            navItems.map((item) => (
+              <button
+                key={item}
+                onClick={() => scrollTo(item.toLowerCase())}
+                className={`px-4 py-2 rounded-full font-medium text-sm md:text-base transition-colors ${
+                  activeNav === item
+                    ? "glass-btn text-foreground border border-gray-200"
+                    : "text-foreground  font-medium hover:bg-primary-light hover:text-primary"
+                }`}
+              >
+                {item}
+              </button>
+            ))}
         </nav>
 
         <Button onClick={() => scrollTo("contact")} variant="primary">
