@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     siteName: "Mehak Fatima Naqvi Portfolio",
     images: [
       {
-        url: "https://mehak-naqvi.vercel.app/photo-gallery/my-picture.png",
+        url: "https://mehak-naqvi.vercel.app/photo-gallery/portfolio.jpg",
         width: 1200,
         height: 630,
         alt: "Mehak Fatima Naqvi - Full Stack Developer",
@@ -65,7 +65,7 @@ export default function RootLayout({
               alternateName: "miss-kniz",
               url: "https://mehak-naqvi.vercel.app",
               image:
-                "https://mehak-naqvi.vercel.app/photo-gallery/my-picture.png",
+                "https://mehak-naqvi.vercel.app/photo-gallery/portfolio.jpg",
               jobTitle: "Full-Stack Developer",
               worksFor: {
                 "@type": "Organization",
