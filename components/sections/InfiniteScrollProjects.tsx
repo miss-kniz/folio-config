@@ -14,7 +14,7 @@ const InfiniteScrollProjects = () => {
                 <div className="relative h-[130px] md:h-[180px] w-full bg-gray-100">
                   <Image
                     src={`/projects/${id}.webp`}
-                    alt={`Project ${id}`}
+                    alt={`Miss kniz - Project ${id}`}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
