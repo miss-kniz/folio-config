@@ -30,7 +30,7 @@ export default function BottomNav({
     const handleScroll = () => {
       let current = "Home";
 
-      for (const [name, ref] of Object.entries(sectionRefs)) {
+      for (const [name, ref] of Object.entries(sectionRefs || {})) {
         const el = ref.current;
         if (!el) continue;
 
