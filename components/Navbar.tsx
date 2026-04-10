@@ -43,7 +43,7 @@ export default function Navbar({
     const handleScroll = () => {
       let current = "Home";
 
-      for (const [name, ref] of Object.entries(sectionRefs)) {
+      for (const [name, ref] of Object.entries(sectionRefs || {})) {
         const el = ref.current;
         if (!el) continue;
 
