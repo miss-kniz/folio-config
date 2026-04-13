@@ -98,7 +98,7 @@ const HeroSection = forwardRef<HTMLElement, { portfolioForJob: boolean }>(
               />
 
               {/* Subheading */}
-              <p className="md:text-xl text-black-light max-w-3xl">
+              <p className="md:text-xl font-serif text-black-light max-w-3xl">
                 {formatText(hero.heroPara)}
               </p>
 

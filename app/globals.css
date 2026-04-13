@@ -40,7 +40,7 @@
 body {
   background: var(--background);
   color: rgb(var(--foreground));
-  font-family: "League Spartan", sans-serif;
+  font-family: var(--font-geist-sans);
   margin: 0;
   padding: 0;
 }
@@ -56,9 +56,6 @@ h6 {
 
 html {
   scroll-behavior: smooth;
-}
-p{
-  font-family: 'Alegreya', serif;
 }
 
 button {

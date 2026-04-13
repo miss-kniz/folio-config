@@ -4,7 +4,7 @@ type HeadingLevel = "h1" | "h2" | "h3" | "h4" | "h5";
 
 interface HeadingProps {
   as?: HeadingLevel;
-  normalText: any;
+  normalText?: any;
   highlightText?: string;
   center?: boolean;
   className?: string;

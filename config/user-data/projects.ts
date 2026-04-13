@@ -1,3 +1,8 @@
+import {
+  CaseStudy,
+  cherishedLivesCaseStudy,
+} from "./case-study/cherished-lives";
+
 export interface ProjectItem {
   id: number;
   title: string;
@@ -13,6 +18,8 @@ export interface ProjectItem {
   role?: string;
   context?: string;
   period?: string;
+  introduction?: string;
+  caseStudy?: CaseStudy;
 }
 
 export const TECH_STACK = {
@@ -80,10 +87,10 @@ export const projects: ProjectItem[] = [
     isClientProject: true,
     description:
       "An online memorial platform where users can keep the memories of loved ones.",
-    bgImageUrl: "projects/case-study/cherished-lives.png",
     role: "Frontend Developer",
     context: "Website development",
     period: "Late 2025",
+    caseStudy: cherishedLivesCaseStudy,
   },
 
   {
@@ -149,4 +156,19 @@ export const projects: ProjectItem[] = [
     isClientProject: false,
     description: "A web app to search and browse movies in real-time.",
   },
+];
+
+// Highlight important techs
+export const highlightTechs = [
+  TECH_STACK.react,
+  TECH_STACK.prisma,
+  TECH_STACK["next.js"],
+  TECH_STACK["redux toolkit"],
+  TECH_STACK["rtk query"],
+  TECH_STACK.nodejs,
+  TECH_STACK.postgresql,
+  TECH_STACK.express,
+  TECH_STACK.typescript,
+  TECH_STACK["express js"],
+  "UI design",
 ];

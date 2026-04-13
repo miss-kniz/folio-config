@@ -1,4 +1,4 @@
-import { TECH_STACK } from "@/config/user-data/projects";
+import { highlightTechs, TECH_STACK } from "@/config/user-data/projects";
 import Heading from "./Heading";
 import { NavigationArrow } from "phosphor-react";
 import { useRouter } from "next/navigation";
@@ -11,21 +11,6 @@ interface ProjectCardProps {
   liveUrl?: string;
   id: number;
 }
-
-// Highlight important techs
-const highlightTechs = [
-  TECH_STACK.react,
-  TECH_STACK.prisma,
-  TECH_STACK["next.js"],
-  TECH_STACK["redux toolkit"],
-  TECH_STACK["rtk query"],
-  TECH_STACK.nodejs,
-  TECH_STACK.postgresql,
-  TECH_STACK.express,
-  TECH_STACK.typescript,
-  TECH_STACK["express js"],
-  "UI design",
-];
 
 export default function ProjectCard({
   title,

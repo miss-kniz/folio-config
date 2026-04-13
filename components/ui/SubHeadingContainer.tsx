@@ -27,7 +27,7 @@ export const SimplePara = ({
   return (
     <p
       className={cn(
-        `text-black-light max-w-2xl mx-auto text-base ${className}`,
+        `text-black-light max-w-2xl mx-auto text-base font-serif ${className}`,
       )}
     >
       {children}

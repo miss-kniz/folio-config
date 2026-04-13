@@ -10,12 +10,14 @@ export type NavbarProps = {
   portfolioForJob?: boolean;
   showNavLinks?: boolean;
   navBgOpacity?: string;
+  fixed?: boolean;
 };
 
 export default function Navbar({
   sectionRefs,
   portfolioForJob = true,
   showNavLinks = true,
+  fixed = true,
   navBgOpacity = "bg-background/30 shadow-sm backdrop-blur-sm border-b border-gray-100",
 }: NavbarProps) {
   const navItems = [
@@ -63,7 +65,9 @@ export default function Navbar({
 
   const navigate = useRouter().push;
   return (
-    <header className={`fixed top-0 z-50 w-full  ${navBgOpacity}`}>
+    <header
+      className={`${fixed && "fixed top-0 z-50"} w-full  ${navBgOpacity}`}
+    >
       <div className="container mx-auto  px-4 py-3 flex justify-between items-center max-w-7xl">
         {/* Logo */}
         <button
