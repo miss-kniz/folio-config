@@ -188,11 +188,9 @@ export default async function ProjectPage({
             </div>
 
             {caseStudy.architecture?.structure ? (
-              <ul className="space-y-2 text-sm font-mono bg-primary-light border border-primary p-4 rounded-xl">
-                {caseStudy.architecture.structure.map((item, i) => (
-                  <li key={i}>{item}</li>
-                ))}
-              </ul>
+              <pre className="text-sm font-mono bg-primary-light border border-primary p-4 rounded-xl whitespace-pre">
+                {caseStudy.architecture.structure}
+              </pre>
             ) : null}
           </div>
         )}
@@ -230,12 +228,6 @@ export default async function ProjectPage({
           </div>
         )}
 
-        {/* ── KEY FEATURES
-          IMAGE OPTIONAL: a screenshot of the dashboard or gallery view.
-          Only renders if featuresImage is set in data.
-          File: public/projects/case-study/cherished-lives-features.png
-          Remove featuresImage from data if you have no screenshot yet.
-      */}
         {caseStudy?.features && caseStudy.features.length > 0 && (
           <div className="max-w-5xl mx-auto py-16 px-4">
             <Heading
@@ -270,7 +262,7 @@ export default async function ProjectPage({
               <img
                 src={caseStudy.featuresImage}
                 alt="Features screenshot"
-                className="w-full rounded-xl object-cover border border-border mt-8"
+                className="w-full rounded-xl object-cover mt-8"
               />
             )}
           </div>

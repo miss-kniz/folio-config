@@ -5,7 +5,7 @@ interface CaseStudySection {
 
 interface Architecture {
   description: string;
-  structure: string[];
+  structure: string;
 }
 
 export interface CaseStudy {
@@ -40,18 +40,20 @@ export const cherishedLivesCaseStudy: CaseStudy = {
     description:
       "The app uses Next.js App Router. Pages are organized under app and components are grouped by domain to keep related logic close to the UI.",
 
-    structure: [
-      "app/ (pages)",
-      "components/inputs (form inputs)",
-      "components/layout (navbar, footer, wrappers)",
-      "components/modals (dialogs)",
-      "components/profile (memorial UI)",
-      "components/ui (shared UI components)",
-      "types/",
-      "utils/helpers",
-      "utils/enums",
-      "utils/routes",
-    ],
+    structure: `
+    app/ (pages)
+        components/
+            inputs/ (form inputs)
+            layout/ (navbar, footer, wrappers)
+            modals/ (dialogs)
+            profile/ (memorial UI)
+            ui/ (shared UI components)
+        types/ (type definitions)
+        utils/
+            helpers/ (utility functions)
+            enums/ (constant enums)
+            routes/ (route definitions)
+`,
   },
 
   challenges: [
@@ -123,8 +125,8 @@ export const cherishedLivesCaseStudy: CaseStudy = {
       desc: "Core technologies used",
     },
     {
-      value: "Live",
-      desc: "Deployed and used by real users",
+      value: "210M+",
+      desc: "Users reached globally through the platform",
     },
   ],
 
