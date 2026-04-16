@@ -3,11 +3,7 @@ import Button from "@/components/ui/Button";
 import Footer from "@/components/ui/Footer";
 import Heading from "@/components/ui/Heading";
 import { SimplePara } from "@/components/ui/SubHeadingContainer";
-import {
-  highlightTechs,
-  ProjectItem,
-  projects,
-} from "@/config/user-data/projects";
+import { highlightTechs, projects } from "@/config/user-data/projects";
 import Link from "next/link";
 
 export default async function ProjectPage({
@@ -16,7 +12,7 @@ export default async function ProjectPage({
   params: { id: string };
 }) {
   const { id } = await params;
-  const projectIndex = projects.findIndex((p) => p.id === parseInt(id));
+  const projectIndex = projects.findIndex((p) => p.id === String(id));
   const project = projects[projectIndex];
   const caseStudy = project?.caseStudy;
   const prevProject = projectIndex > 0 ? projects[projectIndex - 1] : null;
@@ -187,11 +183,13 @@ export default async function ProjectPage({
               </SimplePara>
             </div>
 
-            {caseStudy.architecture?.structure ? (
-              <pre className="text-sm font-mono bg-primary-light border border-primary p-4 rounded-xl whitespace-pre">
-                {caseStudy.architecture.structure}
-              </pre>
-            ) : null}
+            <div className="max-w-full">
+              {caseStudy.architecture?.structure ? (
+                <pre className="text-sm font-mono bg-zinc-900 text-zinc-100 p-4 rounded-xl overflow-x-auto whitespace-pre max-w-full">
+                  {caseStudy.architecture.structure}
+                </pre>
+              ) : null}
+            </div>
           </div>
         )}
 
@@ -210,7 +208,7 @@ export default async function ProjectPage({
               <ol className="space-y-5 max-w-2xl">
                 {caseStudy.process.map((step, i) => (
                   <li key={i} className="flex gap-5 items-start">
-                    <span className="flex-shrink-0 w-7 h-7 rounded-full border border-border bg-background flex items-center justify-center text-xs font-semibold text-primary mt-0.5">
+                    <span className="shrink-0 w-7 h-7 rounded-full border border-border bg-background flex items-center justify-center text-xs font-semibold text-primary mt-0.5">
                       {i + 1}
                     </span>
                     <div>
@@ -331,7 +329,7 @@ export default async function ProjectPage({
           </div>
         )}
       </section>
-      <Footer />
+      <Footer className="mb-0" />
     </>
   );
 }

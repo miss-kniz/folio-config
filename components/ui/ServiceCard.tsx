@@ -41,7 +41,7 @@ const ServiceCard = ({
       >
         <img
           src={imageUrl}
-          alt={`Mehak Fatima naqvi (miss kniz) - Service ${title}`}
+          alt={`Mehak Fatima naqvi (miss kniz)'s - Service ${title}`}
           className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
         />

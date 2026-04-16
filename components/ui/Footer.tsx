@@ -3,12 +3,14 @@ import React from "react";
 import Heading from "./Heading";
 import aboutData from "@/config/user-data/about";
 import SocialLinks from "./SocialLinks";
+import { cn } from "@/helpers/merge-helper";
 
 interface FooterProps {
   portfolioForJob?: boolean;
+  className?: string;
 }
 
-const Footer: React.FC<FooterProps> = ({ portfolioForJob }) => {
+const Footer: React.FC<FooterProps> = ({ portfolioForJob, className }) => {
   const currentYear = new Date().getFullYear();
   const firstName = aboutData.name.split(" ")[0];
   const navItems = [
@@ -28,7 +30,9 @@ const Footer: React.FC<FooterProps> = ({ portfolioForJob }) => {
   };
 
   return (
-    <footer className="w-full bg-primary-light mb-16 md:mb-0">
+    <footer
+      className={cn(`"w-full bg-primary-light mb-16 md:mb-0" ${className}`)}
+    >
       <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col items-center gap-6">
         {/* Logo / Name */}
         <Heading as="h2" normalText={firstName} />

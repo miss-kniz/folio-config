@@ -9,7 +9,7 @@ interface ProjectCardProps {
   imageUrl: string;
   technologies: string[];
   liveUrl?: string;
-  id: number;
+  id: string;
 }
 
 export default function ProjectCard({
@@ -21,7 +21,7 @@ export default function ProjectCard({
   id,
 }: ProjectCardProps) {
   const router = useRouter();
-  const navigateToProject = (id: number) => {
+  const navigateToProject = (id: string) => {
     router.push(`/projects/${id}`);
   };
   return (
@@ -47,7 +47,7 @@ export default function ProjectCard({
         <div className="overflow-hidden rounded-xl">
           <img
             src={imageUrl}
-            alt={`Mehak Fatima naqvi (miss kniz) - Project ${title}`}
+            alt={`Mehak Fatima naqvi (miss kniz)'s Project ${title}`}
             className="w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
         </div>

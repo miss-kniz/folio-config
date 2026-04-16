@@ -26,7 +26,7 @@ const HeroSection = forwardRef<HTMLElement, { portfolioForJob: boolean }>(
               <div className="absolute left-0 md:-top-65 lg:-top-50 -top-80 w-1/3 h-dvh opacity-30 md:opacity-50">
                 <Image
                   src="/left-curtain.svg"
-                  alt="Mehak Naqvi - Left decorative curtain"
+                  alt="Left decorative curtain"
                   fill
                   className="object-fill"
                 />
@@ -35,7 +35,7 @@ const HeroSection = forwardRef<HTMLElement, { portfolioForJob: boolean }>(
               <div className="absolute right-0 md:-top-65 lg:-top-50 -top-80 w-1/3 h-dvh opacity-30 md:opacity-50">
                 <Image
                   src="/right-curtain.svg"
-                  alt="Mehak Naqvi - Right decorative curtain"
+                  alt="Right decorative curtain"
                   fill
                   className="object-fill"
                 />

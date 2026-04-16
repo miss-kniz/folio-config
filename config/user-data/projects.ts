@@ -2,12 +2,13 @@ import {
   CaseStudy,
   cherishedLivesCaseStudy,
 } from "./case-study/cherished-lives";
+import { leadlyftCaseStudy } from "./case-study/leadlyft";
 
 export interface ProjectItem {
-  id: number;
+  id: string;
   title: string;
   description: string;
-  categories: string[]; // instead of single serviceType
+  categories: string[];
   imageUrl: string;
   technologies: string[];
   liveUrl?: string;
@@ -47,7 +48,7 @@ export const TECH_STACK = {
 
 export const projects: ProjectItem[] = [
   {
-    id: 1,
+    id: "leadlyft",
     title: "LeadLyft",
     categories: ["Full-stack", "SaaS"],
     imageUrl: "projects/3.webp",
@@ -67,10 +68,14 @@ export const projects: ProjectItem[] = [
     githubUrl: undefined,
     isClientProject: true,
     description:
-      "- A coaching platform for executives to improve work and life performance.",
+      "A coaching platform for executives to improve work and life performance.",
+    role: "Frontend-focused full-stack Developer",
+    context: "Website development",
+    period: "Early 2025",
+    caseStudy: leadlyftCaseStudy,
   },
   {
-    id: 2,
+    id: "cherished-lives",
     title: "Cherished Lives",
     categories: ["Frontend", "Figma to Code"],
     imageUrl: "projects/cherished-lives.png",
@@ -94,7 +99,7 @@ export const projects: ProjectItem[] = [
   },
 
   {
-    id: 3,
+    id: "prep-and-plate",
     title: "Prep & Plate",
     categories: ["Full-stack", "SaaS"],
     imageUrl: "projects/prep-plate.webp",
@@ -113,7 +118,7 @@ export const projects: ProjectItem[] = [
       "- A web app that helps users plan daily meals and recipes easily.",
   },
   {
-    id: 4,
+    id: "amazon-clone",
     title: "Amazon Clone",
     categories: ["Frontend"],
     imageUrl: "projects/amazon-clone.png",
@@ -124,7 +129,7 @@ export const projects: ProjectItem[] = [
     description: "A demo website that mimics Amazon’s layout",
   },
   {
-    id: 5,
+    id: "linkspire",
     title: "LinkSpire",
     categories: ["Full-stack"],
     imageUrl: "projects/likhspire.webp",
@@ -146,7 +151,7 @@ export const projects: ProjectItem[] = [
       "A blogging platform where users can write, edit, and share posts.",
   },
   {
-    id: 6,
+    id: "movie-land",
     title: "Movie Land",
     categories: ["Frontend"],
     imageUrl: "projects/movie-land.png",
