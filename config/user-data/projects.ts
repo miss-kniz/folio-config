@@ -1,8 +1,12 @@
+import { amazonCaseStudy } from "./case-study/amazon-clone";
 import {
   CaseStudy,
   cherishedLivesCaseStudy,
 } from "./case-study/cherished-lives";
 import { leadlyftCaseStudy } from "./case-study/leadlyft";
+import { likhSpireCaseStudy } from "./case-study/likhSpire";
+import { movieLandCaseStudy } from "./case-study/movie-app";
+import { prepAndPlateCaseStudy } from "./case-study/prep&plate";
 
 export interface ProjectItem {
   id: string;
@@ -101,32 +105,20 @@ export const projects: ProjectItem[] = [
   {
     id: "prep-and-plate",
     title: "Prep & Plate",
-    categories: ["Full-stack", "SaaS"],
+    categories: ["Frontend", "SaaS"],
     imageUrl: "projects/prep-plate.webp",
     technologies: [
       TECH_STACK.tailwind,
       TECH_STACK["redux toolkit"],
       TECH_STACK["rtk thunks"],
       TECH_STACK.react,
-      TECH_STACK["express js"],
-      TECH_STACK.prisma,
     ],
-    liveUrl: undefined,
-    githubUrl: undefined,
-    isClientProject: false,
+    role: "Responsive Frontend",
+    period: "Late 2024",
+    context: "Desktop → Mobile UX",
     description:
-      "- A web app that helps users plan daily meals and recipes easily.",
-  },
-  {
-    id: "amazon-clone",
-    title: "Amazon Clone",
-    categories: ["Frontend"],
-    imageUrl: "projects/amazon-clone.png",
-    technologies: [TECH_STACK.html, TECH_STACK.css, TECH_STACK.javascript],
-    liveUrl: "https://amazon-clone-rho-steel-34.vercel.app/",
-    githubUrl: "https://github.com/miss-kniz/Amazon",
-    isClientProject: false,
-    description: "A demo website that mimics Amazon’s layout",
+      "A web app that helps users plan daily meals and recipes easily.",
+    caseStudy: prepAndPlateCaseStudy,
   },
   {
     id: "linkspire",
@@ -147,8 +139,27 @@ export const projects: ProjectItem[] = [
     githubUrl:
       "https://github.com/miss-kniz/LikhSpire/blob/main/screenshots/demo.gif",
     isClientProject: false,
+    role: "Full-stack Developer",
+    period: "Mid 2025",
+    context: "Blogging platform",
     description:
       "A blogging platform where users can write, edit, and share posts.",
+    caseStudy: likhSpireCaseStudy,
+  },
+  {
+    id: "amazon-clone",
+    title: "Amazon Clone",
+    categories: ["Frontend"],
+    imageUrl: "projects/amazon-clone.png",
+    technologies: [TECH_STACK.html, TECH_STACK.css, TECH_STACK.javascript],
+    liveUrl: "https://amazon-clone-rho-steel-34.vercel.app/",
+    githubUrl: "https://github.com/miss-kniz/Amazon",
+    isClientProject: false,
+    description: "A demo website that mimics Amazon’s layout",
+    role: "Frontend Developer",
+    period: "Mid 2024",
+    context: "E-commerce platform clone",
+    caseStudy: amazonCaseStudy,
   },
   {
     id: "movie-land",
@@ -160,6 +171,10 @@ export const projects: ProjectItem[] = [
     githubUrl: "https://github.com/miss-kniz/Movie-App",
     isClientProject: false,
     description: "A web app to search and browse movies in real-time.",
+    role: "Frontend Developer",
+    period: "Early 2024",
+    context: "Movie search platform",
+    caseStudy: movieLandCaseStudy,
   },
 ];
 

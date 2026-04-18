@@ -71,22 +71,21 @@ utils/
   features: [
     {
       title: "Performance dashboard",
-      body: "A central place where users can see their progress, key metrics, and what they should focus on next.",
+      body: "A centralized view of progress, key metrics, and actionable insights to guide daily focus.",
     },
     {
-      title: "Coaching system",
-      body: "A structured flow where coaches can assign tasks, track progress, and guide users step by step.",
+      title: "Coaching & communication",
+      body: "Direct interaction between companies, coaches, and clients with structured guidance and real-time conversations.",
     },
     {
-      title: "Goal tracking",
-      body: "A simple way for users to set goals and actually see how they are progressing over time.",
+      title: "Goal & habit tracking",
+      body: "Set meaningful goals and track daily habits with clear, measurable progress over time.",
     },
     {
-      title: "Analytics overview",
-      body: "Clear visual insights that help both coaches and users understand performance trends.",
+      title: "Daily logs & analytics",
+      body: "Log activities with categories and reasons, then turn them into visual insights to understand behavior and trends.",
     },
   ],
-
   featuresImage: "/projects/case-study/leadlyft-features.png",
 
   outcomes: [
