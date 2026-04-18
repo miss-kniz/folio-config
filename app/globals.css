@@ -15,14 +15,14 @@
   --font-geist-sans: "League Spartan", sans-serif;
 }
 
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   :root {
     --background: #0e0516;
     --foreground: 237 237 237;
     --black-light: #99a1af;
     --primary-light: #7a2cbf36;
   }
-} */
+}
 
 @theme inline {
   --color-primary: var(--primary);
