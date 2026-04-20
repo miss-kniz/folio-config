@@ -1,23 +1,24 @@
+import aboutData from "@/config/user-data/about";
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
   const { name, email, message } = await req.json();
+  const emailTo = aboutData.contact.email;
 
   if (!email) {
-    Response.json({
+    return Response.json({
       success: false,
       message: "Email is required",
-      status: 500,
+      status: 400,
     });
-    return;
   }
 
   try {
     await resend.emails.send({
       from: "onboarding@resend.dev",
-      to: "mehak313naqvi@gmail.com",
+      to: emailTo,
       subject: `New message from ${name}`,
       html: `
         <p><b>Name:</b> ${name}</p>
@@ -28,6 +29,11 @@ export async function POST(req: Request) {
 
     return Response.json({ success: true });
   } catch (error) {
-    return Response.json({ success: false }, { status: 500 });
+    console.error("Resend error:", error);
+
+    return Response.json(
+      { success: false, message: "Failed to send email" },
+      { status: 500 },
+    );
   }
 }

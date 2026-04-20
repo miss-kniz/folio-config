@@ -132,12 +132,9 @@ const aboutData: AboutData = {
     skills: ["React", "TypeScript", "TailwindCSS", "Node.js", "Next.js"],
     interests: ["Open Source", "Tech Writing", "UI/UX Design"],
     highlightedAboutRole: [
-      "Full-Stack Ninja",
-      "Scalable Web Solutions Expert",
-      "React & Next.js Pro",
-      "Web Performance Optimizer",
-      "UX Expert",
-      "Digital Problem Solver",
+      "Frontend Engineer",
+      "PERN-stack Developer",
+      "React & Next.js Specialist",
     ],
     aboutCTA: "View my Journey",
 

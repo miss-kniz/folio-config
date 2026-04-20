@@ -1,6 +1,10 @@
 import { highlightTechs, TECH_STACK } from "@/config/user-data/projects";
 import Heading from "./Heading";
-import { NavigationArrow } from "phosphor-react";
+import {
+  ArrowArcLeft,
+  ArrowBendLeftDown,
+  NavigationArrow,
+} from "phosphor-react";
 import { useRouter } from "next/navigation";
 
 interface ProjectCardProps {
@@ -86,9 +90,9 @@ export default function ProjectCard({
           })}
         </div>
 
-        <div className="my-2 flex items-center justify-between w-full">
-          <span className="text-xs font-medium bg-primary text-white rounded-md p-1 flex items-center gap-1">
-            View Case Study <NavigationArrow className="w-3 h-3" />
+        <div className="mb-4 flex items-center justify-between w-full">
+          <span className="text-xs font-medium bg-primary text-white rounded-md p-1 flex items-start gap-1">
+            Click to explore <i className="ri-arrow-right-long-fill"></i>
           </span>
         </div>
       </div>

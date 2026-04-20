@@ -37,6 +37,45 @@ const ContactSection: React.FC = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  const contactItems = [
+    {
+      key: "location",
+      label: "Address",
+      value: contact.location,
+      icon: MapPin,
+      show: true,
+    },
+    {
+      key: "phone",
+      label: "Book a Call",
+      value: contact.phone,
+      icon: Phone,
+      show: !!contact.phone,
+    },
+    {
+      key: "email",
+      label: "Email",
+      value: contact.email,
+      icon: Envelope,
+      show: true,
+    },
+  ];
+
+  const formFields = [
+    {
+      name: "name",
+      type: "text",
+      placeholder: "Your Name",
+      required: false,
+    },
+    {
+      name: "email",
+      type: "email",
+      placeholder: "Email Address",
+      required: true,
+    },
+  ];
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -66,42 +105,22 @@ const ContactSection: React.FC = () => {
             <Heading as="h2" center={false} normalText="Contact" />
 
             <div className="space-y-6">
-              {/* Address */}
-              <div className="flex items-start gap-4">
-                <div className="h-10 w-10 flex items-center justify-center rounded-full bg-primary-light text-primary">
-                  <MapPin size={18} weight="regular" />
-                </div>
-                <div>
-                  <p className="font-semibold">Address</p>
-                  <p className="text-sm text-black-light">{contact.location}</p>
-                </div>
-              </div>
+              {contactItems
+                .filter((item) => item.show)
+                .map(({ key, label, value, icon: Icon }) => (
+                  <div key={key} className="flex items-start gap-4">
+                    <div className="h-10 w-10 flex items-center justify-center rounded-full bg-primary-light text-primary">
+                      <Icon size={18} weight="regular" />
+                    </div>
 
-              {/* Call (only show if phone is provided) */}
-              {contact.phone && (
-                <div className="flex items-start gap-4">
-                  <div className="h-10 w-10 flex items-center justify-center rounded-full bg-primary-light text-primary">
-                    <Phone size={18} weight="regular" />
+                    <div>
+                      <p className="font-semibold">{label}</p>
+                      <p className="text-sm text-black-light break-all">
+                        {value}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="font-semibold">Book a Call</p>
-                    <p className="text-sm text-black-light">{contact.phone}</p>
-                  </div>
-                </div>
-              )}
-
-              {/* Email */}
-              <div className="flex items-start gap-4">
-                <div className="h-10 w-10 flex items-center justify-center rounded-full bg-primary-light text-primary">
-                  <Envelope size={18} weight="regular" />
-                </div>
-                <div>
-                  <p className="font-semibold">Email</p>
-                  <p className="text-sm text-black-light break-all">
-                    {contact.email}
-                  </p>
-                </div>
-              </div>
+                ))}
             </div>
 
             {/* Social - Using Button component */}
@@ -122,22 +141,17 @@ const ContactSection: React.FC = () => {
             <h3 className="text-lg font-semibold mb-6">Leave Your Info.</h3>
 
             <form className="space-y-4" onSubmit={handleSubmit}>
-              <Input
-                name="name"
-                value={form.name}
-                onChange={handleChange}
-                type="text"
-                placeholder="Your Name"
-              />
-
-              <Input
-                name="email"
-                value={form.email}
-                onChange={handleChange}
-                required
-                type="email"
-                placeholder="Email Address"
-              />
+              {formFields.map((field) => (
+                <Input
+                  key={field.name}
+                  name={field.name}
+                  type={field.type}
+                  value={form[field.name as keyof typeof form]}
+                  onChange={handleChange}
+                  placeholder={field.placeholder}
+                  required={field.required}
+                />
+              ))}
 
               <Textarea
                 name="message"
