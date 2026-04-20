@@ -25,6 +25,7 @@ export interface ProjectItem {
   period?: string;
   introduction?: string;
   caseStudy?: CaseStudy;
+  previewImage?: string;
 }
 
 export const TECH_STACK = {
@@ -70,6 +71,7 @@ export const projects: ProjectItem[] = [
     ],
     liveUrl: "https://app.leadlyft.com",
     githubUrl: undefined,
+    previewImage: "projects/leadlyft-preview.png",
     isClientProject: true,
     description:
       "A coaching platform for executives to improve work and life performance.",
@@ -93,6 +95,7 @@ export const projects: ProjectItem[] = [
     liveUrl:
       "https://app.cherishedlives.com/dashboard/profiles/6981db020d6f16bc1fa6dc15",
     githubUrl: undefined,
+    previewImage: "projects/cherished-lives-preview.png",
     isClientProject: true,
     description:
       "An online memorial platform where users can keep the memories of loved ones.",
@@ -107,6 +110,7 @@ export const projects: ProjectItem[] = [
     title: "Prep & Plate",
     categories: ["Frontend", "SaaS"],
     imageUrl: "projects/prep-plate.webp",
+    previewImage: "projects/prep-plate-preview.png",
     technologies: [
       TECH_STACK.tailwind,
       TECH_STACK["redux toolkit"],
@@ -138,6 +142,7 @@ export const projects: ProjectItem[] = [
     liveUrl: undefined,
     githubUrl:
       "https://github.com/miss-kniz/LikhSpire/blob/main/screenshots/demo.gif",
+    previewImage: "projects/likhspire-preview.png",
     isClientProject: false,
     role: "Full-stack Developer",
     period: "Mid 2025",
@@ -145,36 +150,6 @@ export const projects: ProjectItem[] = [
     description:
       "A blogging platform where users can write, edit, and share posts.",
     caseStudy: likhSpireCaseStudy,
-  },
-  {
-    id: "amazon-clone",
-    title: "Amazon Clone",
-    categories: ["Frontend"],
-    imageUrl: "projects/amazon-clone.png",
-    technologies: [TECH_STACK.html, TECH_STACK.css, TECH_STACK.javascript],
-    liveUrl: "https://amazon-clone-rho-steel-34.vercel.app/",
-    githubUrl: "https://github.com/miss-kniz/Amazon",
-    isClientProject: false,
-    description: "A demo website that mimics Amazon’s layout",
-    role: "Frontend Developer",
-    period: "Mid 2024",
-    context: "E-commerce platform clone",
-    caseStudy: amazonCaseStudy,
-  },
-  {
-    id: "movie-land",
-    title: "Movie Land",
-    categories: ["Frontend"],
-    imageUrl: "projects/movie-land.png",
-    technologies: [TECH_STACK.react, TECH_STACK.axios],
-    liveUrl: "https://movie-app-xi-steel-47.vercel.app/",
-    githubUrl: "https://github.com/miss-kniz/Movie-App",
-    isClientProject: false,
-    description: "A web app to search and browse movies in real-time.",
-    role: "Frontend Developer",
-    period: "Early 2024",
-    context: "Movie search platform",
-    caseStudy: movieLandCaseStudy,
   },
 ];
 
