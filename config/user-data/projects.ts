@@ -71,7 +71,7 @@ export const projects: ProjectItem[] = [
     ],
     liveUrl: "https://app.leadlyft.com",
     githubUrl: undefined,
-    previewImage: "projects/leadlyft-preview.png",
+    previewImage: "projects/leadlyft-preview-v2.png",
     isClientProject: true,
     description:
       "A coaching platform for executives to improve work and life performance.",
