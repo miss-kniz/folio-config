@@ -5,6 +5,7 @@ import Button from "./ui/Button";
 import { useState, useEffect, RefObject } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowLeft } from "phosphor-react";
+import ContactModal from "./modals/ContactModal";
 
 export type NavbarProps = {
   sectionRefs?: Record<string, RefObject<HTMLElement | null>>;
@@ -30,6 +31,7 @@ export default function Navbar({
     portfolioForJob ? "Skills" : "Services",
   ];
   const [activeNav, setActiveNav] = useState("Home"); // Track active link
+  const [isContactOpen, setIsContactOpen] = useState(false);
 
   // Scroll to section smoothly
   const scrollTo = (id: string) => {
@@ -68,51 +70,58 @@ export default function Navbar({
 
   const navigate = useRouter().push;
   return (
-    <header
-      className={`${fixed && "fixed top-0 z-50"} w-full  ${navBgOpacity}`}
-    >
-      <div className="container mx-auto  px-4 py-3 flex justify-between items-center max-w-7xl">
-        {/* Logo */}
-        <button
-          onClick={() => {
-            navigate("/");
-            scrollTo("home");
-            setActiveNav("Home");
-          }}
-          className="text-xl font-semibold tracking-wider font-sans"
-        >
-          {aboutData?.name?.split(" ")[0] || "My Portfolio"}{" "}
-        </button>
+    <>
+      <header
+        className={`${fixed && "fixed top-0 z-50"} w-full  ${navBgOpacity}`}
+      >
+        <div className="container mx-auto  px-4 py-3 flex justify-between items-center max-w-7xl">
+          {/* Logo */}
+          <button
+            onClick={() => {
+              navigate("/");
+              scrollTo("home");
+              setActiveNav("Home");
+            }}
+            className="text-xl font-semibold tracking-wider font-sans"
+          >
+            {aboutData?.name?.split(" ")[0] || "My Portfolio"}{" "}
+          </button>
 
-        {/* Navigation */}
-        <nav className="hidden md:flex space-x-4">
-          {showNavLinks &&
-            navItems.map((item) => (
-              <button
-                key={item}
-                onClick={() => scrollTo(item.toLowerCase())}
-                className={`px-4 py-2 rounded-full font-medium text-sm md:text-base transition-colors ${
-                  activeNav === item
-                    ? "glass-btn text-foreground border border-gray-200"
-                    : "text-foreground  font-medium hover:bg-primary-light hover:text-primary"
-                }`}
+          {/* Navigation */}
+          <nav className="hidden md:flex space-x-4">
+            {showNavLinks &&
+              navItems.map((item) => (
+                <button
+                  key={item}
+                  onClick={() => scrollTo(item.toLowerCase())}
+                  className={`px-4 py-2 rounded-full font-medium text-sm md:text-base transition-colors ${
+                    activeNav === item
+                      ? "glass-btn text-foreground border border-gray-200"
+                      : "text-foreground  font-medium hover:bg-primary-light hover:text-primary"
+                  }`}
+                >
+                  {item}
+                </button>
+              ))}
+          </nav>
+          <div className="flex items-center gap-2 md:gap-4">
+            {backToProjects && (
+              <Button
+                onClick={() => navigate("/#projects")}
+                variant="secondary"
               >
-                {item}
-              </button>
-            ))}
-        </nav>
-        <div className="flex items-center gap-2 md:gap-4">
-          {backToProjects && (
-            <Button onClick={() => navigate("/#projects")} variant="secondary">
-              <ArrowLeft size={18} weight="bold" />
-              Back <span className="hidden md:inline-block">to Projects</span>
-            </Button>
-          )}
-          <Button onClick={() => scrollTo("contact")} variant="primary">
-            Contact
-          </Button>
+                <ArrowLeft size={18} weight="bold" />
+                Back <span className="hidden md:inline-block">to Projects</span>
+              </Button>
+            )}
+            <Button onClick={() => setIsContactOpen(true)}>Contact</Button>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+      <ContactModal
+        isOpen={isContactOpen}
+        onClose={() => setIsContactOpen(false)}
+      />
+    </>
   );
 }

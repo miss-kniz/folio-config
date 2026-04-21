@@ -42,8 +42,6 @@ export default function HomePage() {
         <SkillsSection ref={skillsRef} />
       )}
 
-      <ContactSection />
-
       <Footer portfolioForJob={portfolioForJob} />
       <BottomNav
         sectionRefs={{

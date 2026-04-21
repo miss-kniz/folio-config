@@ -78,14 +78,29 @@ const AboutSection = forwardRef<HTMLElement, {}>(
                   </span>
                 ))}
               </div>
-              <Button
-                onClick={() => {
-                  setIsModalOpen(true);
-                }}
-                className="mt-2"
-              >
-                {aboutMe.aboutCTA}
-              </Button>
+
+              <div className="flex flex-wrap gap-2">
+                <Button
+                  onClick={() => {
+                    setIsModalOpen(true);
+                  }}
+                  className="mt-2"
+                >
+                  {aboutMe.aboutCTA}
+                </Button>
+                {aboutMe.aboutSecondaryCTA && (
+                  <Button
+                    variant={"secondary"}
+                    onClick={aboutMe.aboutSecondaryCTA.onClick}
+                    className="mt-2"
+                  >
+                    {aboutMe.aboutSecondaryCTA.text}{" "}
+                    <i
+                      className={`${aboutMe.aboutSecondaryCTA.icon} text-2xl align-middle`}
+                    ></i>
+                  </Button>
+                )}
+              </div>
             </div>
 
             <div className="flex-1 mt-6 md:mt-0 flex justify-center">

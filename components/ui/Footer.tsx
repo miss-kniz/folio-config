@@ -30,10 +30,8 @@ const Footer: React.FC<FooterProps> = ({ portfolioForJob, className }) => {
   };
 
   return (
-    <footer
-      className={cn(`w-full bg-primary-light mb-16 md:mb-0 ${className}`)}
-    >
-      <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col items-center gap-6">
+    <footer className={cn(`w-full mb-16 md:mb-0 ${className}`)}>
+      <div className="max-w-7xl mx-auto py-10 flex flex-col items-center gap-6">
         {/* Logo / Name */}
         <Heading as="h2" normalText={firstName} />
 
@@ -56,7 +54,7 @@ const Footer: React.FC<FooterProps> = ({ portfolioForJob, className }) => {
         </div>
 
         {/* Divider */}
-        <div className="w-full border-t border-gray-200"></div>
+        <div className="w-full h-[0.2px] shadow-sm"></div>
 
         {/* Copyright */}
         <p className="text-xs text-gray-500 text-center">

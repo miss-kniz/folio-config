@@ -97,14 +97,14 @@ const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-12 px-4 lg:px-8">
+    <section id="contact" className="p-2">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:gap-10 gap-4 md:grid-cols-2 items-start">
           {/* LEFT */}
-          <div className="space-y-8">
+          <div className="space-y-8 text-left">
             <Heading as="h2" center={false} normalText="Contact" />
 
-            <div className="space-y-6">
+            <div className="space-y-6 ">
               {contactItems
                 .filter((item) => item.show)
                 .map(({ key, label, value, icon: Icon }) => (
@@ -137,10 +137,10 @@ const ContactSection: React.FC = () => {
           </div>
 
           {/* RIGHT FORM (unchanged) */}
-          <div className="bg-primary-light p-6 rounded-2xl">
+          <div className="bg-primary-light p-4 rounded-2xl">
             <h3 className="text-lg font-semibold mb-6">Leave Your Info.</h3>
 
-            <form className="space-y-4" onSubmit={handleSubmit}>
+            <form className="space-y-2" onSubmit={handleSubmit}>
               {formFields.map((field) => (
                 <Input
                   key={field.name}

@@ -54,8 +54,12 @@ export interface AboutData {
     skills: string[];
     interests: string[];
     highlightedAboutRole: string[];
-    aboutCTA: "View my Journey";
-
+    aboutCTA: string;
+    aboutSecondaryCTA?: {
+      text: string;
+      icon?: string; // optional
+      onClick?: () => void; // optional
+    };
     // Personal story config (optional for template users)
     personalStory?: {
       id: number; // for badge or ordering
@@ -104,17 +108,18 @@ const aboutData: AboutData = {
   title: "Full Stack Developer",
   showCurtain: true, // Set to false to hide decorative curtains in Hero section
 
-  topText: "Available for OPPORTUNITIES",
-  highlightsFromTopText: ["opportunities"],
+  topText: "Available for UK Remote Roles",
+  highlightsFromTopText: ["UK Remote"],
 
   // ---------- Hero Section ----------
   hero: {
     headline: "Turning Ideas Into High Performing Digital Products",
     highlightedWords: ["Ideas Into", "Digital Products"], // Optional: words in headline to highlight
-    primaryCtaText: "Book a Call",
-    primaryCtaLink: "https://calendar.app.google/fpRU2qDXNfbg4BSK8",
-    secondaryCtaText: "Connect on LinkedIn",
-    secondaryCtaLink: "https://www.linkedin.com/in/miss-kniz/",
+    primaryCtaText: "Hire Me", // e.g., "Hire Me", "Download Resume"
+    primaryCtaLink:
+      "https://docs.google.com/document/d/1RWiaPjxjxr_cjxwo3uDriRe3rav1rmTasqtgRGrpz80/edit?usp=sharing",
+    secondaryCtaText: "Book a Call",
+    secondaryCtaLink: "https://calendar.app.google/fpRU2qDXNfbg4BSK8",
     heroPara:
       "I Help Startups and freelance teams Ship Fast, Scalable & High-Converting Web Apps", // can include escape char \n for line breaks if needed
   },
@@ -137,7 +142,13 @@ const aboutData: AboutData = {
       "React & Next.js Specialist",
     ],
     aboutCTA: "View my Journey",
-
+    aboutSecondaryCTA: {
+      text: "Connect on",
+      icon: "ri-linkedin-box-fill",
+      onClick: () => {
+        window.open(socialLinks.linkedin, "_blank");
+      },
+    },
     personalStory: {
       id: 1,
       title: "From Intermediate Student to First Tech Job",

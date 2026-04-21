@@ -51,9 +51,9 @@ const ProjectsSection = forwardRef<HTMLElement, {}>(
 
     return (
       <section id="projects" ref={ref}>
-        <div className="max-w-7xl mx-auto md:py-4 px-2">
+        <div className="max-w-7xl mx-auto md:py-4 p-2">
           {/* Header */}
-          <div className="text-center my-3">
+          <div className="text-center my-2">
             <SubHeadingContainer>
               <div className="flex items-center gap-2 relative justify-center">
                 <span className="inline-block py-1 px-2 rounded-full bg-white">
@@ -79,7 +79,7 @@ const ProjectsSection = forwardRef<HTMLElement, {}>(
           </div>
 
           {/* Filter Buttons */}
-          <div className="flex flex-wrap justify-start md:justify-center gap-2 mb-6">
+          <div className="flex flex-wrap justify-start md:justify-center gap-2 mb-3 md:mb-6">
             {filterOptions.map((category) => (
               <button
                 key={category}

@@ -114,7 +114,7 @@ const JourneyModal = ({
 
 const SectionHeader = ({ label }: { label: string }) => (
   <div>
-    <Heading as="h5" normalText={label} />
+    <Heading as="h5" center={false} normalText={label} />
     <div className="mt-2 h-px w-full bg-linear-to-r from-primary to-transparent opacity-40" />
   </div>
 );
