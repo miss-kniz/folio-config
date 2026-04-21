@@ -11,8 +11,9 @@ import SocialLinks from "../ui/SocialLinks";
 
 const ContactSection: React.FC = () => {
   const { contact, hero } = aboutData;
-  const ctaText = hero.primaryCtaText;
-  const ctaLink = hero.primaryCtaLink;
+  const ctaText = hero.secondaryCtaText;
+  const ctaLink = hero.secondaryCtaLink;
+  console.log("hero", hero);
   const [form, setForm] = useState({
     name: "",
     email: "",
