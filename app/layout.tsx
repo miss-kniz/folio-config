@@ -4,7 +4,7 @@ import "remixicon/fonts/remixicon.css";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Mehak Fatima Naqvi | Full-Stack PERN Developer (miss-kniz)",
+  title: "Mehak Fatima Naqvi | PERN-Stack Developer (Miss Kniz)",
   description:
     "Mehak Fatima Naqvi (miss-kniz) is a React & Next.js developer based in Faisalabad, Pakistan, specializing in the PERN stack and building scalable web apps for startups.",
   verification: {
