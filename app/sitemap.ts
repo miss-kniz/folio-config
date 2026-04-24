@@ -1,8 +1,9 @@
 import { MetadataRoute } from "next";
 import { projects } from "@/config/user-data/projects";
+import { BASE_URL } from "./layout";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://mehak-naqvi.vercel.app";
+  const baseUrl = BASE_URL;
 
   const projectUrls = projects.map((project) => ({
     url: `${baseUrl}/projects/${project.id}`,

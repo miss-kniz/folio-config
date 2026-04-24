@@ -3,6 +3,9 @@ import "./globals.css";
 import "remixicon/fonts/remixicon.css";
 import Script from "next/script";
 
+export const BASE_URL =
+  process.env.NEXT_PUBLIC_BASE_URL || "https://mehak-naqvi.vercel.app/";
+
 export const metadata: Metadata = {
   title: "Mehak Fatima Naqvi | PERN-Stack Developer (Miss Kniz)",
   description:
@@ -37,7 +40,7 @@ export const metadata: Metadata = {
     "Scalable Frontend Architect",
   ],
   alternates: {
-    canonical: "https://mehak-naqvi.vercel.app",
+    canonical: BASE_URL,
   },
   openGraph: {
     title: "Mehak Fatima Naqvi Portfolio",
