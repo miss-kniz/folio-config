@@ -9,8 +9,11 @@ import ServicesSection from "@/components/sections/ServicesSection";
 import SkillsSection from "@/components/sections/SkillsSection";
 import Footer from "@/components/ui/Footer";
 import { useRef } from "react";
+import { isJobSeeking } from "@/config/site-config";
 
-export const portfolioForJob = true; // can be for freelancing the service section and others will work
+// Portfolio mode - controlled by site-config.ts
+// Change mode in /config/site-config.ts to switch between job-seeking and freelancing
+export const portfolioForJob = isJobSeeking;
 
 export default function HomePage() {
   const homeRef = useRef<HTMLElement>(null);
