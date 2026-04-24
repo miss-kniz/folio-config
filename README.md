@@ -50,6 +50,34 @@ A **fully dynamic, data-driven portfolio template** built with Next.js and TypeS
 .env                      # Environment variables (create from .env.example)
 ```
 
+## Getting Started Options
+
+### Option 1: Fork This Repository (Recommended)
+
+1. Click "Fork" on GitHub to create your own copy
+2. Clone your fork: `git clone https://github.com/YOUR_USERNAME/portfolio.git`
+3. Follow the Quick Start guide above
+4. Customize `/config/site-config.ts` with your information
+5. Push changes and deploy
+
+**Benefits**: 
+- Easy updates from original template
+- Version control built-in
+- Simple collaboration
+
+### Option 2: Download Code Directly
+
+1. Click "Code" > "Download ZIP" on GitHub
+2. Extract the ZIP file
+3. Initialize Git: `git init`
+4. Install dependencies: `npm install`
+5. Follow the Quick Start guide above
+
+**Benefits**:
+- No GitHub account needed
+- Start immediately
+- Complete ownership
+
 ## Configuration Guide
 
 ### Environment Setup
@@ -79,6 +107,10 @@ export const portfolioConfig: PortfolioConfig = {
 };
 ```
 
+<!-- IMAGE PLACEHOLDER: Side-by-side comparison -->
+<!-- What to show: Left side shows job-seeking mode with skills orbital, right side shows freelancing mode with service cards -->
+<!-- Caption: "Toggle the mode field to instantly switch between these two layouts" -->
+
 ### Update Personal Information
 
 All personal data is in one place:
@@ -107,6 +139,10 @@ export const portfolioConfig: PortfolioConfig = {
 };
 ```
 
+<!-- IMAGE PLACEHOLDER: Annotated screenshot of portfolioConfig -->
+<!-- What to show: Numbered callouts pointing to: mode toggle, name field, profile image path, social links array -->
+<!-- Caption: "These are the most frequently edited fields. Change mode to switch between job-seeking and freelancing views." -->
+
 ### Change Primary Colors and Theme
 
 To customize the color scheme, edit `/app/globals.css`:
@@ -128,7 +164,40 @@ To customize the color scheme, edit `/app/globals.css`:
 }
 ```
 
+<!-- IMAGE PLACEHOLDER: Color customization guide -->
+<!-- What to show: CSS code on left, live preview on right showing color change from purple to blue -->
+<!-- Caption: "Change just the --primary value and the entire site theme updates automatically" -->
+
 **To use a single theme (disable auto-detection)**: Remove the `@media (prefers-color-scheme: dark)` block entirely and keep only one set of colors.
+
+### Configure SEO (Important!)
+
+SEO settings are in `/config/site-config.ts` under the `seoConfig` object:
+
+```typescript
+export const seoConfig: SeoConfig = {
+  title: "Your Name | Your Title",
+  description: "Your description for search engines",
+  keywords: ["Your", "Keywords", "Here"],
+  canonical: "https://your-domain.com",
+  openGraph: {
+    url: "https://your-domain.com",
+    images: [{
+      url: "https://your-domain.com/og-image.png",
+      width: 1200,
+      height: 630,
+      alt: "Your Name",
+    }],
+  },
+  verification: {
+    google: "your-google-verification-code",
+  },
+};
+```
+
+<!-- IMAGE PLACEHOLDER: Screenshot of seoConfig section -->
+<!-- What to show: Highlight these fields with colored boxes: title, description, canonical, keywords -->
+<!-- Caption: "Update these SEO fields first - they affect how you appear in Google search results" -->
 
 ### Add/Edit Projects
 
@@ -147,6 +216,65 @@ In `/config/user-data/projects.ts`:
 }
 ```
 
+## Visual Configuration Guide
+
+<!-- IMAGE PLACEHOLDER: File structure diagram -->
+<!-- What to show: Tree view of project with arrows pointing to: /config/site-config.ts (label: "EDIT THIS"), /public folder (label: "ADD IMAGES HERE"), /app/globals.css (label: "CHANGE COLORS HERE") -->
+<!-- Caption: "Only touch these three areas to fully customize your portfolio" -->
+
+<!-- IMAGE PLACEHOLDER: Config file overview -->
+<!-- What to show: Screenshot of site-config.ts with colored sections: SEO config (red border), Personal info (blue border), Hero section (green border), Social links (purple border) -->
+<!-- Caption: "Color-coded sections make it easy to find what you need to edit" -->
+
+For detailed visual guides with annotated screenshots, see **[SETUP_GUIDE.md](./SETUP_GUIDE.md)**.
+
+## Documentation Files
+
+- **[SETUP_GUIDE.md](./SETUP_GUIDE.md)** - Complete step-by-step setup with visual placeholders
+- **[CONFIGURATION_GUIDE.md](./CONFIGURATION_GUIDE.md)** - Detailed configuration options and best practices
+- **[SEO_MIGRATION_NOTES.md](./SEO_MIGRATION_NOTES.md)** - SEO preservation guide for existing portfolios
+
+## SEO and Existing Portfolio Notes
+
+### For Template Users (New Portfolios)
+
+1. **Update site metadata** in `/config/site-config.ts`:
+   - `seo.canonical`: Your actual domain URL
+   - `seo.title`: Your name + title for search results
+   - `seo.description`: Brief description for search engines
+   - `seo.keywords`: Relevant keywords for your niche
+   - `seo.openGraph.images`: Your portfolio screenshot for social sharing
+
+2. **Add verification codes** (optional):
+   ```typescript
+   verification: {
+     google: "your-google-verification-code",
+   }
+   ```
+
+3. **Replace images**:
+   - Add your OG image to `/public/og-image.png`
+   - Update favicon at `/public/favicon.ico`
+
+### For Mehak (Current Portfolio Owner) - SEO Protection
+
+Your existing SEO is **fully preserved**. Here's what was done:
+
+1. **All meta tags moved to config**: Your title, description, keywords, OpenGraph data, and Google verification code are now in `/config/site-config.ts` under the `seoConfig` object.
+
+2. **No breaking changes**: The `layout.tsx` file now imports from config, but outputs the exact same HTML meta tags as before.
+
+3. **Structured Data intact**: Your JSON-LD schema markup remains unchanged and continues to connect your portfolio to LinkedIn and GitHub.
+
+4. **Canonical URL preserved**: Set to `https://mehak-naqvi.vercel.app` - no changes needed.
+
+5. **What to check**:
+   - Verify your Google Search Console still shows the correct property
+   - Test with [Google Rich Results Test](https://search.google.com/test/rich-results)
+   - Share your URL on social media to confirm OpenGraph images display correctly
+
+**Important**: Do NOT change the `seoConfig` values in `/config/site-config.ts` unless you intentionally want to update your SEO strategy. All your hard-earned SEO rankings are tied to these exact values.
+
 ## Template Reuse
 
 This structure makes it perfect for:
@@ -161,76 +289,6 @@ This structure makes it perfect for:
 2. Edit `site-config.ts` with new person's data
 3. Update images in `/public`
 4. Deploy!
-
-## Getting Started Options
-
-### Option 1: Fork This Repository (Recommended)
-
-1. Click "Fork" on GitHub to create your own copy
-2. Clone your fork: `git clone https://github.com/YOUR_USERNAME/portfolio.git`
-3. Follow the Quick Start guide above
-4. Customize `/config/site-config.ts` with your information
-5. Push changes and deploy
-
-**Benefits**: 
-- Easy updates from original template
-- Version control built-in
-- Simple collaboration
-
-### Option 2: Download Code Directly
-
-1. Click "Code" > "Download ZIP" on GitHub
-2. Extract the ZIP file
-3. Initialize Git: `git init`
-4. Install dependencies: `npm install`
-5. Follow the Quick Start guide above
-
-**Benefits**:
-- No GitHub account needed
-- Start immediately
-- Complete ownership
-
-## Visual Guide (Coming Soon)
-
-<!-- IMAGE PLACEHOLDER: Add screenshot here showing the config file location -->
-<!-- Image suggestion: Screenshot of file explorer highlighting /config/site-config.ts with arrow pointing to it -->
-
-<!-- IMAGE PLACEHOLDER: Add annotated screenshot of site-config.ts -->
-<!-- Image suggestion: Screenshot of site-config.ts with highlighted sections: mode toggle, personal info, hero section, contact info. Add callouts like "CHANGE THIS for your name", "TOGGLE between job/freelance mode", "UPDATE your email and social links" -->
-
-<!-- IMAGE PLACEHOLDER: Add before/after color comparison -->
-<!-- Image suggestion: Split image showing default purple theme on left and custom blue theme on right, with arrow pointing to the --primary CSS variable in globals.css -->
-
-<!-- IMAGE PLACEHOLDER: Add environment setup screenshot -->
-<!-- Image suggestion: Terminal window showing "cp .env.example .env" command and opened .env file with RESEND_API_KEY highlighted -->
-
-For detailed visual guides with annotated screenshots, check our documentation wiki or watch the video tutorial (links coming soon).
-
-## Detailed Documentation
-
-See **[CONFIGURATION_GUIDE.md](./CONFIGURATION_GUIDE.md)** for:
-- Complete configuration options
-- Customization tips
-- Best practices
-- Troubleshooting
-
-## SEO and Existing Portfolio Notes
-
-If you're using this template for an existing portfolio:
-
-1. **Update site metadata** in `/config/site-config.ts`:
-   - `siteUrl`: Your actual domain
-   - `siteName`: Your name/brand
-   - `keywords`: Relevant SEO keywords
-
-2. **Preserve your SEO rankings**:
-   - Keep the same URLs for existing pages
-   - Set up 301 redirects if you change any URLs
-   - Update `ogImage` with your custom Open Graph image
-
-3. **Social links are already configured** - Just update the URLs in `socialLinks` array
-
-4. **No breaking changes**: The dynamic structure maintains all existing functionality while making it easier to edit
 
 ## Tech Stack
 

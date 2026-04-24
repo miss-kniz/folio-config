@@ -22,6 +22,43 @@ export interface SiteMetadata {
   themeColor: string; // For browser theme color
 }
 
+// ── SEO Configuration ────────────────────────────────────────
+export interface SeoConfig {
+  title: string;
+  description: string;
+  keywords: string[];
+  authors: Array<{ name: string; url?: string }>;
+  creator: string;
+  canonical: string;
+  openGraph: {
+    type: "website" | "article" | "profile";
+    locale: string;
+    url: string;
+    title: string;
+    description: string;
+    siteName: string;
+    images: Array<{
+      url: string;
+      width: number;
+      height: number;
+      alt: string;
+    }>;
+  };
+  twitter: {
+    card: "summary" | "summary_large_image" | "app" | "player";
+    title: string;
+    description: string;
+    images: string[];
+    creator: string;
+  };
+  verification?: {
+    google?: string;
+    yandex?: string;
+    yahoo?: string;
+    other?: Record<string, string>;
+  };
+}
+
 // ── Portfolio Mode Configuration ─────────────────────────────
 export type PortfolioMode = "job-seeking" | "freelancing";
 
@@ -131,6 +168,83 @@ export const siteMetadata: SiteMetadata = {
   ogImage: "/og-image.png", // Add this image to /public folder
   favicon: "/favicon.ico",
   themeColor: "#7B2CBF",
+};
+
+/**
+ * SEO CONFIGURATION
+ * 
+ * IMPORTANT FOR TEMPLATE USERS:
+ * - Update all fields below with YOUR information
+ * - Keep canonical URL updated with your actual domain
+ * - Add your Google verification code if you have one
+ * - Update OpenGraph images for social sharing
+ * 
+ * IMPORTANT FOR MEHAK (Current Portfolio Owner):
+ * Your existing SEO is preserved here. DO NOT change these values
+ * unless you want to update your SEO strategy.
+ */
+export const seoConfig: SeoConfig = {
+  title: "Mehak Fatima Naqvi | PERN-Stack Developer (Miss Kniz)",
+  description:
+    "Mehak Fatima Naqvi (miss-kniz) is a React & Next.js developer based in Faisalabad, Pakistan, specializing in the PERN stack and building scalable web apps for startups.",
+  keywords: [
+    "Mehak Fatima Naqvi",
+    "Mehak Naqvi",
+    "Mehak Fatima",
+    "Mehak",
+    "Mehak Asad",
+    "Miss Mehak",
+    "Fatima Naqvi",
+    "Miss Naqvi",
+    "Naqvi",
+    "miss-kniz",
+    "miss kniz",
+    "Miss Kniz",
+    "kniz",
+    "Full-Stack Developer Faisalabad",
+    "PERN Stack Developer",
+    "Top React developer Pakistan",
+    "Top Frontend Developer",
+    "Talented undergraduate developer",
+    "Top Next.js developer",
+    "PERN Stack Developer Pakistan",
+    "Web Architecture Expert",
+    "Frontend Engineer",
+    "Scalable Frontend Architect",
+  ],
+  authors: [
+    { name: "Mehak Fatima Naqvi", url: "https://mehak-naqvi.vercel.app" },
+  ],
+  creator: "Mehak Fatima Naqvi",
+  canonical: "https://mehak-naqvi.vercel.app",
+  openGraph: {
+    type: "website",
+    locale: "en_PK",
+    url: "https://mehak-naqvi.vercel.app",
+    title: "Mehak Fatima Naqvi Portfolio",
+    description:
+      "Frontend-Focused Full-Stack Developer specializing in React, Next.js, and PERN stack.",
+    siteName: "Mehak Fatima Naqvi Portfolio",
+    images: [
+      {
+        url: "https://mehak-naqvi.vercel.app/photo-gallery/portfolio.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Mehak Fatima Naqvi - Full Stack Developer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mehak Fatima Naqvi Portfolio",
+    description:
+      "Frontend-Focused Full-Stack Developer specializing in React, Next.js, and PERN stack.",
+    images: ["https://mehak-naqvi.vercel.app/photo-gallery/portfolio.jpg"],
+    creator: "@miss-kniz",
+  },
+  verification: {
+    google: "8cGWQBP5rucbnE3RCQoMp_D6RxaVKbrSaVhm18o_oxE",
+  },
 };
 
 export const portfolioConfig: PortfolioConfig = {
@@ -276,6 +390,9 @@ export {
   type Category 
 } from "./user-data/skills";
 export { type CaseStudy } from "./user-data/case-study/cherished-lives";
+
+// Export SEO config for use in layout.tsx and sitemap.ts
+export { seoConfig };
 
 // Helper to check portfolio mode
 export const isJobSeeking = portfolioConfig.mode === "job-seeking";
