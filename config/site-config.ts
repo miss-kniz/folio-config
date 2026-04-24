@@ -397,3 +397,10 @@ export { seoConfig };
 // Helper to check portfolio mode
 export const isJobSeeking = portfolioConfig.mode === "job-seeking";
 export const isFreelancing = portfolioConfig.mode === "freelancing";
+
+// Unified export for easy importing
+export const siteConfig = {
+  seo: seoConfig,
+  portfolio: portfolioConfig,
+  metadata: siteMetadata,
+};

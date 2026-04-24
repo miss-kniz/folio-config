@@ -232,11 +232,29 @@ For detailed visual guides with annotated screenshots, see **[SETUP_GUIDE.md](./
 
 - **[SETUP_GUIDE.md](./SETUP_GUIDE.md)** - Complete step-by-step setup with visual placeholders
 - **[CONFIGURATION_GUIDE.md](./CONFIGURATION_GUIDE.md)** - Detailed configuration options and best practices
-- **[SEO_MIGRATION_NOTES.md](./SEO_MIGRATION_NOTES.md)** - SEO preservation guide for existing portfolios
 
-## SEO and Existing Portfolio Notes
+## SEO Preservation (Important!)
+
+Your existing SEO is **fully preserved**. Here's what was done:
+
+1. **All meta tags moved to config**: Your title, description, keywords, OpenGraph data, and Google verification code are now in `/config/site-config.ts` under the `seoConfig` object.
+
+2. **No breaking changes**: The `layout.tsx` file now imports from config, but outputs the exact same HTML meta tags as before.
+
+3. **Structured Data intact**: Your JSON-LD schema markup remains unchanged and continues to connect your portfolio to LinkedIn and GitHub.
+
+4. **Canonical URL preserved**: Set to `https://mehak-naqvi.vercel.app` - no changes needed.
+
+5. **What to check**:
+   - Verify your Google Search Console still shows the correct property
+   - Test with [Google Rich Results Test](https://search.google.com/test/rich-results)
+   - Share your URL on social media to confirm OpenGraph images display correctly
+
+**Important**: Do NOT change the `seoConfig` values in `/config/site-config.ts` unless you intentionally want to update your SEO strategy. All your hard-earned SEO rankings are tied to these exact values.
 
 ### For Template Users (New Portfolios)
+
+When using this template for a new portfolio:
 
 1. **Update site metadata** in `/config/site-config.ts`:
    - `seo.canonical`: Your actual domain URL
@@ -255,25 +273,6 @@ For detailed visual guides with annotated screenshots, see **[SETUP_GUIDE.md](./
 3. **Replace images**:
    - Add your OG image to `/public/og-image.png`
    - Update favicon at `/public/favicon.ico`
-
-### For Mehak (Current Portfolio Owner) - SEO Protection
-
-Your existing SEO is **fully preserved**. Here's what was done:
-
-1. **All meta tags moved to config**: Your title, description, keywords, OpenGraph data, and Google verification code are now in `/config/site-config.ts` under the `seoConfig` object.
-
-2. **No breaking changes**: The `layout.tsx` file now imports from config, but outputs the exact same HTML meta tags as before.
-
-3. **Structured Data intact**: Your JSON-LD schema markup remains unchanged and continues to connect your portfolio to LinkedIn and GitHub.
-
-4. **Canonical URL preserved**: Set to `https://mehak-naqvi.vercel.app` - no changes needed.
-
-5. **What to check**:
-   - Verify your Google Search Console still shows the correct property
-   - Test with [Google Rich Results Test](https://search.google.com/test/rich-results)
-   - Share your URL on social media to confirm OpenGraph images display correctly
-
-**Important**: Do NOT change the `seoConfig` values in `/config/site-config.ts` unless you intentionally want to update your SEO strategy. All your hard-earned SEO rankings are tied to these exact values.
 
 ## Template Reuse
 
@@ -302,6 +301,18 @@ This structure makes it perfect for:
 ## License
 
 Open-source template - feel free to use for your own portfolio or client work!
+
+## Support
+
+For questions or issues regarding configuration:
+1. Check existing config files in `/config` for examples.
+2. Review TypeScript interfaces for available options.
+3. Inspect component files to understand how data is consumed.
+
+If you need further assistance, feel free to email me or connect on LinkedIn. If you find this template useful, a follow on LinkedIn means a lot to me!
+
+- **LinkedIn:** [linkedin.com/in/miss-kniz](https://www.linkedin.com/in/miss-kniz)
+- **Email:** [Your Email Here]
 
 ---
 
