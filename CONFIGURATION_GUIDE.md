@@ -2,9 +2,22 @@
 
 This portfolio is now **fully dynamic** and configured through a single source of truth. All your personal data, content, and settings are centralized in the `/config` directory.
 
-## 🎯 Quick Start
+## Quick Start
 
-### 1. Main Configuration File
+### 1. Environment Setup
+
+Before configuring your portfolio, set up environment variables:
+
+1. Copy the example file: `cp .env.example .env`
+2. Open `.env` and add your API keys:
+
+```bash
+RESEND_API_KEY=your_resend_api_key_here
+```
+
+**Note**: If you're not using email functionality, you can leave this empty. The portfolio will work without it.
+
+### 2. Main Configuration File
 Edit **`/config/site-config.ts`** to customize your entire portfolio:
 
 ```typescript
@@ -16,7 +29,7 @@ export const portfolioConfig: PortfolioConfig = {
 };
 ```
 
-### 2. Change Portfolio Mode
+### 3. Change Portfolio Mode
 Switch between job-seeking and freelancing modes:
 
 ```typescript
@@ -27,11 +40,11 @@ mode: "job-seeking"
 mode: "freelancing"
 ```
 
-## 📁 Configuration Structure
+## Configuration Structure
 
 ```
 /config
-├── site-config.ts          # ⭐ MAIN CONFIG - Edit this first!
+├── site-config.ts          # MAIN CONFIG - Edit this first!
 └── user-data/
     ├── about.ts            # Personal info, experience, education
     ├── projects.ts         # Project portfolio
@@ -40,7 +53,7 @@ mode: "freelancing"
     └── case-study/         # Detailed project case studies
 ```
 
-## 🔧 What You Can Configure
+## What You Can Configure
 
 ### Site Metadata (SEO)
 - Site name and description
@@ -89,7 +102,7 @@ mode: "freelancing"
 - Descriptions
 - Pricing tiers (optional)
 
-## 🎨 Customization Tips
+## Customization Tips
 
 ### 1. Update Profile Photo
 Place your photo in `/public/photo-gallery/` and update the path:
@@ -127,7 +140,49 @@ hero: {
 }
 ```
 
-## 🚀 Future Template Reuse
+### 5. Change Primary Colors
+
+Edit `/app/globals.css` to change the color theme:
+
+```css
+:root {
+  --primary: #7b2cbf;           /* Change this hex code */
+  --primary-light: #7a2cbf0f;   /* Same color with 0f opacity suffix */
+  --primary-dark: #4a148c;      /* Darker shade of your color */
+}
+```
+
+**To pick a new color**: Use a color picker tool, choose your desired color, and replace the hex codes. Make sure all three variants (primary, primary-light, primary-dark) use the same base hue.
+
+### 6. Disable Theme Auto-Detection
+
+If you want a single fixed theme instead of auto-switching between light/dark:
+
+1. Open `/app/globals.css`
+2. Remove or comment out the entire `@media (prefers-color-scheme: dark)` block
+3. Keep only one set of color variables in `:root`
+
+Example for a permanent dark theme:
+```css
+:root {
+  --background: #0e0516;        /* Fixed dark background */
+  --foreground: 237 237 237;    /* Fixed light text */
+  --primary: #7b2cbf;           /* Your chosen primary color */
+  /* ... other variables */
+}
+
+/* Remove or comment out this entire block: */
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0e0516;
+    --foreground: 237 237 237;
+    --black-light: #99a1af;
+    --primary-light: #7a2cbf36;
+  }
+} */
+```
+
+## Template Reuse
 
 This structure makes it easy to:
 1. **Fork the template** for new portfolios
@@ -141,7 +196,38 @@ This structure makes it easy to:
 3. Update images in `/public`
 4. Deploy!
 
-## 📝 Best Practices
+## Getting Started Options
+
+### Option 1: Fork This Repository (Recommended)
+
+1. Click "Fork" on GitHub to create your own copy
+2. Clone your fork: `git clone https://github.com/YOUR_USERNAME/portfolio.git`
+3. Install dependencies: `npm install`
+4. Set up `.env` file from `.env.example`
+5. Customize `/config/site-config.ts`
+6. Push changes and deploy
+
+**Benefits**: 
+- Easy updates from original template
+- Version control built-in
+- Simple collaboration
+
+### Option 2: Download Code Directly
+
+1. Click "Code" > "Download ZIP" on GitHub
+2. Extract the ZIP file to your desired location
+3. Open terminal in the extracted folder
+4. Initialize Git (optional): `git init`
+5. Install dependencies: `npm install`
+6. Set up `.env` file from `.env.example`
+7. Customize `/config/site-config.ts`
+
+**Benefits**:
+- No GitHub account needed
+- Start immediately
+- Complete ownership
+
+## Best Practices
 
 1. **Always use TypeScript interfaces** - You get autocomplete and type safety
 2. **Keep images optimized** - Use WebP format when possible
@@ -149,7 +235,25 @@ This structure makes it easy to:
 4. **Update social links** - Ensure all URLs are correct
 5. **Review SEO metadata** - Customize for each person
 
-## 🐛 Troubleshooting
+## Visual Guide Placeholders
+
+When creating documentation screenshots, consider adding:
+
+<!-- IMAGE PLACEHOLDER: Config file location -->
+<!-- Image suggestion: File explorer showing /config folder with site-config.ts highlighted. Add arrow annotation pointing to the file with text "Edit this file first!" -->
+
+<!-- IMAGE PLACEHOLDER: Mode toggle closeup -->
+<!-- Image suggestion: Screenshot of lines 136-137 in site-config.ts showing mode: "job-seeking" with callout box explaining "Change to 'freelancing' to show services instead of skills" -->
+
+<!-- IMAGE PLACEHOLDER: Color customization -->
+<!-- Image suggestion: Split screen showing globals.css on left with --primary variable highlighted, and live portfolio preview on right showing the color change effect -->
+
+<!-- IMAGE PLACEHOLDER: Environment setup -->
+<!-- Image suggestion: Terminal window showing the command "cp .env.example .env" with output, then opened .env file showing RESEND_API_KEY field -->
+
+These placeholders can be replaced with actual annotated screenshots in future documentation updates.
+
+## Troubleshooting
 
 ### Changes not appearing?
 - Clear Next.js cache: `rm -rf .next`
@@ -166,7 +270,12 @@ This structure makes it easy to:
 - Check file exists in `/public` folder
 - Ensure correct file extension
 
-## 📞 Support
+### Theme not changing?
+- Make sure you've cleared browser cache
+- Check if `prefers-color-scheme` media query is still active
+- Verify CSS variables are correctly formatted
+
+## Support
 
 For questions or issues, check:
 - Existing config files for examples
@@ -175,4 +284,4 @@ For questions or issues, check:
 
 ---
 
-**Happy building! 🎉**
+**Happy building!**
