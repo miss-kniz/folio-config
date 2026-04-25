@@ -2,7 +2,7 @@
 
 This guide explains how to optimize your portfolio for search engines.
 
-## 📁 Files Involved
+## Files Involved
 
 | File | Purpose |
 |------|---------|
@@ -10,7 +10,7 @@ This guide explains how to optimize your portfolio for search engines.
 | `app/sitemap.ts` | XML sitemap generation |
 | `public/` | Images and Open Graph assets |
 
-## 🔍 Understanding the SEO Setup
+## Understanding the SEO Setup
 
 Your portfolio includes:
 - **Metadata** - Title, description, keywords
@@ -19,7 +19,7 @@ Your portfolio includes:
 - **Sitemap** - XML sitemap for search engines
 - **Google Verification** - Search Console verification
 
-## ⚙️ Configuration in layout.tsx
+## Configuration in layout.tsx
 
 ### 1. Basic Metadata
 
@@ -123,7 +123,7 @@ The template includes Person schema:
 **Test structured data:**
 - [Google Rich Results Test](https://search.google.com/test/rich-results)
 
-## 🔑 Getting Google Verification Code
+## Getting Google Verification Code
 
 ### Step 1: Google Search Console
 
@@ -151,7 +151,7 @@ The template includes Person schema:
 
 Click "Verify" in Search Console after deploying your site.
 
-## 🗺️ Sitemap Configuration
+## Sitemap Configuration
 
 The template auto-generates a sitemap at `/sitemap.xml`.
 
@@ -185,7 +185,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 3. Enter `sitemap.xml`
 4. Click "Submit"
 
-## 📊 SEO Best Practices
+## SEO Best Practices
 
 ### Content Optimization
 
@@ -210,7 +210,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 3. Mention "Remote" if open to remote work
 4. Add local business schema if freelancing
 
-## 🔍 Monitoring SEO Performance
+## Monitoring SEO Performance
 
 ### Google Search Console
 
@@ -229,7 +229,7 @@ Add Google Analytics to track:
 - Traffic sources
 - Bounce rate
 
-## ✅ SEO Checklist
+## SEO Checklist
 
 Before launching:
 
@@ -242,7 +242,7 @@ Before launching:
 - [ ] Tested with Google Rich Results Test
 - [ ] Verified social media previews
 
-## 🛠 Common SEO Issues
+## Common SEO Issues
 
 ### Issue: Site not appearing in search
 **Solution:**
@@ -263,7 +263,7 @@ Before launching:
 2. Fix any errors shown
 3. Validate JSON syntax
 
-## 📈 Advanced SEO Tips
+## Advanced SEO Tips
 
 1. **Blog/Content**: Add a blog section for more indexed pages
 2. **Case Studies**: Detailed project pages rank better
@@ -271,7 +271,7 @@ Before launching:
 4. **Social Signals**: Active social media presence helps
 5. **Page Speed**: Aim for 90+ on PageSpeed Insights
 
-## 🔗 Resources
+## Resources
 
 - [Google Search Central](https://developers.google.com/search)
 - [Schema.org Documentation](https://schema.org/docs)

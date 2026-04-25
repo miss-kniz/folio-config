@@ -2,7 +2,7 @@
 
 This guide explains how to customize the visual appearance of your portfolio.
 
-## 🎨 Theme System Overview
+## Theme System Overview
 
 The portfolio uses CSS variables and a theme configuration file for easy customization. The theme system supports:
 - Light mode
@@ -10,7 +10,7 @@ The portfolio uses CSS variables and a theme configuration file for easy customi
 - System preference detection
 - Manual theme toggle
 
-## 📁 Files Involved
+## Files Involved
 
 | File | Purpose |
 |------|---------|
@@ -19,7 +19,7 @@ The portfolio uses CSS variables and a theme configuration file for easy customi
 | `components/ThemeProvider.tsx` | Theme logic and state management |
 | `components/ThemeToggle.tsx` | Theme toggle button UI |
 
-## 🎯 Quick Color Changes
+## Quick Color Changes
 
 ### Method 1: Edit config/theme.ts (Recommended)
 
@@ -66,7 +66,7 @@ export const orangeTheme: ThemeColors = { ... };
 
 Then replace `themeColors` with your chosen preset.
 
-## 🌈 Color Format Guide
+## Color Format Guide
 
 ### RGB Format (for foreground/text colors)
 ```typescript
@@ -85,7 +85,7 @@ primaryLight: "#7a2cbf0f"  // Hex with opacity
 glass: "rgba(255, 255, 255, 0.05)"
 ```
 
-## 🎨 Choosing Your Colors
+## Choosing Your Colors
 
 ### Primary Color Selection
 
@@ -131,7 +131,7 @@ primaryDark: "#9d4edd"     // Lighter (for dark mode contrast)
 - [Realtime Colors](https://www.realtimecolors.com) - Preview colors
 - [ColorBox.io](https://www.colorbox.io) - Generate color scales
 
-## ⚙️ Theme Settings
+## Theme Settings
 
 Control theme behavior in `config/theme.ts`:
 
@@ -151,7 +151,7 @@ export const themeSettings = {
 };
 ```
 
-## 🔄 How Theme Toggle Works
+## How Theme Toggle Works
 
 1. **System Mode (Default)**
    - Follows user's device/browser preference
@@ -166,7 +166,7 @@ export const themeSettings = {
 3. **Cycle Order**
    - Light → Dark → System → Light...
 
-## 🖌️ Advanced Customization
+## Advanced Customization
 
 ### Changing Fonts
 
@@ -207,7 +207,7 @@ Add custom animations in `app/globals.css`:
 }
 ```
 
-## 📱 Responsive Considerations
+## Responsive Considerations
 
 Colors should work on all devices:
 
@@ -215,7 +215,7 @@ Colors should work on all devices:
 2. **Check contrast** - Outdoor viewing requires higher contrast
 3. **Consider OLED** - Pure black (#000000) saves battery on OLED screens
 
-## ♿ Accessibility Checklist
+## Accessibility Checklist
 
 - [ ] Text has 4.5:1 contrast ratio minimum (WCAG AA)
 - [ ] Links are distinguishable from text
@@ -227,7 +227,7 @@ Colors should work on all devices:
 - [Stark](https://www.getstark.co/) - Accessibility plugin
 - [Color Oracle](https://colororacle.org/) - Color blindness simulator
 
-## 🎨 Example Themes
+## Example Themes
 
 ### Professional Blue
 ```typescript
@@ -277,7 +277,7 @@ light: {
 }
 ```
 
-## 🔧 Troubleshooting
+## Troubleshooting
 
 ### Colors not changing?
 1. Clear browser cache

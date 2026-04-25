@@ -2,14 +2,14 @@
 
 Welcome to the Portfolio Template! This guide will help you set up and customize your portfolio in under an hour.
 
-## 📋 Prerequisites
+## Prerequisites
 
 Before you begin, ensure you have:
 - Node.js 20 or higher installed ([Download](https://nodejs.org))
 - A code editor (VS Code recommended)
 - Git installed (optional, for version control)
 
-## 🚀 Step-by-Step Setup
+## Step-by-Step Setup
 
 ### Step 1: Clone the Repository
 
@@ -237,7 +237,7 @@ See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions.
 | Testing | 10 minutes |
 | **Total** | **~1 hour** |
 
-## ✅ Customization Checklist
+## - Customization Checklist
 
 - [ ] Updated personal information in `about.ts`
 - [ ] Added your projects in `projects.ts`
@@ -248,7 +248,7 @@ See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions.
 - [ ] Tested locally
 - [ ] Deployed to Vercel
 
-## 🆘 Common Issues
+## Common Issues
 
 ### Issue: "Module not found" errors
 **Solution:** Run `pnpm install` or `npm install`
@@ -275,7 +275,7 @@ After completing setup:
 2. Read [SEO_GUIDE.md](./SEO_GUIDE.md) for SEO optimization
 3. Read [TROUBLESHOOTING.md](./TROUBLESHOOTING.md) for common issues
 
-## 💡 Pro Tips
+## Pro Tips
 
 1. **Keep backups**: Before making major changes, commit your current state
 2. **Test on mobile**: Use Chrome DevTools to test responsive design
@@ -283,12 +283,12 @@ After completing setup:
 4. **Accessibility**: Use semantic HTML and proper alt text
 5. **Analytics**: Consider adding Vercel Analytics or Google Analytics
 
-## 🤝 Need Help?
+## Need Help?
 
-- 📧 Email: mehak313naqvi@gmail.com
-- 💬 LinkedIn: [linkedin.com/in/miss-kniz](https://linkedin.com/in/miss-kniz)
-- 🐛 Issues: [Open an issue on GitHub](https://github.com/miss-kniz/portfolio-template/issues)
+- Email: mehak313naqvi@gmail.com
+- LinkedIn: [linkedin.com/in/miss-kniz](https://linkedin.com/in/miss-kniz)
+- Issues: [Open an issue on GitHub](https://github.com/miss-kniz/portfolio-template/issues)
 
 ---
 
-Happy building! 🚀
+Happy building!

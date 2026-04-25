@@ -2,7 +2,7 @@
 
 Common issues and solutions for the Portfolio Template.
 
-## 🔧 Installation Issues
+## Installation Issues
 
 ### Issue: "Module not found" errors
 
@@ -48,7 +48,7 @@ Type error: Property 'xyz' does not exist on type...
 
 3. If it's a false positive, add `@ts-ignore` comment above the line
 
-## 🎨 Theme & Styling Issues
+## Theme & Styling Issues
 
 ### Issue: Theme toggle not working
 
@@ -83,7 +83,7 @@ Type error: Property 'xyz' does not exist on type...
 3. Test system dark mode preference
 4. Manually toggle to dark mode and check
 
-## 📧 Contact Form Issues
+## Contact Form Issues
 
 ### Issue: Contact form not sending emails
 
@@ -129,7 +129,7 @@ Type error: Property 'xyz' does not exist on type...
 3. Update `.env.local` and restart server
 4. Update environment variables in Vercel
 
-## 🖼️ Image Issues
+## Image Issues
 
 ### Issue: Images not loading
 
@@ -178,7 +178,7 @@ Type error: Property 'xyz' does not exist on type...
 2. Convert to WebP format
 3. Aim for < 200KB per image
 
-## 🚀 Build & Deployment Issues
+## Build & Deployment Issues
 
 ### Issue: Build fails on Vercel
 
@@ -231,7 +231,7 @@ Error: Command "npm run build" exited with 1
 
 3. Rebuild and redeploy
 
-## ⚡ Performance Issues
+## Performance Issues
 
 ### Issue: Slow page load
 
@@ -271,7 +271,7 @@ Error: Command "npm run build" exited with 1
    - Preload critical resources
    - Reduce third-party scripts
 
-## 🔍 SEO Issues
+## SEO Issues
 
 ### Issue: Site not appearing in Google
 
@@ -306,7 +306,7 @@ Error: Command "npm run build" exited with 1
 
 3. **Redeploy**
 
-## 💻 Development Issues
+## Development Issues
 
 ### Issue: ESLint errors
 
@@ -346,7 +346,7 @@ Error: Command "npm run build" exited with 1
    sudo sysctl -p
    ```
 
-## 🌐 Browser Compatibility Issues
+## Browser Compatibility Issues
 
 ### Issue: Works in Chrome but not Safari/Firefox
 
@@ -362,7 +362,7 @@ Error: Command "npm run build" exited with 1
 
 3. **Clear browser cache**
 
-## 📱 Mobile Issues
+## Mobile Issues
 
 ### Issue: Layout broken on mobile
 
@@ -377,16 +377,16 @@ Error: Command "npm run build" exited with 1
 
 3. **Test on real devices**
 
-## 🆘 Still Having Issues?
+## Still Having Issues?
 
 ### Before Asking for Help:
 
-1. ✅ Read all relevant documentation
-2. ✅ Search existing GitHub issues
-3. ✅ Try all suggested solutions above
-4. ✅ Check browser console for errors
-5. ✅ Test in incognito mode
-6. ✅ Clear all caches
+1. - Read all relevant documentation
+2. - Search existing GitHub issues
+3. - Try all suggested solutions above
+4. - Check browser console for errors
+5. - Test in incognito mode
+6. - Clear all caches
 
 ### How to Report an Issue:
 
@@ -404,9 +404,9 @@ When opening a GitHub issue, include:
 
 ### Where to Get Help:
 
-- 📧 Email: mehak313naqvi@gmail.com
-- 💬 LinkedIn: [linkedin.com/in/miss-kniz](https://linkedin.com/in/miss-kniz)
-- 🐛 GitHub Issues: [Open an issue](https://github.com/miss-kniz/portfolio-template/issues)
+- Email: mehak313naqvi@gmail.com
+- LinkedIn: [linkedin.com/in/miss-kniz](https://linkedin.com/in/miss-kniz)
+- GitHub Issues: [Open an issue](https://github.com/miss-kniz/portfolio-template/issues)
 
 ---
 

@@ -2,7 +2,7 @@
 
 This guide walks you through deploying your portfolio to Vercel.
 
-## 🚀 Quick Deploy to Vercel
+## Quick Deploy to Vercel
 
 ### Option 1: One-Click Deploy (Recommended)
 
@@ -15,13 +15,13 @@ This guide walks you through deploying your portfolio to Vercel.
 
 ### Option 2: Manual Deploy
 
-## 📋 Prerequisites
+## Prerequisites
 
 - GitHub account
 - Vercel account (free tier is sufficient)
 - Your code pushed to GitHub
 
-## 🔧 Step-by-Step Deployment
+## Step-by-Step Deployment
 
 ### Step 1: Push to GitHub
 
@@ -68,7 +68,7 @@ In the Vercel dashboard, add these environment variables:
 2. Wait for build to complete (~2-3 minutes)
 3. Visit your live URL!
 
-## 🌐 Custom Domain (Optional)
+## Custom Domain (Optional)
 
 ### Step 1: Buy a Domain
 
@@ -91,7 +91,7 @@ Update `NEXT_PUBLIC_BASE_URL` in Vercel environment variables:
 NEXT_PUBLIC_BASE_URL=https://yourcustomdomain.com
 ```
 
-## 🔐 Environment Variables Reference
+## Environment Variables Reference
 
 ### Required Variables
 
@@ -156,7 +156,7 @@ If you want manual deploys only:
 2. Disable "Auto Expose Serverless Functions"
 3. Use Vercel CLI for manual deploys
 
-## 📊 Post-Deployment Checklist
+## Post-Deployment Checklist
 
 After deployment:
 
@@ -170,7 +170,7 @@ After deployment:
 - [ ] Sitemap accessible at `/sitemap.xml`
 - [ ] Submit sitemap to Google Search Console
 
-## 🔍 Testing Your Deployment
+## Testing Your Deployment
 
 ### 1. Check Performance
 
@@ -189,7 +189,7 @@ After deployment:
 2. Check meta tags are present
 3. Test with [Google Rich Results Test](https://search.google.com/test/rich-results)
 
-## 🛠 Troubleshooting
+## Troubleshooting
 
 ### Issue: Build fails
 **Solutions:**
@@ -216,7 +216,7 @@ After deployment:
 2. Verify `NEXT_PUBLIC_BASE_URL` is correct
 3. Try clearing browser cache
 
-## 📈 Monitoring
+## Monitoring
 
 ### Vercel Analytics
 

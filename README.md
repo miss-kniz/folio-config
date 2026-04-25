@@ -2,9 +2,7 @@
 
 A modern, data-driven portfolio template built with Next.js 16, TypeScript, and Tailwind CSS v4. Designed for developers who want a professional portfolio that's easy to customize in under an hour.
 
-![Portfolio Template](./public/photo-gallery/portfolio.jpg)
-
-## 🚀 Features
+## Features
 
 ### Core Features
 - **Data-Driven Design** - All content is managed through configuration files, no need to edit components
@@ -22,7 +20,7 @@ A modern, data-driven portfolio template built with Next.js 16, TypeScript, and 
 - **Contact Section** - Contact form with email integration
 - **Footer** - Social links and navigation
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 portfolio-template/
@@ -47,7 +45,7 @@ portfolio-template/
 └── public/               # Images and static assets
 ```
 
-## ⚡ Quick Start
+## Quick Start
 
 ### Prerequisites
 - Node.js 20+ installed
@@ -92,7 +90,7 @@ portfolio-template/
    pnpm start
    ```
 
-## 🎨 Customization Guide
+## Customization Guide
 
 ### 1. Personal Information
 Edit `config/user-data/about.ts`:
@@ -149,7 +147,7 @@ export const themeSettings = {
 };
 ```
 
-## 🌐 Environment Setup
+## Environment Setup
 
 Create a `.env.local` file based on `env.example`:
 
@@ -167,7 +165,7 @@ NEXT_PUBLIC_BASE_URL=https://your-domain.com
 3. Navigate to API Keys section
 4. Create a new key and copy it to `.env.local`
 
-## 📝 Documentation Files
+## Documentation Files
 
 | File | Purpose |
 |------|---------|
@@ -177,7 +175,7 @@ NEXT_PUBLIC_BASE_URL=https://your-domain.com
 | `DEPLOYMENT.md` | Deployment instructions for Vercel |
 | `TROUBLESHOOTING.md` | Common issues and solutions |
 
-## 🚀 Deployment
+## Deployment
 
 ### Deploy to Vercel (Recommended)
 
@@ -191,20 +189,20 @@ NEXT_PUBLIC_BASE_URL=https://your-domain.com
 
 See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed instructions.
 
-## 📊 What You Can Customize Without Touching Code
+## What You Can Customize Without Touching Code
 
-✅ Personal information (name, title, bio)  
-✅ Hero section text and CTAs  
-✅ Projects and case studies  
-✅ Skills and their categories  
-✅ Services (if freelancing)  
-✅ Contact information  
-✅ Social media links  
-✅ Theme colors (primary, background, etc.)  
-✅ Fonts and typography  
-✅ Navigation structure  
+- Personal information (name, title, bio)  
+- Hero section text and CTAs  
+- Projects and case studies  
+- Skills and their categories  
+- Services (if freelancing)  
+- Contact information  
+- Social media links  
+- Theme colors (primary, background, etc.)  
+- Fonts and typography  
+- Navigation structure  
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - **Framework**: Next.js 16
 - **Language**: TypeScript
@@ -214,22 +212,24 @@ See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed instructions.
 - **Email**: Resend
 - **Deployment**: Vercel
 
-## 🤝 Support
+## Support
 
 If you like this template, consider:
-- ⭐ Starring this repository
-- 🔗 Following me on [LinkedIn](https://linkedin.com/in/miss-kniz)
-- 🐦 Connecting on [Twitter](https://twitter.com/miss-kniz)
+- Starring this repository
+- Following me on [LinkedIn](https://linkedin.com/in/miss-kniz)
 
 ### Need Help?
-- 📧 Email: mehak313naqvi@gmail.com
-- 💬 LinkedIn: [linkedin.com/in/miss-kniz](https://linkedin.com/in/miss-kniz)
-- 🐛 Issues: [Open an issue](https://github.com/miss-kniz/portfolio-template/issues)
+- Email: mehak313naqvi@gmail.com
+- LinkedIn: [linkedin.com/in/miss-kniz](https://linkedin.com/in/miss-kniz)
+- Issues: [Open an issue](https://github.com/miss-kniz/portfolio-template/issues)
 
-## 📄 License
+### Want to Support Me?
+Just hit follow on LinkedIn or GitHub!
+
+## License
 
 This project is open source and available under the MIT License.
 
 ---
 
-Made with ❤️ by [Mehak Fatima Naqvi](https://linkedin.com/in/miss-kniz)
+Made with <3 by [Mehak Fatima Naqvi](https://linkedin.com/in/miss-kniz)
