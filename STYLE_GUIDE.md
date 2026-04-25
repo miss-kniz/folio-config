@@ -4,7 +4,7 @@ This guide explains how to customize the visual appearance of your portfolio.
 
 ## Theme System Overview
 
-The portfolio uses CSS variables and a theme configuration file for easy customization. The theme system supports:
+The portfolio uses a single configuration file for theme customization. The theme system supports:
 - Light mode
 - Dark mode  
 - System preference detection
@@ -14,22 +14,22 @@ The portfolio uses CSS variables and a theme configuration file for easy customi
 
 | File | Purpose |
 |------|---------|
-| `config/theme.ts` | Main theme configuration (colors, settings) |
-| `app/globals.css` | Global styles with CSS variables |
-| `components/ThemeProvider.tsx` | Theme logic and state management |
+| `config/theme.ts` | ONLY file you need to edit for colors |
+| `app/globals.css` | Auto-updates from theme.ts (do not edit) |
+| `components/ThemeProvider.tsx` | Theme logic (no editing needed) |
 | `components/ThemeToggle.tsx` | Theme toggle button UI |
 
 ## Quick Color Changes
 
-### Method 1: Edit config/theme.ts (Recommended)
+### Edit config/theme.ts (Required Method)
 
-Open `config/theme.ts` and modify the colors:
+Open `config/theme.ts` and modify the colors in the `themeColors` section:
 
 ```typescript
 export const themeColors: ThemeColors = {
   light: {
     background: "#ffffff",      // Main background
-    foreground: "14 5 22",      // Text color (RGB format)
+    foreground: "14 5 22",      // Text color (RGB format - no # or commas)
     primary: "#7b2cbf",         // Your brand color
     primaryLight: "#7a2cbf0f",  // Light version (for hovers)
     primaryDark: "#4a148c",     // Dark version (for active states)
@@ -46,25 +46,27 @@ export const themeColors: ThemeColors = {
 };
 ```
 
-### Method 2: Use Preset Themes
+**Important:** Only edit the `themeColors` section in `config/theme.ts`. Do not edit `globals.css` for colors.
 
-Uncomment one of the preset themes in `config/theme.ts`:
+### Use Preset Themes (Optional)
+
+Uncomment one of the preset themes in `config/theme.ts` and replace `themeColors`:
 
 ```typescript
-// Blue Theme
+// Blue Theme Preset
 export const blueTheme: ThemeColors = { ... };
 
-// Green Theme  
+// Green Theme Preset  
 export const greenTheme: ThemeColors = { ... };
 
-// Pink Theme
+// Pink Theme Preset
 export const pinkTheme: ThemeColors = { ... };
 
-// Orange Theme
+// Orange Theme Preset
 export const orangeTheme: ThemeColors = { ... };
 ```
 
-Then replace `themeColors` with your chosen preset.
+Then replace the `themeColors` export with your chosen preset.
 
 ## Color Format Guide
 
@@ -100,7 +102,7 @@ Your primary color is your brand color. It appears in:
 **Tips:**
 - Choose a color that represents you/your brand
 - Ensure it has good contrast on both light and dark backgrounds
-- Test accessibility with [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)
+- Test accessibility with WebAIM Contrast Checker
 
 ### Background Colors
 
@@ -127,9 +129,9 @@ primaryDark: "#9d4edd"     // Lighter (for dark mode contrast)
 ```
 
 **Tools to generate variants:**
-- [Coolors.co](https://coolors.co) - Color palette generator
-- [Realtime Colors](https://www.realtimecolors.com) - Preview colors
-- [ColorBox.io](https://www.colorbox.io) - Generate color scales
+- Coolors.co - Color palette generator
+- Realtime Colors - Preview colors
+- ColorBox.io - Generate color scales
 
 ## Theme Settings
 
@@ -164,7 +166,7 @@ export const themeSettings = {
    - Persists across sessions
 
 3. **Cycle Order**
-   - Light → Dark → System → Light...
+   - Light -> Dark -> System -> Light...
 
 ## Advanced Customization
 
@@ -224,8 +226,8 @@ Colors should work on all devices:
 - [ ] Test with color blindness simulator
 
 **Tools:**
-- [Stark](https://www.getstark.co/) - Accessibility plugin
-- [Color Oracle](https://colororacle.org/) - Color blindness simulator
+- Stark - Accessibility plugin
+- Color Oracle - Color blindness simulator
 
 ## Example Themes
 
@@ -282,7 +284,7 @@ light: {
 ### Colors not changing?
 1. Clear browser cache
 2. Hard refresh (Ctrl+Shift+R or Cmd+Shift+R)
-3. Check if you're editing the right file
+3. Check if you're editing the right file (config/theme.ts)
 4. Restart dev server
 
 ### Dark mode not working?
@@ -297,14 +299,14 @@ light: {
 3. Test with accessibility tools
 4. Consider separate colors for light/dark modes
 
-## 📚 Resources
+## Resources
 
-- [Tailwind CSS Colors](https://tailwindcss.com/docs/customizing-colors)
-- [Google Fonts](https://fonts.google.com)
-- [Coolors.co](https://coolors.co) - Color palettes
-- [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)
-- [Realtime Colors](https://www.realtimecolors.com) - Live preview
+- Tailwind CSS Colors
+- Google Fonts
+- Coolors.co - Color palettes
+- WebAIM Contrast Checker
+- Realtime Colors - Live preview
 
 ---
 
-Need help? Reach out at mehak313naqvi@gmail.com or on [LinkedIn](https://linkedin.com/in/miss-kniz).
+Need help? Reach out at mehak313naqvi@gmail.com or on LinkedIn.

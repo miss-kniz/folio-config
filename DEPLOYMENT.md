@@ -42,7 +42,7 @@ git push -u origin main
 
 ### Step 3: Import Project
 
-1. Click "Add New..." → "Project"
+1. Click "Add New..." > "Project"
 2. Select your repository from GitHub
 3. Click "Import"
 
@@ -80,7 +80,7 @@ Popular options:
 ### Step 2: Add to Vercel
 
 1. Go to your project in Vercel
-2. Navigate to "Settings" → "Domains"
+2. Navigate to "Settings" > "Domains"
 3. Add your custom domain
 4. Follow DNS configuration instructions
 
@@ -112,7 +112,7 @@ NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
 # Other analytics or services
 ```
 
-## ⚙️ Vercel Settings
+##  Vercel Settings
 
 ### Build Settings
 
@@ -141,7 +141,7 @@ Or add to `package.json`:
 }
 ```
 
-## 🔄 Continuous Deployment
+##  Continuous Deployment
 
 Once connected to GitHub:
 
@@ -152,7 +152,7 @@ Once connected to GitHub:
 ### Disable Auto-Deploy (Optional)
 
 If you want manual deploys only:
-1. Go to Settings → Git
+1. Go to Settings > Git
 2. Disable "Auto Expose Serverless Functions"
 3. Use Vercel CLI for manual deploys
 
@@ -240,7 +240,7 @@ If something goes wrong:
 2. Find last working version
 3. Click "Promote to Production"
 
-## 💰 Cost
+##  Cost
 
 **Free Tier Includes:**
 - Unlimited deployments
@@ -254,7 +254,7 @@ If something goes wrong:
 - Want advanced analytics
 - Need team collaboration
 
-## 🎯 Best Practices
+##  Best Practices
 
 1. **Always test locally** before pushing
 2. **Use preview deployments** for PRs
@@ -263,7 +263,7 @@ If something goes wrong:
 5. **Set up alerts** for failed deployments
 6. **Regular backups** of your content files
 
-## 📚 Additional Resources
+##  Additional Resources
 
 - [Vercel Documentation](https://vercel.com/docs)
 - [Next.js Deployment](https://nextjs.org/docs/deployment)

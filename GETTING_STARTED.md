@@ -226,7 +226,7 @@ Before deploying, check:
 
 See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions.
 
-## ⏱️ Time Estimate
+## 
 
 | Task | Estimated Time |
 |------|---------------|
@@ -237,7 +237,7 @@ See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions.
 | Testing | 10 minutes |
 | **Total** | **~1 hour** |
 
-## - Customization Checklist
+## -- Customization Checklist
 
 - [ ] Updated personal information in `about.ts`
 - [ ] Added your projects in `projects.ts`
@@ -268,7 +268,7 @@ See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions.
 2. Ensure images are in the `public/` folder
 3. Restart dev server
 
-## 📚 Next Steps
+##  Next Steps
 
 After completing setup:
 1. Read [STYLE_GUIDE.md](./STYLE_GUIDE.md) for advanced theming

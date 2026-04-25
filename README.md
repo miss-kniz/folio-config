@@ -232,4 +232,4 @@ This project is open source and available under the MIT License.
 
 ---
 
-Made with <3 by [Mehak Fatima Naqvi](https://linkedin.com/in/miss-kniz)
+Made with love by [Mehak Fatima Naqvi](https://linkedin.com/in/miss-kniz)

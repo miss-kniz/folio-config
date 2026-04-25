@@ -3,17 +3,18 @@
 // ========================================
 // Edit this file to customize your portfolio's colors and theme
 // All sections are typed for safety and autocomplete
+// This is the ONLY file you need to edit for theme colors
 
 export interface ThemeColors {
   // Light Theme Colors
   light: {
-    background: string;      // Main background color
-    foreground: string;      // Main text color (RGB format: "14 5 22")
-    primary: string;         // Primary brand color
+    background: string;      // Main background color (hex format: "#ffffff")
+    foreground: string;      // Main text color (RGB format: "14 5 22" - no # or commas)
+    primary: string;         // Primary brand color (hex format: "#7b2cbf")
     primaryLight: string;    // Lighter version of primary (for hovers, backgrounds)
     primaryDark: string;     // Darker version of primary (for active states)
     blackLight: string;      // Secondary text color
-    glass: string;           // Glass effect background
+    glass: string;           // Glass effect background (rgba format)
   };
   
   // Dark Theme Colors
@@ -45,11 +46,10 @@ export const themeSettings = {
 };
 
 // ========================================
-// COLOR PRESETS
+// COLOR PRESETS (Optional - Uncomment to use)
 // ========================================
-// Uncomment one of these presets to quickly change your theme
 
-// Blue Theme
+// Blue Theme Preset
 /*
 export const blueTheme: ThemeColors = {
   light: {
@@ -73,7 +73,7 @@ export const blueTheme: ThemeColors = {
 };
 */
 
-// Green Theme
+// Green Theme Preset
 /*
 export const greenTheme: ThemeColors = {
   light: {
@@ -97,7 +97,7 @@ export const greenTheme: ThemeColors = {
 };
 */
 
-// Pink Theme
+// Pink Theme Preset
 /*
 export const pinkTheme: ThemeColors = {
   light: {
@@ -121,7 +121,7 @@ export const pinkTheme: ThemeColors = {
 };
 */
 
-// Orange Theme
+// Orange Theme Preset
 /*
 export const orangeTheme: ThemeColors = {
   light: {
@@ -146,14 +146,16 @@ export const orangeTheme: ThemeColors = {
 */
 
 // ========================================
-// CURRENT THEME (EDIT THIS)
+// CURRENT THEME (EDIT THIS SECTION)
 // ========================================
+// Change the colors below to customize your portfolio theme
+// Only edit this section - don't modify globals.css
 
 export const themeColors: ThemeColors = {
   light: {
-    background: "#ffffff",
-    foreground: "14 5 22",        // RGB format (no #)
-    primary: "#7b2cbf",           // Purple - change to your brand color
+    background: "#ffffff",        // Light mode background
+    foreground: "14 5 22",        // Text color in RGB (no # or commas)
+    primary: "#7b2cbf",           // Your brand color (purple)
     primaryLight: "#7a2cbf0f",    // Very light purple with opacity
     primaryDark: "#4a148c",       // Dark purple for hover states
     blackLight: "#666666",        // Gray for secondary text
@@ -161,7 +163,7 @@ export const themeColors: ThemeColors = {
   },
   dark: {
     background: "#0e0516",        // Dark purple-black background
-    foreground: "237 237 237",    // Light gray text (RGB format)
+    foreground: "237 237 237",    // Light gray text in RGB
     primary: "#7b2cbf",           // Same purple as light mode
     primaryLight: "#7a2cbf36",    // More visible in dark mode
     primaryDark: "#9d4edd",       // Lighter purple for dark mode contrast

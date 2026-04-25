@@ -1,13 +1,5 @@
-# Examples
-- Input:
-- Added files:
-- src/main.py, README.md, config.json]
-
-- Deleted files:
-- old/unused.py]
-- Modified files:
-- utils.py]
-- current .gitignore Content
-- (empty)
-- Expected Output:
-- (empty — output nothing)
+```
+# Documentation and style guide files are source files and should not be ignored
+# The modified files are all markdown documentation files and a config file
+# No build artifacts, dependencies, or temporary files detected in changes
+```

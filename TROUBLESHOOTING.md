@@ -212,7 +212,7 @@ Error: Command "npm run build" exited with 1
 
 **Solutions:**
 1. Force new deployment:
-   - Go to Vercel → Deployments
+   - Go to Vercel > Deployments
    - Click "Redeploy" on latest
 
 2. Clear CDN cache:
@@ -261,7 +261,7 @@ Error: Command "npm run build" exited with 1
 **Solutions:**
 
 1. **Run audit:**
-   - Chrome DevTools → Lighthouse
+   - Chrome DevTools > Lighthouse
    - Or [PageSpeed Insights](https://pagespeed.web.dev/)
 
 2. **Common fixes:**
