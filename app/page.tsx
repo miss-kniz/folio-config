@@ -8,9 +8,8 @@ import ProjectsSection from "@/components/sections/ProjectsSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import SkillsSection from "@/components/sections/SkillsSection";
 import Footer from "@/components/ui/Footer";
+import { portfolioForJob } from "@/config/user-data/about";
 import { useRef } from "react";
-
-export const portfolioForJob = true; // can be for freelancing the service section and others will work
 
 export default function HomePage() {
   const homeRef = useRef<HTMLElement>(null);

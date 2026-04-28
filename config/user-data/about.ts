@@ -102,9 +102,11 @@ export const socialLinks = {
 // ========================================
 // 👇 Edit everything below this line 👇
 
+export const portfolioForJob = true; // can be for freelancing the service section and others will work
+
 const aboutData: AboutData = {
   // ---------- Basic Info ----------
-  name: "Mehak Fatima Naqvi",
+  name: "Mehak Fatima Naqvi - Miss Kniz",
   title: "Full Stack Developer",
   showCurtain: true, // Set to false to hide decorative curtains in Hero section
 

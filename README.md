@@ -1,9 +1,25 @@
 # Portfolio Reusable Open-Source Template
 
+## Table of Contents
+
+- [View Demo](#view-demo)
+- [Features](#features)
+- [Setup Guide](#setup-guide)
+- [Planning for Future Customization](#planning-for-future-customization)
+---
+
+## View Demo
+
+Live Demo:  
+https://mehak-naqvi.vercel.app/
+
+---
+
 ## Features
 
 - **Theme Adaptive**  
-  Fully adapts to the device theme. Dark theme portfolios appear dark, and light theme portfolios appear light.
+  Fully adapts to the device theme. Portfolio will appear dark or light based on device theme.
+  ![Hero Screenshot, light vs dark](./readme-images/darkvslight.png)
 
 - **Hero Section**
   - Displays availability and credibility based on context (job seeker availability, freelancer credibility).
@@ -19,6 +35,7 @@
   - Image with a catchy heading.
   - Short about text + highlight roles or expertise.
   - "View My Story" button to share your education, experience, or hobbies.
+    ![How view my story works?](./readme-images/ViewMyStory.png)
 
 - **Project Section**
   - Projects categorized by type.
@@ -31,7 +48,7 @@
 
 - **Service Section**
   - Visibility of Skills and Service sections can be customized.
-  - Displays images and services to maintain a human touch in the AI era.
+  - Displays images in services to maintain a human touch in the AI era.
 
 - **Contact Section**
   - Email, location, social icons, and a contact form.
@@ -41,7 +58,16 @@
   - Social links.
   - Navigation links.
 
+---
+
+## Setup Guide
+
+For installation and setup instructions, please refer to:
+[REUSABLE_SETUP.md](./REUSABLE_SETUP.md)
+
+---
+
 ## Planning for Future Customization
 
-- **Theme Control**  
-  Users may want to enable or disable dark/light theme adaptation. Will add that permission in future as well.
+- **Theme Control**
+  Users may want to enable or disable dark/light theme adaptation. This permission will be added in future updates.

@@ -1,165 +1,612 @@
-# Reusable Portfolio Setup Guide
+# 🎨 Reusable Portfolio Setup Guide
 
-This project is designed to be reused as a personal portfolio or as a starter template for another open-source developer portfolio.
+This project is designed to be reused as a personal portfolio or as a starter template for another developer's portfolio.
 
-The goal is simple:
+## 🎯 Core Philosophy
 
-- keep content data-driven
-- avoid editing TSX files for everyday customization
-- use `env.example` as the source of truth for setup
-- keep `metadata` customizable separately
-- allow theme changes
-- optionally remove dark/light mode entirely
+- **Data-Driven Content**: All portfolio content lives in TypeScript config files, not in UI components
+- **No Component Editing**: Customize everything through `.ts` files in `config/user-data/`
+- **Type-Safe**: Full TypeScript support with IntelliSense for all configurations
+- **Real-Time Updates**: Changes in config files automatically reflect in your portfolio
+- **Single Source of Truth**: Environment variables and data configs are centralized
 
-## What You Can Customize
+---
 
-You should be able to update the portfolio by editing:
+## 🚀 Quick Start
 
-- `env.example` or your local `.env.local`
-- your content/data source files
-- theme values in the global styling setup
-- metadata in the app layout
+### 1. Clone or Fork the Repository
 
-You should not need to edit page component TSX files for normal content changes.
+```bash
+git clone <repo-url>
+cd Portfolio
+npm install
+npm run dev
+```
 
-## Quick Start
+Your portfolio will be live at `http://localhost:3000`
 
-1. Install dependencies.
-2. Copy `env.example` to `.env.local`.
-3. Fill in your personal or project data.
-4. Run the development server.
+### 2. Set Up Environment Variables
 
-## Environment Setup
+Copy the example env file and fill in your details:
 
-Use `env.example` as your setup reference. Each value in that file should be replaced with your own data in `.env.local`.
+```bash
+cp env.example .env.local
+```
 
-Recommended flow:
+Open `.env.local` and add:
 
-1. Open `env.example`.
-2. Copy all variables into `.env.local`.
-3. Replace the placeholder values with your own information.
-4. Restart the dev server after changing environment values.
+- **RESEND_API_KEY**: Get from [resend.com](https://resend.com) for contact form emails
+- **NEXT_PUBLIC_BASE_URL**: Your live portfolio URL (after deployment)
 
-If a field is left blank, the app may fall back to a default value or hide that section depending on how the template is configured.
+---
 
-## Data-Driven Customization
+## 📁 Project Structure Overview
 
-This template is intended to be driven by data rather than hardcoded UI edits.
+The portfolio is **completely customizable** through these key files:
 
-Typical things you should configure through data files or environment variables:
+```
+config/user-data/          ← All your content lives here
+├── about.ts              ← Hero, About, Experience, Education, Contact
+├── projects.ts           ← Portfolio projects display
+├── services.ts           ← Services you offer
+├── skills.ts             ← Technical skills with ring visualization
+└── case-study/           ← Detailed project case studies
+    ├── cherished-lives.ts
+    ├── leadlyft.ts
+    ├── likhSpire.ts
+    └── prep&plate.ts
+```
 
-- name and title
-- bio and headline
-- social links
-- projects
-- experience
-- skills
-- services
-- case studies
-- contact details
-- CTA text
+**All UI components are in `components/` and `app/` — you should NOT need to edit them.**
 
-If your current setup still has content hardcoded inside TSX files, move that content into a data file or environment variable first so the template remains reusable.
+---
 
-## Metadata Exception
+## 🔧 Complete Customization Guide
 
-Metadata is the one area that may still live in code.
+### Step 1: Customize About Section
 
-If you want each portfolio clone to have its own:
+**File**: [config/user-data/about.ts](./config/user-data/about.ts)
 
-- page title
-- description
-- Open Graph tags
-- favicon or social preview setup
+This is the **most important** file. It controls:
 
-then update the app metadata section in your layout or metadata configuration file.
+- ✅ Your name and title
+- ✅ Hero headline and CTAs
+- ✅ About me section with paragraphs
+- ✅ Experience and Education
+- ✅ Skills and interests
+- ✅ Social links
+- ✅ Contact information
 
-Everything else should be managed through data.
+#### Example Customization:
 
-## Theme Customization
+For Job or Freelancing
 
-The theme should be configurable without rewriting page components.
+```typescript
+export const portfolioForJob = true; // if false that will show service section instead of skills section
+```
 
-You can usually change:
+About data
 
-- primary color
-- accent color
-- background colors
-- text colors
-- border colors
-- shadows
-- gradients
+```typescript
+const aboutData: AboutData = {
+  // Basic Info
+  name: "Your Name",
+  title: "Your Job Title",
+  showCurtain: true, // Decorative background elements
 
-Look for your Tailwind theme tokens, CSS variables, or global styles and update those values instead of changing component markup.
+  topText: "Your Status",
+  highlightsFromTopText: ["Available", "Remote"],
 
-## Removing Dark/Light Mode
+  // Hero Section (Main headline section)
+  hero: {
+    headline: "Your Main Headline",
+    highlightedWords: ["Your", "Headline"], // These will be styled differently in headline
+    primaryCtaText: "Resume",
+    primaryCtaLink: "https://your-resume-link.com",
+    secondaryCtaText: "Hire Me",
+    secondaryCtaLink: "https://your-calendar-link.com",
+    heroPara: "Brief description of what you do",
+  },
 
-If you want a single-theme portfolio, remove the dark/light mode toggle and keep only one visual theme.
+  // About Me Section
+  aboutMe: {
+    heading: {
+      normalText: "Regular text",
+      highlightedText: "highlighted {text}", // {text} will be styled
+    },
+    paragraphs: ["First paragraph about yourself", "Second paragraph"],
+    skills: ["React", "TypeScript", "Node.js"],
+    interests: ["Open Source", "Tech Writing"],
+    highlightedAboutRole: ["Your", "Main", "Roles"],
+    aboutCTA: "Button Text", // this button will open experience and education modal
+  },
 
-Recommended approach:
+  // Experience (jobs you've had)
+  experience: [
+    {
+      role: "Frontend Developer",
+      company: "Company Name",
+      description: "What you did",
+      period: "2023 - Present",
+    },
+    // Add more experiences
+  ],
 
-1. Remove the theme toggle UI from the header, navbar, or settings area.
-2. Remove theme switching logic from client state.
-3. Keep only one set of theme tokens in your global styles.
-4. Remove any `dark:` utility classes that are no longer needed.
-5. Make sure all text, backgrounds, cards, and borders work well in the single theme.
+  // Education (optional)
+  education: [
+    {
+      degree: "Bachelor of Science",
+      institution: "University Name",
+      period: "2018 - 2022",
+    },
+  ],
 
-If you keep dark mode enabled, verify both themes after every design change.
+  // Hobbies/Personal Interests
+  hobbies: [
+    { label: "Photography", link: "https://..." }, // link is optional
+    { label: "Writing", link: "https://..." },
+  ],
 
-## Suggested Reusable Structure
+  // Social Links
+  socialLinks: [
+    {
+      platform: "LinkedIn",
+      url: "https://linkedin.com/in/...",
+      icon: "ri-linkedin-box-fill",
+    },
+    {
+      platform: "GitHub",
+      url: "https://github.com/...",
+      icon: "ri-github-fill", // icon classes from https://remixicon.com/
+    },
+  ],
 
-For a reusable template, organize content like this:
+  // Contact Info
+  contact: {
+    email: "your.email@example.com",
+    phone: "+1 (123) 456-7890", // Optional
+    location: "Your City, Country",
+    preferredMethod: "email", // or "phone", "linkedin", "whatsapp"
+  },
+};
+```
 
-- `data/` for portfolio content
-- `content/` for copy and case studies
-- `config/` for site settings
-- `lib/` for reusable helpers
-- `app/` for routes and metadata
-- `components/` for UI only
+**💡 Tip**: After editing, save the file (`Ctrl+S`). Your browser will hot-reload automatically!
 
-The idea is that components render data, but do not own the data itself.
+---
 
-## Adding Your Own Content
+### Step 2: Customize Projects
 
-When replacing the template content, update the following in your data source:
+**File**: [config/user-data/projects.ts](./config/user-data/projects.ts)
 
-- personal introduction
-- project cards
-- featured work
-- technology stack
-- testimonials
-- contact information
-- social profiles
+This file controls your portfolio projects showcase.
 
-Keep the component structure intact so future updates stay easy.
+#### Basic Project Setup:
 
-## Deployment
+```typescript
+const projects: ProjectItem[] = [
+  {
+    id: "project-1",
+    title: "Project Title",
+    description: "Brief project description",
+    categories: ["web", "design"], // Used for filtering
+    imageUrl: "projects/project-image.webp", // Path in public/projects/
+    technologies: ["React", "TypeScript", "Tailwind"],
+    liveUrl: "https://project-live-url.com", optional
+    githubUrl: "https://github.com/your-repo", optional
+    caseStudy: detailedCaseStudyObject, // optional
+  },
+];
+```
 
-Before deploying:
+**Image Location**: Place your project images in `public/projects/` folder.
 
-1. Confirm all environment variables are set.
-2. Verify metadata values.
-3. Check responsive layout behavior.
-4. Review theme contrast.
-5. Test all external links.
+---
 
-## Reuse Checklist
+### Step 3: Customize Services
 
-- `env.example` is complete
-- `.env.local` is filled in
-- no content is hardcoded in TSX files
-- metadata is configured separately
-- theme values are easy to edit
-- dark/light mode is either fully supported or fully removed
-- all reusable content lives in data files
+**File**: [config/user-data/services.ts](./config/user-data/services.ts)
 
-## Notes For Template Users
+This controls the services section in your portfolio.
 
-If you are cloning this repo for your own portfolio:
+#### Service Setup:
 
-- update the data first
-- change metadata second
-- tweak the theme third
-- remove unused sections last
+```typescript
+export const services: ServiceItem[] = [
+  {
+    id: 1,
+    title: "Service Name",
+    description: "What this service includes",
+    imageUrl: "services/service-image.webp", // Path in public/services/
+  },
+];
+```
 
-This keeps the template clean and easy to maintain.
+**Image Location**: Place service images in `public/services/` folder.
+
+---
+
+### Step 4: Customize Skills
+
+**File**: [config/user-data/skills.ts](./config/user-data/skills.ts)
+
+This file creates the interactive skills visualization with 3 rings (inner, mid, outer).
+
+#### Understanding the Skills Structure:
+
+```typescript
+const BASE_SKILLS: Omit<Skill, "angle">[] = [
+  {
+    id: "react",
+    label: "React", // Short label for display
+    name: "React", // Full name
+    tags: ["Hooks", "Components", "JSX"], // Skills/subtags
+    cat: ["frontend"], // Category: frontend, backend, tools, language
+    ring: "inner", // Ring position: inner (core), mid, outer (learning)
+    Icon: ReactIcon, // Icon component
+    color: "#61DAFB", // Optional: custom color
+  },
+];
+```
+
+**Ring Placement Guide**:
+
+- **Inner Ring**: Core skills you use daily
+- **Mid Ring**: Important skills, less frequently used
+- **Outer Ring**: Learning or emerging skills
+
+---
+
+### Step 5: Add Project Case Studies
+
+**File**: [config/user-data/case-study/](./config/user-data/case-study/)
+
+Each case study is a detailed breakdown of a project. Create files like `my-project.ts`:
+
+```typescript
+export const myProjectCaseStudy: CaseStudy = {
+  bgImageUrl: "projects/case-study/my-project.png",
+
+  introduction: "Overview of what the project is",
+
+  overview: "What you built and your role",
+
+  architecture: {
+    description: "How the app is structured",
+    structure: `
+    app/
+      components/
+      pages/
+    `,
+  },
+
+  challenges: [
+    {
+      title: "Challenge 1",
+      body: "How you overcame it",
+    },
+  ],
+
+  process: [
+    {
+      title: "Phase 1",
+      body: "What you did",
+    },
+  ],
+
+  features: [
+    {
+      title: "Feature Name",
+      body: "How it works",
+    },
+  ],
+
+  outcomes: [
+    {
+      value: "50%",
+      desc: "Performance improvement",
+    },
+  ],
+
+  reflection: "What you learned from this project",
+};
+```
+
+Then import it in `projects.ts`:
+
+```typescript
+import { myProjectCaseStudy } from "./case-study/my-project";
+
+const projects: ProjectItem[] = [
+  {
+    // ... other project details
+    caseStudy: myProjectCaseStudy,
+  },
+];
+```
+
+---
+
+## 🔄 Real-Time Customization Workflow
+
+Follow these steps to customize and see changes instantly:
+
+### 1. **Start the Development Server**
+
+```bash
+npm run dev
+```
+
+### 2. **Open the Config File**
+
+- Open [config/user-data/about.ts](./config/user-data/about.ts) in your editor
+
+### 3. **Make Changes**
+
+```typescript
+// Example: Change your name
+name: "Your New Name";
+```
+
+### 4. **Save** (`Ctrl+S` on Windows, `Cmd+S` on Mac)
+
+### 5. **See Changes Instantly**
+
+The browser automatically reloads with your changes (no page refresh needed!)
+
+---
+
+## 📝 Important TypeScript Types Reference
+
+### AboutData Structure
+
+```typescript
+interface AboutData {
+  name: string; // Your name
+  title: string; // Your job title
+  showCurtain: boolean; // Show decorative curtains
+  topText?: string; // Small text above name
+  highlightsFromTopText: string[]; // Words to highlight
+
+  hero: {
+    headline: string; // Main headline
+    highlightedWords?: string[]; // Words to highlight
+    primaryCtaText: string; // Button 1 text
+    primaryCtaLink: string; // Button 1 URL
+    secondaryCtaText: string; // Button 2 text
+    secondaryCtaLink: string; // Button 2 URL
+    heroPara: string; // Description text
+  };
+
+  aboutMe: {
+    heading: {
+      normalText: string;
+      highlightedText: string; // Use {word} for styling
+    };
+    paragraphs: string[];
+    skills: string[];
+    interests: string[];
+    highlightedAboutRole: string[];
+    aboutCTA: string;
+    aboutSecondaryCTA?: {
+      text: string;
+      icon?: string;
+      onClick?: () => void;
+    };
+  };
+
+  experience: ExperienceItem[];
+  education?: EducationItem[];
+  hobbies: HobbiesItem[];
+  socialLinks: SocialLink[];
+
+  contact: {
+    email: string;
+    phone?: string; // Optional for privacy
+    location: string;
+    preferredMethod: "email" | "phone" | "linkedin" | "whatsapp";
+  };
+}
+```
+
+### ProjectItem Structure
+
+```typescript
+interface ProjectItem {
+  id: string; // Unique ID (e.g., "project-1")
+  title: string; // Project name
+  description: string; // Short description
+  categories: string[]; // For filtering (web, design, etc)
+  imageUrl: string; // Path: public/projects/...
+  technologies: string[]; // Tech used
+  liveUrl?: string; // Live project URL
+  githubUrl?: string; // GitHub repo URL
+  isClientProject?: boolean; // Client work?
+  result?: string; // Outcome
+  bgImageUrl?: string; // Background image
+  role?: string; // Your role
+  context?: string; // Project context
+  period?: string; // Time period
+  introduction?: string; // Intro text
+  caseStudy?: CaseStudy; // Detailed case study
+  previewImage?: string; // Preview thumbnail
+}
+```
+
+---
+
+## 🎨 Image Assets Guide
+
+### Where to Place Images
+
+```
+public/
+├── projects/
+│   ├── project-1.webp
+│   ├── project-2.webp
+│   └── case-study/
+│       ├── project-1.png
+│       └── project-1-overview.png
+├── services/
+│   ├── service-1.webp
+│   └── service-2.webp
+└── photo-gallery/
+    └── your-images/
+```
+
+### Recommended Image Formats
+
+- **Formats**: `.webp` (best), `.png`, `.jpg`
+- **Project Images**: 1200x600px (16:9 ratio)
+- **Service Images**: 400x300px
+- **Case Study**: Any size (will be responsive)
+
+### In Your Config Files
+
+```typescript
+// Always use relative paths from the public folder
+imageUrl: "projects/my-project.webp"; // ✅ Correct
+imageUrl: "public/projects/my-project.webp"; // ❌ Wrong
+imageUrl: "/projects/my-project.webp"; // ❌ Use without /
+```
+
+---
+
+## 🚀 Environment Variables Explained
+
+**File**: `.env.local` (copy from `env.example`)
+
+```bash
+# Resend Email Service
+# 1. Go to https://resend.com
+# 2. Sign up (free tier available)
+# 3. Create an API key
+# 4. Paste it here
+RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxx
+
+# Your Portfolio URL (after deployment)
+# Update this after deploying to Vercel/Netlify
+NEXT_PUBLIC_BASE_URL=https://yourportfolio.com
+```
+
+---
+
+## ✨ Customization Checklist
+
+- [ ] **Update `about.ts`** with your name, title, and bio
+- [ ] **Add your projects** to `projects.ts`
+- [ ] **Update services** in `services.ts` (optional if not a service provider)
+- [ ] **Configure skills** in `skills.ts`
+- [ ] **Add case studies** (optional, for detailed projects)
+- [ ] **Set up `.env.local`** with Resend API key
+- [ ] **Replace images** with your own (in `public/` folders)
+- [ ] **Update social links** in `about.ts`
+- [ ] **Set contact preferences** in `about.ts`
+- [ ] **Test on mobile** - run `npm run dev` and check responsiveness
+
+---
+
+## 🐛 Troubleshooting
+
+### Changes Not Showing Up?
+
+1. **Save the file** (`Ctrl+S`)
+2. **Check for syntax errors** - TypeScript will show red squiggles
+3. **Restart dev server** - Stop (`Ctrl+C`) and run `npm run dev` again
+4. **Hard refresh browser** - `Ctrl+Shift+R` (or `Cmd+Shift+R` on Mac)
+
+### Images Not Loading?
+
+1. **Check the path** - Use relative paths from `public/` folder
+2. **File exists** - Verify image is in `public/` directory
+3. **Use correct format** - Prefer `.webp` or `.png`
+4. **Wrong path example**: `imageUrl: "/projects/image.webp"` should be `"projects/image.webp"`
+
+### TypeScript Errors?
+
+If you see red lines in your editor:
+
+1. Check the error message (hover over the red line)
+2. Ensure all required fields are filled
+3. Check for typos in property names
+4. Use the interface definition above as reference
+
+---
+
+## 📚 Next Steps
+
+After customization:
+
+1. **Deploy** to [Vercel](https://vercel.com) (free, takes 2 minutes)
+2. **Set NEXT_PUBLIC_BASE_URL** in deployment environment variables
+3. **Test contact form** - should receive emails via Resend
+4. **Share your portfolio** with potential clients/employers!
+
+---
+
+## 💡 Pro Tips
+
+- **Use highlighted words** for emphasis:
+
+  ```typescript
+  headline: "Building {Amazing} Digital {Products}";
+  // Only "Amazing" and "Products" will be highlighted
+  ```
+
+- **Keep descriptions concise** - Users skim, they don't read walls of text
+
+- **Update regularly** - Add new projects and learnings to keep it fresh
+
+- **Test responsive design** - Open DevTools (`F12`) and check mobile view
+
+- **Keep image sizes reasonable** - Compress images to keep site fast
+
+---
+
+**Happy customizing! Your portfolio is now fully configurable.** 🎉
+
+# SEO and Sitemap
+
+If you want to keep SEO in the project, complete the configuration in `config/seo.ts` and keep `app/sitemap.ts` in sync.
+
+It is recommended to keep SEO in the project because it helps search engines show your portfolio for related keywords.
+
+If you are short on time, either finish the SEO setup properly or remove the SEO and sitemap wiring completely instead of leaving it half-finished. That means deleting or disabling the `config/seo.ts` and `app/sitemap.ts` wiring together so the codebase stays clean and predictable.
+
+Do not leave partial SEO or sitemap placeholders behind.
+[Here is the guide to customize it or remove it completely.](./SEO_SETUP.md)
+
+## Colors and Theme
+
+You can change the primary colors in [app/globals.css](./app/globals.css) to match your own brand or portfolio style.
+
+```css
+:root {
+  --background: #ffffff;
+  --foreground: 14 5 22; /* rgb format for body text*/
+  --primary: #7b2cbf; /*headings and highlighting colors*/
+  --primary-light: #7a2cbf0f; /* light format with opacity 10 of primary color */
+  --primary-dark: #4a148c;
+  --black-light: #666666;
+  --glass: rgba(255, 255, 255, 0.05);
+
+  --font-serif: "Alegreya", serif;
+  --font-geist-sans: "League Spartan", sans-serif;
+}
+```
+
+If you do not want automatic dark theme detection, you can remove the `@media (prefers-color-scheme: dark)` block from `app/globals.css` and keep a single color theme instead.
+
+```css
+/* Remove this block completely*/
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0e0516;
+    --foreground: 237 237 237;
+    --black-light: #99a1af;
+    --primary-light: #7a2cbf36;
+  }
+}
+```
+
+This is useful if you want full control over the look of the site and prefer a consistent palette in every mode.
