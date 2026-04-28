@@ -2,11 +2,10 @@
 
 ## Table of Contents
 
-- [View Demo](#-view-demo)
+- [View Demo](#view-demo)
 - [Features](#features)
-- [Setup Guide](#-setup-guide)
+- [Setup Guide](#setup-guide)
 - [Planning for Future Customization](#planning-for-future-customization)
-
 ---
 
 ## View Demo
