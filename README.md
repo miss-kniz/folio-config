@@ -70,4 +70,4 @@ For installation and setup instructions, please refer to:
 ## Planning for Future Customization
 
 - **Theme Control**
-  Users may want to enable or disable dark/light theme adaptation. This permission will be added in future updates.
+  Users may want to enable or disable dark/light theme adaptation. This feature will be added in future updates in the navbar.
