@@ -7,6 +7,7 @@ import Button from "../ui/Button";
 import Heading from "../ui/Heading";
 import ServiceCard from "../ui/ServiceCard";
 import { Sparkle } from "phosphor-react";
+import { formatText } from "@/helpers/text-helper";
 
 const JourneyModal = ({
   isOpen,
@@ -145,7 +146,7 @@ const ExperienceItem = ({
 
     {description && (
       <p className="text-xs mt-1.5 leading-relaxed text-black-light">
-        {description}
+        {formatText(description)}
       </p>
     )}
   </li>

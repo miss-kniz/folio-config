@@ -108,14 +108,14 @@ const aboutData: AboutData = {
   title: "Full Stack Developer",
   showCurtain: true, // Set to false to hide decorative curtains in Hero section
 
-  topText: "Available for UK Remote Roles",
-  highlightsFromTopText: ["UK Remote"],
+  topText: "Available for Contact base or permanent Remote Roles",
+  highlightsFromTopText: ["Available", "Remote"],
 
   // ---------- Hero Section ----------
   hero: {
     headline: "Turning Ideas Into High Performing Digital Products",
     highlightedWords: ["Ideas Into", "Digital Products"], // Optional: words in headline to highlight
-    primaryCtaText: "Hire Me", // e.g., "Hire Me", "Download Resume"
+    primaryCtaText: "View Resume", // e.g., "Hire Me", "Download Resume"
     primaryCtaLink:
       "https://docs.google.com/document/d/1RWiaPjxjxr_cjxwo3uDriRe3rav1rmTasqtgRGrpz80/edit?usp=sharing",
     secondaryCtaText: "Book a Call",
@@ -164,7 +164,8 @@ const aboutData: AboutData = {
     {
       role: "Frontend-Focused Full-Stack Developer",
       company: "ThinkBuilt Solutions - Remote",
-      description: "Next.js, TypeScript, Node.js, Prisma, PostgreSQL",
+      description:
+        "Next.js, TypeScript, Node.js, Prisma, PostgreSQL, React, tailwindCSS \n Built Leadlyft, cherished-Lives and Physemp",
       period: "Mar 2025 - Present",
     },
     {
