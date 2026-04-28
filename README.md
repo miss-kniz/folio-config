@@ -31,11 +31,6 @@ https://mehak-naqvi.vercel.app/
   - Helps both job seekers and freelancers.
   - Your name appears on the navbar.
 
-  ```
-  *about.ts*
-  export const portfolioForJob = true; // can be for freelancing the service section and others will work
-  ```
-
 - **About Section**
   - Image with a catchy heading.
   - Short about text + highlight roles or expertise.
