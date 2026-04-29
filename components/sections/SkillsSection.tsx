@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useRef, Ref, forwardRef, useEffect } from "react";
-import { ArrowRight, Lightning, Atom, Database } from "phosphor-react";
+import { useState, useRef, Ref, forwardRef } from "react";
+import { Lightning } from "phosphor-react";
 import {
   CATEGORIES,
   Category,
@@ -13,25 +13,18 @@ import Heading from "../ui/Heading";
 import SubHeadingContainer, { SimplePara } from "../ui/SubHeadingContainer";
 import { capitalFirstLetter } from "@/helpers/text-helper";
 import DecorativeGlowBlobs from "../ui/DecorativeGlowBlobs";
+import { Reveal, Stagger, StaggerItem } from "../motion/Reveal";
 
 const RING_RADII = { inner: 90, mid: 145, outer: 198 };
 const CENTER = 220;
 
-const SkillsSection = forwardRef<HTMLElement, {}>(
+const SkillsSection = forwardRef<HTMLElement, object>(
   (props, ref: Ref<HTMLElement>) => {
     const [activeCategory, setActiveCategory] = useState<Category>("all");
     const [hoveredSkill, setHoveredSkill] = useState<Skill | null>(null);
     const [tooltipPos, setTooltipPos] = useState({ x: 0, y: 0 });
     const [centerSkill, setCenterSkill] = useState<Skill | null>(null);
     const containerRef = useRef<HTMLDivElement>(null);
-
-    const [mounted, setMounted] = useState(false);
-
-    useEffect(() => {
-      setMounted(true);
-    }, []);
-
-    if (!mounted) return null; // skip rendering on server
 
     const filtered =
       activeCategory === "all"
@@ -67,42 +60,52 @@ const SkillsSection = forwardRef<HTMLElement, {}>(
         {/* ── max-w-5xl centred row ─────────────────────────────────────────── */}
         <div className="relative z-10 mx-auto flex flex-col max-w-5xl items-center justify-between px-6 md:py-4">
           <div className="text-center my-2">
-            <SubHeadingContainer>
-              <div className="flex items-center gap-2 relative justify-center">
-                <span className="inline-block py-1 px-2 rounded-full bg-white">
-                  <Lightning
-                    weight="fill"
-                    className="w-4 h-4 text-yellow-500"
-                  />
-                </span>
+            <Reveal delay={0.05}>
+              <SubHeadingContainer>
+                <div className="flex items-center gap-2 relative justify-center">
+                  <span className="inline-block py-1 px-2 rounded-full bg-white">
+                    <Lightning
+                      weight="fill"
+                      className="w-4 h-4 text-yellow-500"
+                    />
+                  </span>
 
-                <span className="font-medium text-gray-700 uppercase tracking-wide">
-                  Skills Section
-                </span>
-              </div>
-            </SubHeadingContainer>
+                  <span className="font-medium text-gray-700 uppercase tracking-wide">
+                    Skills Section
+                  </span>
+                </div>
+              </SubHeadingContainer>
+            </Reveal>
 
-            <Heading as="h2" normalText="What I" highlightText="Work With" />
+            <Reveal delay={0.12}>
+              <Heading as="h2" normalText="What I" highlightText="Work With" />
+            </Reveal>
 
-            <SimplePara className="mt-2">{skillPara}</SimplePara>
-            <div className="flex flex-wrap justify-start md:justify-center gap-2 mb-6">
-              {(Object.keys(CATEGORIES) as Category[]).map((category) => (
-                <button
-                  key={category} // React key
-                  onClick={() => {
-                    setActiveCategory(category);
-                    setCenterSkill(null);
-                  }}
-                  className={`px-4 my-2 text-sm md:text-base py-2 rounded-full font-medium ${
-                    activeCategory === category
-                      ? "glass-btn-active text-white"
-                      : "glass-btn text-black-light"
-                  }`}
-                >
-                  {capitalFirstLetter(category)}
-                </button>
-              ))}
-            </div>
+            <Reveal delay={0.18}>
+              <SimplePara className="mt-2">{skillPara}</SimplePara>
+            </Reveal>
+
+            <Reveal delay={0.24}>
+              <Stagger className="flex flex-wrap justify-start md:justify-center gap-2 mb-6" stagger={0.05}>
+                {(Object.keys(CATEGORIES) as Category[]).map((category) => (
+                  <StaggerItem key={category}>
+                    <button
+                      onClick={() => {
+                        setActiveCategory(category);
+                        setCenterSkill(null);
+                      }}
+                      className={`px-4 my-2 text-sm md:text-base py-2 rounded-full font-medium transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.01] ${
+                        activeCategory === category
+                          ? "glass-btn-active text-white"
+                          : "glass-btn text-black-light"
+                      }`}
+                    >
+                      {capitalFirstLetter(category)}
+                    </button>
+                  </StaggerItem>
+                ))}
+              </Stagger>
+            </Reveal>
           </div>
 
           {/* RIGHT ── orbital diagram */}
@@ -299,5 +302,7 @@ const SkillsSection = forwardRef<HTMLElement, {}>(
     );
   },
 );
+
+SkillsSection.displayName = "SkillsSection";
 
 export default SkillsSection;

@@ -21,7 +21,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ref,
   ) => {
     const baseClasses =
-      "inline-flex items-center gap-1 justify-center whitespace-nowrap rounded-full transition-colors text-center tracking-wide";
+      "inline-flex items-center gap-1 justify-center whitespace-nowrap rounded-full text-center tracking-wide transition-[transform,background-color,border-color,box-shadow,color] duration-300 ease-out will-change-transform hover:-translate-y-0.5";
 
     const variantClasses = {
       primary:

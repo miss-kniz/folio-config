@@ -41,7 +41,7 @@ const Footer: React.FC<FooterProps> = ({ portfolioForJob, className }) => {
             <button
               key={item}
               onClick={() => scrollToSection(item)}
-              className="hover:text-primary transition-colors"
+              className="relative transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.01] hover:text-primary after:absolute after:left-0 after:right-0 after:-bottom-0.5 after:h-px after:origin-center after:scale-x-0 after:bg-primary/40 after:transition-transform after:duration-300 hover:after:scale-x-100"
             >
               {item}
             </button>

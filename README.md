@@ -70,4 +70,17 @@ For installation and setup instructions, please refer to:
 ## Planning for Future Customization
 
 - **Theme Control**
+  Users may want to enable or disable dark/light theme adaptation. This permission will be added in future updates.
+
+## Support
+
+If this project helps you or you use it in your portfolio, I’d genuinely appreciate your support:
+
+- Star this repository to support the project and help it reach more developers
+- Follow me on GitHub for more open-source projects like this
+- Report issues if you find bugs or want improvements
+- Reach out for questions or feedback
+
+Email: mehak313naqvi@gmail.com
+LinkedIn: https://www.linkedin.com/in/miss-kniz
   Users may want to enable or disable dark/light theme adaptation. This feature will be added in future updates in the navbar.
