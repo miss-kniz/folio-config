@@ -1,4 +1,3 @@
-import { BASE_URL } from "@/app/layout";
 import { Metadata } from "next";
 
 export const metadataSEO: Metadata = {
@@ -35,7 +34,7 @@ export const metadataSEO: Metadata = {
     "Scalable Frontend Architect",
   ],
   alternates: {
-    canonical: BASE_URL,
+    canonical: "https://mehak-naqvi.vercel.app",
   },
   openGraph: {
     title: "Mehak Fatima Naqvi Portfolio",

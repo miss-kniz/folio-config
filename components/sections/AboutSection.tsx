@@ -9,8 +9,9 @@ import SubHeadingContainer, { SimplePara } from "../ui/SubHeadingContainer";
 import Button from "../ui/Button";
 import JourneyModal from "../modals/JourneyModal";
 import aboutData from "@/config/user-data/about";
+import { Reveal, Stagger, StaggerItem } from "../motion/Reveal";
 
-const AboutSection = forwardRef<HTMLElement, {}>(
+const AboutSection = forwardRef<HTMLElement, object>(
   (props, ref: Ref<HTMLElement>) => {
     const { aboutMe } = aboutData;
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -43,67 +44,79 @@ const AboutSection = forwardRef<HTMLElement, {}>(
         >
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between md:gap-8 items-center">
             <div className="flex-1">
-              <SubHeadingContainer>
-                <div className="flex items-center gap-2 relative justify-center">
-                  <span className="inline-block py-1 px-1 rounded-full bg-white">
-                    <Lightbulb
-                      weight="fill"
-                      className="w-4 h-4 text-yellow-500"
-                    />
-                  </span>
-                  <span className="font-medium text-gray-600 uppercase tracking-wide">
-                    About Section
-                  </span>
-                </div>
-              </SubHeadingContainer>
+              <Reveal delay={0.05}>
+                <SubHeadingContainer>
+                  <div className="flex items-center gap-2 relative justify-center">
+                    <span className="inline-block py-1 px-1 rounded-full bg-white">
+                      <Lightbulb
+                        weight="fill"
+                        className="w-4 h-4 text-yellow-500"
+                      />
+                    </span>
+                    <span className="font-medium text-gray-600 uppercase tracking-wide">
+                      About Section
+                    </span>
+                  </div>
+                </SubHeadingContainer>
+              </Reveal>
 
-              <Heading
-                as="h2"
-                normalText={aboutMe.heading.normalText}
-                highlightText={aboutMe.heading.highlightedText}
-                center={false}
-              />
+              <Reveal delay={0.12}>
+                <Heading
+                  as="h2"
+                  normalText={aboutMe.heading.normalText}
+                  highlightText={aboutMe.heading.highlightedText}
+                  center={false}
+                />
+              </Reveal>
 
-              {aboutMe.paragraphs.map((paragraph, index) =>
-                renderParagraph(paragraph, index),
-              )}
-
-              <div className="flex gap-2 mt-4 flex-wrap">
-                {aboutMe.highlightedAboutRole.map((title, index) => (
-                  <span
-                    key={index}
-                    className="text-xs font-medium px-2 py-1 rounded-md bg-black-light/10 text-primary"
-                  >
-                    {title}
-                  </span>
+              <Stagger className="space-y-2">
+                {aboutMe.paragraphs.map((paragraph, index) => (
+                  <StaggerItem key={index}>
+                    {renderParagraph(paragraph, index)}
+                  </StaggerItem>
                 ))}
-              </div>
+              </Stagger>
 
-              <div className="flex flex-wrap gap-2">
-                <Button
-                  onClick={() => {
-                    setIsModalOpen(true);
-                  }}
-                  className="mt-2"
-                >
-                  {aboutMe.aboutCTA}
-                </Button>
-                {aboutMe.aboutSecondaryCTA && (
+              <Reveal delay={0.24}>
+                <Stagger className="flex gap-2 mt-4 flex-wrap">
+                  {aboutMe.highlightedAboutRole.map((title, index) => (
+                    <StaggerItem
+                      key={index}
+                      className="text-xs font-medium px-2 py-1 rounded-md bg-black-light/10 text-primary"
+                    >
+                      {title}
+                    </StaggerItem>
+                  ))}
+                </Stagger>
+              </Reveal>
+
+              <Reveal delay={0.3}>
+                <div className="flex flex-wrap gap-2">
                   <Button
-                    variant={"secondary"}
-                    onClick={aboutMe.aboutSecondaryCTA.onClick}
+                    onClick={() => {
+                      setIsModalOpen(true);
+                    }}
                     className="mt-2"
                   >
-                    {aboutMe.aboutSecondaryCTA.text}{" "}
-                    <i
-                      className={`${aboutMe.aboutSecondaryCTA.icon} text-2xl align-middle`}
-                    ></i>
+                    {aboutMe.aboutCTA}
                   </Button>
-                )}
-              </div>
+                  {aboutMe.aboutSecondaryCTA && (
+                    <Button
+                      variant={"secondary"}
+                      onClick={aboutMe.aboutSecondaryCTA.onClick}
+                      className="mt-2"
+                    >
+                      {aboutMe.aboutSecondaryCTA.text}{" "}
+                      <i
+                        className={`${aboutMe.aboutSecondaryCTA.icon} text-2xl align-middle`}
+                      ></i>
+                    </Button>
+                  )}
+                </div>
+              </Reveal>
             </div>
 
-            <div className="flex-1 mt-6 md:mt-0 flex justify-center">
+            <Reveal className="flex-1 mt-6 md:mt-0 flex justify-center" delay={0.15}>
               <Image
                 src={"/photo-gallery/my-picture.png"}
                 alt={`Miss kniz - Photo of ${aboutData.name}`}
@@ -111,7 +124,7 @@ const AboutSection = forwardRef<HTMLElement, {}>(
                 height={400}
                 className="rounded-2xl shadow-xl object-cover max-w-full"
               />
-            </div>
+            </Reveal>
           </div>
         </section>
 
@@ -123,5 +136,7 @@ const AboutSection = forwardRef<HTMLElement, {}>(
     );
   },
 );
+
+AboutSection.displayName = "AboutSection";
 
 export default AboutSection;

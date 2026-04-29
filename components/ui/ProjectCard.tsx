@@ -1,12 +1,8 @@
-import { highlightTechs, TECH_STACK } from "@/config/user-data/projects";
+import { highlightTechs } from "@/config/user-data/projects";
 import Heading from "./Heading";
-import {
-  ArrowArcLeft,
-  ArrowBendLeftDown,
-  NavigationArrow,
-} from "phosphor-react";
+import { NavigationArrow } from "phosphor-react";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
 interface ProjectCardProps {
   title: string;
@@ -30,6 +26,8 @@ export default function ProjectCard({
   onNavigate,
 }: ProjectCardProps) {
   const router = useRouter();
+  const reduceMotion = useReducedMotion() ?? false;
+
   const navigateToProject = (id: string) => {
     onNavigate?.();
 
@@ -39,9 +37,12 @@ export default function ProjectCard({
   };
 
   return (
-    <div
+    <motion.div
       className="group relative bg-glass rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden h-full flex flex-col items-start cursor-pointer"
       onClick={() => navigateToProject(id)}
+      whileHover={reduceMotion ? undefined : { y: -4 }}
+      whileTap={reduceMotion ? undefined : { scale: 0.995 }}
+      transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
     >
       {/* Image */}
       <div className="relative w-full h-fit px-2 m-2 overflow-hidden rounded-lg group mx-auto">
@@ -104,6 +105,6 @@ export default function ProjectCard({
           </span>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

@@ -8,12 +8,12 @@ import Input from "../inputs/Input";
 import Textarea from "../inputs/Textarea";
 import Button from "../ui/Button";
 import SocialLinks from "../ui/SocialLinks";
+import { Reveal, Stagger, StaggerItem } from "../motion/Reveal";
 
 const ContactSection: React.FC = () => {
   const { contact, hero } = aboutData;
   const ctaText = hero.secondaryCtaText;
   const ctaLink = hero.secondaryCtaLink;
-  console.log("hero", hero);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -103,13 +103,15 @@ const ContactSection: React.FC = () => {
         <div className="grid lg:gap-10 gap-4 md:grid-cols-2 items-start">
           {/* LEFT */}
           <div className="space-y-8 text-left">
-            <Heading as="h2" center={false} normalText="Contact" />
+            <Reveal>
+              <Heading as="h2" center={false} normalText="Contact" />
+            </Reveal>
 
-            <div className="space-y-6 ">
+            <Stagger className="space-y-6" amount={0.2}>
               {contactItems
                 .filter((item) => item.show)
                 .map(({ key, label, value, icon: Icon }) => (
-                  <div key={key} className="flex items-start gap-4">
+                  <StaggerItem key={key} className="flex items-start gap-4">
                     <div className="h-10 w-10 flex items-center justify-center rounded-full bg-primary-light text-primary">
                       <Icon size={18} weight="regular" />
                     </div>
@@ -120,69 +122,73 @@ const ContactSection: React.FC = () => {
                         {value}
                       </p>
                     </div>
-                  </div>
+                  </StaggerItem>
                 ))}
-            </div>
+            </Stagger>
 
             {/* Social - Using Button component */}
-            <div className="pt-6 border-t border-black/10 dark:border-white/10">
-              <p className="mb-4 font-medium">Follow Me :</p>
-              <div className="flex gap-4">
-                <SocialLinks
-                  links={aboutData.socialLinks}
-                  size="icon"
-                  variant="secondary"
-                />
+            <Reveal delay={0.12}>
+              <div className="pt-6 border-t border-black/10 dark:border-white/10">
+                <p className="mb-4 font-medium">Follow Me :</p>
+                <div className="flex gap-4">
+                  <SocialLinks
+                    links={aboutData.socialLinks}
+                    size="icon"
+                    variant="secondary"
+                  />
+                </div>
               </div>
-            </div>
+            </Reveal>
           </div>
 
           {/* RIGHT FORM (unchanged) */}
-          <div className="bg-primary-light p-4 rounded-2xl">
-            <h3 className="text-lg font-semibold mb-6">Leave Your Info.</h3>
+          <Reveal delay={0.08}>
+            <div className="bg-primary-light p-4 rounded-2xl">
+              <h3 className="text-lg font-semibold mb-6">Leave Your Info.</h3>
 
-            <form className="space-y-2" onSubmit={handleSubmit}>
-              {formFields.map((field) => (
-                <Input
-                  key={field.name}
-                  name={field.name}
-                  type={field.type}
-                  value={form[field.name as keyof typeof form]}
+              <form className="space-y-2" onSubmit={handleSubmit}>
+                {formFields.map((field) => (
+                  <Input
+                    key={field.name}
+                    name={field.name}
+                    type={field.type}
+                    value={form[field.name as keyof typeof form]}
+                    onChange={handleChange}
+                    placeholder={field.placeholder}
+                    required={field.required}
+                  />
+                ))}
+
+                <Textarea
+                  name="message"
+                  value={form.message}
                   onChange={handleChange}
-                  placeholder={field.placeholder}
-                  required={field.required}
+                  rows={4}
+                  placeholder="Message"
                 />
-              ))}
 
-              <Textarea
-                name="message"
-                value={form.message}
-                onChange={handleChange}
-                rows={4}
-                placeholder="Message"
-              />
+                {/* Button */}
+                <Button className="w-full" type="submit" disabled={loading}>
+                  {loading ? "Sending" : "Send Message"}
+                </Button>
 
-              {/* Button */}
-              <Button className="w-full" type="submit" disabled={loading}>
-                {loading ? "Sending" : "Send Message"}
-              </Button>
-
-              <div className="flex items-center gap-2 text-black-light">
-                <div className="h-[0.5px] w-full bg-black-light"></div>
-                <div>OR</div>
-                <div className="h-[0.5px] w-full bg-black-light"></div>
-              </div>
-              <Button
-                className="w-full"
-                variant="outline"
-                type="button"
-                onClick={() => window.open(ctaLink, "_blank")}
-              >
-                <Calendar size={24} />
-                {ctaText}
-              </Button>
-            </form>
-          </div>
+                <div className="flex items-center gap-2 text-black-light">
+                  <div className="h-[0.5px] w-full bg-black-light"></div>
+                  <div>OR</div>
+                  <div className="h-[0.5px] w-full bg-black-light"></div>
+                </div>
+                <Button
+                  className="w-full"
+                  variant="outline"
+                  type="button"
+                  onClick={() => window.open(ctaLink, "_blank")}
+                >
+                  <Calendar size={24} />
+                  {ctaText}
+                </Button>
+              </form>
+            </div>
+          </Reveal>
         </div>
       </div>
       {toast && (

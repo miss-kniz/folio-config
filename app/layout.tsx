@@ -3,6 +3,7 @@ import "./globals.css";
 import "remixicon/fonts/remixicon.css";
 import Script from "next/script";
 import { metadataSEO } from "@/config/seo";
+import { RouteTransition } from "@/components/motion/Reveal";
 
 export const BASE_URL =
   process.env.NEXT_PUBLIC_BASE_URL || "https://mehak-naqvi.vercel.app/";
@@ -17,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className="antialiased">
-        {children}
+        <RouteTransition>{children}</RouteTransition>
 
         {/* Structured Data: Directly connects your portfolio to your LinkedIn and GitHub */}
         <Script

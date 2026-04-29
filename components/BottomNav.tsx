@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Button from "./ui/Button";
 import { NavbarProps } from "./Navbar";
 
 export default function BottomNav({
@@ -57,7 +56,7 @@ export default function BottomNav({
               <button
                 key={item}
                 onClick={() => scrollTo(item.toLowerCase())}
-                className={`px-4 py-2 rounded-full font-medium text-sm md:text-base transition-colors ${
+                className={`relative px-4 py-2 rounded-full font-medium text-sm md:text-base transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.01] after:absolute after:left-3 after:right-3 after:-bottom-0.5 after:h-px after:origin-center after:scale-x-0 after:bg-primary/40 after:transition-transform after:duration-300 hover:after:scale-x-100 ${
                   activeNav === item
                     ? "glass-btn text-foreground border border-gray-200"
                     : "text-foreground  font-medium hover:bg-primary-light hover:text-primary"

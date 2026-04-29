@@ -7,6 +7,7 @@ import { highlightTechs, projects } from "@/config/user-data/projects";
 import Link from "next/link";
 
 import { Metadata } from "next";
+import { Reveal, Stagger, StaggerItem, TextReveal } from "@/components/motion/Reveal";
 
 type Props = {
   params: { id: string };
@@ -102,37 +103,42 @@ export default async function ProjectPage({
               />
             </div>
 
-            <div className="flex flex-col items-center gap-3">
+            <Reveal delay={0.12} className="flex flex-col items-center gap-3">
               <Heading
                 normalText={project.title}
                 as="h1"
                 className="text-center"
               />
-              <SimplePara>{project.description}</SimplePara>
-            </div>
+              <SimplePara>
+                <TextReveal text={project.description || ""} delay={0.12} />
+              </SimplePara>
+            </Reveal>
 
-            <div className="flex items-center flex-col lg:flex-row gap-4 mb-8 justify-between w-full max-w-5xl px-4">
-              {metaLabels.map((label) => {
-                const value = project[label] || "Not specified";
-                const displayLabel =
-                  label.charAt(0).toUpperCase() + label.slice(1);
-                return (
-                  <div key={label} className="font-sans font-bold uppercase">
-                    <span className="text-primary">{displayLabel}</span> {value}
-                  </div>
-                );
-              })}
-            </div>
+            <Reveal delay={0.2} className="w-full max-w-5xl px-4">
+              <Stagger className="flex items-center flex-col lg:flex-row gap-4 mb-8 justify-between w-full">
+                {metaLabels.map((label) => {
+                  const value = project[label] || "Not specified";
+                  const displayLabel =
+                    label.charAt(0).toUpperCase() + label.slice(1);
+                  return (
+                    <StaggerItem key={label} className="font-sans font-bold uppercase">
+                      <span className="text-primary">{displayLabel}</span>{" "}
+                      {value}
+                    </StaggerItem>
+                  );
+                })}
+              </Stagger>
+            </Reveal>
           </div>
         </div>
 
         {/* ── INTRODUCTION — no image */}
         <div className="bg-primary-light">
           <div className="max-w-7xl mx-auto px-4 py-4 relative overflow-hidden">
-            <div className="my-12">
+            <Reveal className="my-12" delay={0.08}>
               <Heading as="h2" highlightText="Introduction" />
               <SimplePara className="max-w-2xl text-center md:text-left">
-                {caseStudy?.introduction}
+                <TextReveal text={caseStudy?.introduction || ""} delay={0.14} />
               </SimplePara>
               <div className="mx-auto text-center">
                 <Button
@@ -150,14 +156,14 @@ export default async function ProjectPage({
                   </a>
                 </Button>
               </div>
-            </div>
+            </Reveal>
             <h3 className="pointer-events-none select-none absolute tracking-tight leading-none text-6xl md:text-[12rem] whitespace-nowrap font-extrabold md:-bottom-20 left-0 -bottom-5 opacity-50 text-primary-dark">
               {project.title}
             </h3>
           </div>
         </div>
 
-        <div className="max-w-5xl mx-auto py-16 px-4 md:grid grid-cols-2 items-center gap-12">
+        <Reveal className="max-w-5xl mx-auto py-16 px-4 md:grid grid-cols-2 items-center gap-12" delay={0.08}>
           <div>
             <Heading
               as="h3"
@@ -166,11 +172,11 @@ export default async function ProjectPage({
               center={false}
             />
             <SimplePara>{caseStudy?.overview}</SimplePara>
-            <div className="flex gap-2 mt-6 flex-wrap my-4">
+            <Stagger className="flex gap-2 mt-6 flex-wrap my-4" stagger={0.04}>
               {project.technologies.map((tech, index) => {
                 const isHighlight = highlightTechs.includes(tech);
                 return (
-                  <span
+                  <StaggerItem
                     key={index}
                     className={`text-xs font-medium px-3 py-1.5 rounded-md font-mono ${
                       isHighlight
@@ -179,10 +185,10 @@ export default async function ProjectPage({
                     }`}
                   >
                     {tech}
-                  </span>
+                  </StaggerItem>
                 );
               })}
-            </div>
+            </Stagger>
           </div>
           <div>
             {caseStudy?.overviewImage && (
@@ -193,12 +199,12 @@ export default async function ProjectPage({
               />
             )}
           </div>
-        </div>
+        </Reveal>
 
         {/* ── TECHNICAL CHALLENGES — no image */}
         {caseStudy?.challenges && caseStudy.challenges.length > 0 && (
           <div className="bg-primary-light py-16">
-            <div className="max-w-5xl mx-auto px-4">
+            <Reveal className="max-w-5xl mx-auto px-4" delay={0.08}>
               <Heading
                 as="h3"
                 normalText="Technical challenges"
@@ -208,9 +214,9 @@ export default async function ProjectPage({
                 The problems that required the most thought while building this
                 project.
               </SimplePara>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <Stagger className="grid grid-cols-1 md:grid-cols-2 gap-4" stagger={0.06}>
                 {caseStudy.challenges.map((ch, i) => (
-                  <div
+                  <StaggerItem
                     key={i}
                     className="bg-background border border-border rounded-xl p-5"
                   >
@@ -220,15 +226,15 @@ export default async function ProjectPage({
                     <SimplePara className="text-sm text-muted-foreground leading-relaxed">
                       {ch.body}
                     </SimplePara>
-                  </div>
+                  </StaggerItem>
                 ))}
-              </div>
-            </div>
+              </Stagger>
+            </Reveal>
           </div>
         )}
 
         {caseStudy?.architecture && (
-          <div className="max-w-5xl mx-auto py-16 px-4 md:grid grid-cols-2 items-center gap-12">
+          <Reveal className="max-w-5xl mx-auto py-16 px-4 md:grid grid-cols-2 items-center gap-12" delay={0.08}>
             <div>
               <Heading
                 as="h3"
@@ -247,13 +253,13 @@ export default async function ProjectPage({
                 </pre>
               ) : null}
             </div>
-          </div>
+          </Reveal>
         )}
 
         {/* ── DEVELOPMENT PROCESS — no image */}
         {caseStudy?.process && caseStudy.process.length > 0 && (
           <div className="bg-primary-light py-16">
-            <div className="max-w-5xl mx-auto px-4">
+            <Reveal className="max-w-5xl mx-auto px-4" delay={0.08}>
               <Heading
                 as="h3"
                 normalText="Development process"
@@ -262,9 +268,9 @@ export default async function ProjectPage({
               <SimplePara className=" text-center">
                 How I approached building this from first commit to deployment.
               </SimplePara>
-              <ol className="space-y-5 max-w-2xl">
+              <Stagger className="space-y-5 max-w-2xl" stagger={0.08}>
                 {caseStudy.process.map((step, i) => (
-                  <li key={i} className="flex gap-5 items-start">
+                  <StaggerItem key={i} className="flex gap-5 items-start">
                     <span className="shrink-0 w-7 h-7 rounded-full border border-border bg-background flex items-center justify-center text-xs font-semibold text-primary mt-0.5">
                       {i + 1}
                     </span>
@@ -276,15 +282,15 @@ export default async function ProjectPage({
                         {step.body}
                       </SimplePara>
                     </div>
-                  </li>
+                  </StaggerItem>
                 ))}
-              </ol>
-            </div>
+              </Stagger>
+            </Reveal>
           </div>
         )}
 
         {caseStudy?.features && caseStudy.features.length > 0 && (
-          <div className="max-w-5xl mx-auto py-16 px-4">
+          <Reveal className="max-w-5xl mx-auto py-16 px-4" delay={0.08}>
             <Heading
               as="h3"
               normalText="Key features built"
@@ -293,9 +299,9 @@ export default async function ProjectPage({
             <SimplePara className="max-w-xl mb-8 text-center">
               The main modules I built end-to-end on the frontend.
             </SimplePara>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <Stagger className="grid grid-cols-1 md:grid-cols-2 gap-4" stagger={0.06}>
               {caseStudy.features.map((feat, i) => (
-                <div
+                <StaggerItem
                   key={i}
                   className="border border-border rounded-xl p-5 flex gap-4 items-start"
                 >
@@ -310,9 +316,9 @@ export default async function ProjectPage({
                       {feat.body}
                     </p>
                   </div>
-                </div>
+                </StaggerItem>
               ))}
-            </div>
+            </Stagger>
             {caseStudy.featuresImage && (
               <img
                 src={caseStudy.featuresImage}
@@ -320,20 +326,20 @@ export default async function ProjectPage({
                 className="w-full rounded-xl drop-shadow-md object-cover mt-8"
               />
             )}
-          </div>
+          </Reveal>
         )}
 
         {/* ── OUTCOMES — no image */}
         {caseStudy?.outcomes && caseStudy.outcomes.length > 0 && (
           <div className="bg-primary-light text-center py-16">
-            <div className="max-w-5xl mx-auto px-4">
+            <Reveal className="max-w-5xl mx-auto px-4" delay={0.08}>
               <Heading as="h3" normalText="Outcomes" className=" uppercase" />
               <SimplePara className="max-w-xl mb-8">
                 What the project delivered.
               </SimplePara>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              <Stagger className="grid grid-cols-2 md:grid-cols-3 gap-4" stagger={0.06}>
                 {caseStudy.outcomes.map((item, i) => (
-                  <div
+                  <StaggerItem
                     key={i}
                     className="bg-background border border-border rounded-xl p-5"
                   >
@@ -343,10 +349,10 @@ export default async function ProjectPage({
                     <p className="text-sm text-muted-foreground mt-1.5 leading-snug">
                       {item.desc}
                     </p>
-                  </div>
+                  </StaggerItem>
                 ))}
-              </div>
-            </div>
+              </Stagger>
+            </Reveal>
           </div>
         )}
 
@@ -357,12 +363,12 @@ export default async function ProjectPage({
               {prevProject ? (
                 <Link
                   href={`/projects/${prevProject.id}`}
-                  className="group flex flex-col gap-1"
+                  className="group flex flex-col gap-1 transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.01]"
                 >
                   <span className="text-xs tracking-widest uppercase text-muted-foreground">
                     Previous
                   </span>
-                  <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
+                  <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors underline decoration-transparent underline-offset-4 group-hover:decoration-primary/40">
                     ← {prevProject.title}
                   </span>
                 </Link>
@@ -372,12 +378,12 @@ export default async function ProjectPage({
               {nextProject && (
                 <Link
                   href={`/projects/${nextProject.id}`}
-                  className="group flex flex-col gap-1 text-right"
+                  className="group flex flex-col gap-1 text-right transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.01]"
                 >
                   <span className="text-xs tracking-widest uppercase text-muted-foreground">
                     Next
                   </span>
-                  <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
+                  <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors underline decoration-transparent underline-offset-4 group-hover:decoration-primary/40">
                     {nextProject.title} →
                   </span>
                 </Link>

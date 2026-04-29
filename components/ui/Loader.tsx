@@ -10,9 +10,9 @@ export default function Loader() {
           className="font-serif!"
         />
         <div className="flex  items-center gap-1">
-          <span className="h-2.5 w-2.5 rounded-full bg-primary animate-bounce" />
-          <span className="h-2.5 w-2.5 rounded-full bg-primary animate-bounce [animation-delay:150ms]" />
-          <span className="h-2.5 w-2.5 rounded-full bg-primary animate-bounce [animation-delay:300ms]" />
+          <span className="h-2.5 w-2.5 rounded-full bg-primary animate-pulse [animation-delay:0ms]" />
+          <span className="h-2.5 w-2.5 rounded-full bg-primary animate-pulse [animation-delay:150ms]" />
+          <span className="h-2.5 w-2.5 rounded-full bg-primary animate-pulse [animation-delay:300ms]" />
         </div>
       </div>
     </div>
