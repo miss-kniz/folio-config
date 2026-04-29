@@ -83,4 +83,3 @@ If this project helps you or you use it in your portfolio, I’d genuinely appre
 
 Email: mehak313naqvi@gmail.com
 LinkedIn: https://www.linkedin.com/in/miss-kniz
-  Users may want to enable or disable dark/light theme adaptation. This feature will be added in future updates in the navbar.
