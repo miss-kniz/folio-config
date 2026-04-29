@@ -2,11 +2,10 @@
 
 ## Table of Contents
 
-- [View Demo](#-view-demo)
+- [View Demo](#view-demo)
 - [Features](#features)
-- [Setup Guide](#-setup-guide)
+- [Setup Guide](#setup-guide)
 - [Planning for Future Customization](#planning-for-future-customization)
-
 ---
 
 ## View Demo
@@ -31,11 +30,6 @@ https://mehak-naqvi.vercel.app/
   - Customizable nav links: choose between Skills section or Service section.
   - Helps both job seekers and freelancers.
   - Your name appears on the navbar.
-
-  ```
-  *about.ts*
-  export const portfolioForJob = true; // can be for freelancing the service section and others will work
-  ```
 
 - **About Section**
   - Image with a catchy heading.
@@ -89,3 +83,4 @@ If this project helps you or you use it in your portfolio, I’d genuinely appre
 
 Email: mehak313naqvi@gmail.com
 LinkedIn: https://www.linkedin.com/in/miss-kniz
+  Users may want to enable or disable dark/light theme adaptation. This feature will be added in future updates in the navbar.

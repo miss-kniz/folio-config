@@ -192,10 +192,9 @@ const projects: ProjectItem[] = [
     categories: ["web", "design"], // Used for filtering
     imageUrl: "projects/project-image.webp", // Path in public/projects/
     technologies: ["React", "TypeScript", "Tailwind"],
-    liveUrl: "https://project-live-url.com",
-    githubUrl: "https://github.com/your-repo",
-    isClientProject: false,
-    result: "Project outcome/results",
+    liveUrl: "https://project-live-url.com", optional
+    githubUrl: "https://github.com/your-repo", optional
+    caseStudy: detailedCaseStudyObject, // optional
   },
 ];
 ```
