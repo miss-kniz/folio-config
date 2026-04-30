@@ -12,6 +12,7 @@
 
 Live Demo:  
 https://mehak-naqvi.vercel.app/
+If this template saves you time, a ⭐ on GitHub means a lot and helps others find it.
 
 ---
 
