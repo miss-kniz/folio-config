@@ -96,6 +96,7 @@ export const socialLinks = {
   linkedin: "https://www.linkedin.com/in/miss-kniz",
   instagram: "https://www.instagram.com/miss-kniz",
   github: "https://www.github.com/miss_kniz",
+  medium: "https://medium.com/@miss-kniz",
 };
 
 // PORTFOLIO DATA
@@ -217,6 +218,11 @@ const aboutData: AboutData = {
       icon: "ri-github-fill",
     },
     {
+      platform: "Medium",
+      url: socialLinks["medium"],
+      icon: "ri-medium-line",
+    },
+    {
       platform: "Twitter",
       icon: "ri-twitter-x-fill",
     },
@@ -230,7 +236,7 @@ const aboutData: AboutData = {
   // ---------- Contact Information ----------
   contact: {
     email: "mehak313naqvi@gmail.com",
-    location: "Remote — UK Hours",
+    location: "Available for remote roles across the UK and Europe",
     preferredMethod: "linkedin", // Options: 'email' | 'phone' | 'linkedin' | 'whatsapp'
   },
 };
