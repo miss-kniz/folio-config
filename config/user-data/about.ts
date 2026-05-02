@@ -111,8 +111,8 @@ const aboutData: AboutData = {
   title: "Full Stack Developer",
   showCurtain: true, // Set to false to hide decorative curtains in Hero section
 
-  topText: "Available for Contact base or permanent Remote Roles",
-  highlightsFromTopText: ["Available", "Remote"],
+  topText: "Available for Remote Opportunities",
+  highlightsFromTopText: ["Remote Opportunities"],
 
   // ---------- Hero Section ----------
   hero: {
@@ -236,7 +236,7 @@ const aboutData: AboutData = {
   // ---------- Contact Information ----------
   contact: {
     email: "mehak313naqvi@gmail.com",
-    location: "Available for remote roles across the UK and Europe",
+    location: "Pakistan (Available for remote roles across the UK and Europe)",
     preferredMethod: "linkedin", // Options: 'email' | 'phone' | 'linkedin' | 'whatsapp'
   },
 };
