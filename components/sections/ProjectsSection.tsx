@@ -15,6 +15,7 @@ const ProjectsSection = forwardRef<HTMLElement, object>(
     const [selectedFilter, setSelectedFilter] = useState("All");
     const [showAll, setShowAll] = useState(false);
     const [isNavigating, setIsNavigating] = useState(false);
+    console.log("showAll", showAll);
 
     // client-only responsive state (safe)
     const [windowWidth, setWindowWidth] = useState<number | null>(null);
@@ -29,15 +30,6 @@ const ProjectsSection = forwardRef<HTMLElement, object>(
       window.addEventListener("resize", handleResize);
 
       return () => window.removeEventListener("resize", handleResize);
-    }, []);
-
-    // -----------------------------
-    // Reset on navigation to projects
-    // -----------------------------
-    useEffect(() => {
-      if (window.location.hash === "#projects") {
-        setShowAll(false);
-      }
     }, []);
 
     // -----------------------------
@@ -58,10 +50,6 @@ const ProjectsSection = forwardRef<HTMLElement, object>(
     // SSR-safe default count
     // -----------------------------
     const defaultCount = windowWidth !== null && windowWidth >= 1024 ? 3 : 2;
-
-    const visibleProjects = showAll
-      ? filteredProjects
-      : filteredProjects.slice(0, defaultCount);
 
     // -----------------------------
     // UI
@@ -129,7 +117,10 @@ const ProjectsSection = forwardRef<HTMLElement, object>(
                   key={project.id}
                   className={isHidden ? "sr-only" : "block"} // sr-only keeps it in DOM but invisible
                 >
-                  <ProjectCard {...project} />
+                  <ProjectCard
+                    {...project}
+                    onNavigate={() => setIsNavigating(true)}
+                  />
                 </div>
               );
             })}
