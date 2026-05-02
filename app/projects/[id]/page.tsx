@@ -7,7 +7,13 @@ import { highlightTechs, projects } from "@/config/user-data/projects";
 import Link from "next/link";
 
 import { Metadata } from "next";
-import { Reveal, Stagger, StaggerItem, TextReveal } from "@/components/motion/Reveal";
+import {
+  Reveal,
+  Stagger,
+  StaggerItem,
+  TextReveal,
+} from "@/components/motion/Reveal";
+import Image from "next/image";
 
 type Props = {
   params: { id: string };
@@ -85,50 +91,57 @@ export default async function ProjectPage({
     <>
       <section className="min-h-screen">
         {/* ── HERO */}
-        <div
-          className="h-screen bg-primary-light w-full bg-cover bg-center relative"
-          style={
-            caseStudy?.bgImageUrl
-              ? { backgroundImage: `url(/${caseStudy.bgImageUrl})` }
-              : undefined
-          }
-        >
-          <div className="h-full w-full bg-linear-to-t text-center from-background via-background/50 to-background/50 flex flex-col items-center justify-between">
-            <div className="w-full">
-              <Navbar
-                backToProjects={true}
-                showNavLinks={false}
-                fixed={false}
-                navBgOpacity={""}
-              />
+        <div className="relative h-screen w-full">
+          <Image
+            src={`/${caseStudy?.bgImageUrl}`}
+            alt="Hero background"
+            fill
+            priority
+            quality={80}
+            className="object-cover"
+          />
+
+          <div className="relative h-full z-10">
+            <div className="h-full w-full bg-linear-to-t text-center from-background via-background/50 to-background/50 flex flex-col items-center justify-between">
+              <div className="w-full">
+                <Navbar
+                  backToProjects={true}
+                  showNavLinks={false}
+                  fixed={false}
+                  navBgOpacity={""}
+                />
+              </div>
+
+              <Reveal delay={0.12} className="flex flex-col items-center gap-3">
+                <Heading
+                  normalText={project.title}
+                  as="h1"
+                  className="text-center"
+                />
+                <SimplePara>
+                  <TextReveal text={project.description || ""} delay={0.12} />
+                </SimplePara>
+              </Reveal>
+
+              <Reveal delay={0.2} className="w-full max-w-5xl px-4">
+                <Stagger className="flex items-center flex-col lg:flex-row gap-4 mb-8 justify-between w-full">
+                  {metaLabels.map((label) => {
+                    const value = project[label] || "Not specified";
+                    const displayLabel =
+                      label.charAt(0).toUpperCase() + label.slice(1);
+                    return (
+                      <StaggerItem
+                        key={label}
+                        className="font-sans font-bold uppercase"
+                      >
+                        <span className="text-primary">{displayLabel}</span>{" "}
+                        {value}
+                      </StaggerItem>
+                    );
+                  })}
+                </Stagger>
+              </Reveal>
             </div>
-
-            <Reveal delay={0.12} className="flex flex-col items-center gap-3">
-              <Heading
-                normalText={project.title}
-                as="h1"
-                className="text-center"
-              />
-              <SimplePara>
-                <TextReveal text={project.description || ""} delay={0.12} />
-              </SimplePara>
-            </Reveal>
-
-            <Reveal delay={0.2} className="w-full max-w-5xl px-4">
-              <Stagger className="flex items-center flex-col lg:flex-row gap-4 mb-8 justify-between w-full">
-                {metaLabels.map((label) => {
-                  const value = project[label] || "Not specified";
-                  const displayLabel =
-                    label.charAt(0).toUpperCase() + label.slice(1);
-                  return (
-                    <StaggerItem key={label} className="font-sans font-bold uppercase">
-                      <span className="text-primary">{displayLabel}</span>{" "}
-                      {value}
-                    </StaggerItem>
-                  );
-                })}
-              </Stagger>
-            </Reveal>
           </div>
         </div>
 
@@ -163,7 +176,10 @@ export default async function ProjectPage({
           </div>
         </div>
 
-        <Reveal className="max-w-5xl mx-auto py-16 px-4 md:grid grid-cols-2 items-center gap-12" delay={0.08}>
+        <Reveal
+          className="max-w-5xl mx-auto py-16 px-4 md:grid grid-cols-2 items-center gap-12"
+          delay={0.08}
+        >
           <div>
             <Heading
               as="h3"
@@ -192,10 +208,13 @@ export default async function ProjectPage({
           </div>
           <div>
             {caseStudy?.overviewImage && (
-              <img
+              <Image
                 src={caseStudy.overviewImage}
                 alt={`${project.title} overview`}
-                className="w-full rounded-xl object-cover border border-border"
+                width={800}
+                height={500}
+                className="w-full rounded-xl object-cover border border-gray-200"
+                loading="lazy"
               />
             )}
           </div>
@@ -214,7 +233,10 @@ export default async function ProjectPage({
                 The problems that required the most thought while building this
                 project.
               </SimplePara>
-              <Stagger className="grid grid-cols-1 md:grid-cols-2 gap-4" stagger={0.06}>
+              <Stagger
+                className="grid grid-cols-1 md:grid-cols-2 gap-4"
+                stagger={0.06}
+              >
                 {caseStudy.challenges.map((ch, i) => (
                   <StaggerItem
                     key={i}
@@ -234,7 +256,10 @@ export default async function ProjectPage({
         )}
 
         {caseStudy?.architecture && (
-          <Reveal className="max-w-5xl mx-auto py-16 px-4 md:grid grid-cols-2 items-center gap-12" delay={0.08}>
+          <Reveal
+            className="max-w-5xl mx-auto py-16 px-4 md:grid grid-cols-2 items-center gap-12"
+            delay={0.08}
+          >
             <div>
               <Heading
                 as="h3"
@@ -299,7 +324,10 @@ export default async function ProjectPage({
             <SimplePara className="max-w-xl mb-8 text-center">
               The main modules I built end-to-end on the frontend.
             </SimplePara>
-            <Stagger className="grid grid-cols-1 md:grid-cols-2 gap-4" stagger={0.06}>
+            <Stagger
+              className="grid grid-cols-1 md:grid-cols-2 gap-4"
+              stagger={0.06}
+            >
               {caseStudy.features.map((feat, i) => (
                 <StaggerItem
                   key={i}
@@ -320,10 +348,13 @@ export default async function ProjectPage({
               ))}
             </Stagger>
             {caseStudy.featuresImage && (
-              <img
+              <Image
                 src={caseStudy.featuresImage}
                 alt="Features screenshot"
+                width={900}
+                height={600}
                 className="w-full rounded-xl drop-shadow-md object-cover mt-8"
+                loading="lazy"
               />
             )}
           </Reveal>
@@ -337,7 +368,10 @@ export default async function ProjectPage({
               <SimplePara className="max-w-xl mb-8">
                 What the project delivered.
               </SimplePara>
-              <Stagger className="grid grid-cols-2 md:grid-cols-3 gap-4" stagger={0.06}>
+              <Stagger
+                className="grid grid-cols-2 md:grid-cols-3 gap-4"
+                stagger={0.06}
+              >
                 {caseStudy.outcomes.map((item, i) => (
                   <StaggerItem
                     key={i}
