@@ -32,8 +32,6 @@ export default function Navbar({
   ];
   const [activeNav, setActiveNav] = useState("Home"); // Track active link
   const [isContactOpen, setIsContactOpen] = useState(false);
-  const [isNavigatingHome, setIsNavigatingHome] = useState(false);
-  const [isNavigatingProjects, setIsNavigatingProjects] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
 
@@ -79,13 +77,30 @@ export default function Navbar({
       return;
     }
 
-    setIsNavigatingHome(true);
-    router.push("/#home");
+    router.push("/");
+    setTimeout(() => {
+      document.getElementById("home")?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }, 100);
   };
 
   const goToProjects = () => {
-    setIsNavigatingProjects(true);
-    router.push("/#projects");
+    router.push("/");
+
+    setTimeout(() => {
+      const el = document.getElementById("projects");
+      console.log(el);
+      if (!el) return;
+
+      el.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+
+      setActiveNav("Projects");
+    }, 1000);
   };
 
   return (
@@ -97,12 +112,9 @@ export default function Navbar({
           {/* Logo */}
           <button
             onClick={goHome}
-            aria-busy={isNavigatingHome}
             className="text-xl font-semibold tracking-wider font-sans"
           >
-            {isNavigatingHome
-              ? "Opening home"
-              : aboutData?.name?.split(" ")[0] || "My Portfolio"}{" "}
+            {aboutData?.name?.split(" ")[0] || "My Portfolio"}
           </button>
 
           {/* Navigation */}
@@ -124,16 +136,8 @@ export default function Navbar({
           </nav>
           <div className="flex items-center gap-2 md:gap-4">
             {backToProjects && (
-              <Button
-                onClick={goToProjects}
-                variant="secondary"
-                disabled={isNavigatingProjects}
-              >
-                {isNavigatingProjects ? (
-                  <span className="h-4 w-4 rounded-full border-2 border-current border-t-transparent animate-spin" />
-                ) : (
-                  <ArrowLeft size={18} weight="bold" />
-                )}
+              <Button onClick={goToProjects} variant="secondary">
+                <ArrowLeft size={18} weight="bold" />
                 Back <span className="hidden md:inline-block">to Projects</span>
               </Button>
             )}
