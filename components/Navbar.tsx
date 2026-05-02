@@ -88,17 +88,11 @@ export default function Navbar({
 
   const goToProjects = () => {
     router.push("/");
-
     setTimeout(() => {
-      const el = document.getElementById("projects");
-      console.log(el);
-      if (!el) return;
-
-      el.scrollIntoView({
+      document.getElementById("projects")?.scrollIntoView({
         behavior: "smooth",
         block: "start",
       });
-
       setActiveNav("Projects");
     }, 1000);
   };
