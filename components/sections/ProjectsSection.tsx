@@ -35,16 +35,9 @@ const ProjectsSection = forwardRef<HTMLElement, object>(
     // Reset on navigation to projects
     // -----------------------------
     useEffect(() => {
-      const handleHashChange = () => {
-        if (window.location.hash === "#projects") {
-          setShowAll(false);
-        }
-      };
-
-      window.addEventListener("hashchange", handleHashChange);
-      handleHashChange();
-
-      return () => window.removeEventListener("hashchange", handleHashChange);
+      if (window.location.hash === "#projects") {
+        setShowAll(false);
+      }
     }, []);
 
     // -----------------------------
@@ -127,16 +120,16 @@ const ProjectsSection = forwardRef<HTMLElement, object>(
           {isNavigating && <Loader />}
 
           {/* PROJECT GRID */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
-            {filteredProjects.map((project: ProjectItem, index) => {
-              if (!showAll && index >= defaultCount) return null;
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredProjects.map((project, index) => {
+              const isHidden = !showAll && index >= defaultCount;
 
               return (
-                <div key={project.id}>
-                  <ProjectCard
-                    {...project}
-                    onNavigate={() => setIsNavigating(true)}
-                  />
+                <div
+                  key={project.id}
+                  className={isHidden ? "sr-only" : "block"} // sr-only keeps it in DOM but invisible
+                >
+                  <ProjectCard {...project} />
                 </div>
               );
             })}
