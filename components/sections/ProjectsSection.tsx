@@ -13,12 +13,14 @@ import Loader from "../ui/Loader";
 const ProjectsSection = forwardRef<HTMLElement, object>(
   (props, ref: Ref<HTMLElement>) => {
     const [selectedFilter, setSelectedFilter] = useState("All");
-    const [windowWidth, setWindowWidth] = useState(0);
     const [showAll, setShowAll] = useState(false);
     const [isNavigating, setIsNavigating] = useState(false);
 
+    // client-only responsive state (safe)
+    const [windowWidth, setWindowWidth] = useState<number | null>(null);
+
     // -----------------------------
-    // Window resize tracking
+    // Window tracking (client only)
     // -----------------------------
     useEffect(() => {
       const handleResize = () => setWindowWidth(window.innerWidth);
@@ -30,7 +32,7 @@ const ProjectsSection = forwardRef<HTMLElement, object>(
     }, []);
 
     // -----------------------------
-    // Reset when coming via hash navigation
+    // Reset on navigation to projects
     // -----------------------------
     useEffect(() => {
       const handleHashChange = () => {
@@ -60,16 +62,13 @@ const ProjectsSection = forwardRef<HTMLElement, object>(
         : projects.filter((p) => p.categories.includes(selectedFilter));
 
     // -----------------------------
-    // Responsive default count
+    // SSR-safe default count
     // -----------------------------
-    const getDefaultCount = () => {
-      if (windowWidth >= 1024) return 3; // desktop
-      return 2; // mobile + tablet
-    };
+    const defaultCount = windowWidth !== null && windowWidth >= 1024 ? 3 : 2;
 
     const visibleProjects = showAll
       ? filteredProjects
-      : filteredProjects.slice(0, getDefaultCount());
+      : filteredProjects.slice(0, defaultCount);
 
     // -----------------------------
     // UI
@@ -130,9 +129,6 @@ const ProjectsSection = forwardRef<HTMLElement, object>(
           {/* PROJECT GRID */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
             {filteredProjects.map((project: ProjectItem, index) => {
-              const defaultCount = windowWidth >= 1024 ? 3 : 2;
-
-              // ONLY render limited items unless showAll is true
               if (!showAll && index >= defaultCount) return null;
 
               return (
@@ -147,7 +143,7 @@ const ProjectsSection = forwardRef<HTMLElement, object>(
           </div>
 
           {/* SEE MORE BUTTON */}
-          {filteredProjects.length > getDefaultCount() && (
+          {filteredProjects.length > defaultCount && (
             <div className="flex justify-center mt-6">
               <Button
                 onClick={() => setShowAll((prev) => !prev)}
