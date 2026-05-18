@@ -95,7 +95,7 @@ export interface AboutData {
 export const socialLinks = {
   linkedin: "https://www.linkedin.com/in/miss-kniz",
   instagram: "https://www.instagram.com/miss-kniz",
-  github: "https://www.github.com/miss_kniz",
+  github: "https://www.github.com/miss-kniz",
   medium: "https://medium.com/@miss-kniz",
 };
 
