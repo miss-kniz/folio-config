@@ -47,6 +47,9 @@ export const TECH_STACK = {
   pusher: "Pusher",
   bootstrap: "Bootstrap",
   shadcn: "Shadcn UI",
+  nextauth: "NextAuth.js",
+  nextjs: "Next.js",
+  mongodb: "MongoDB",
 };
 
 export const projects: ProjectItem[] = [
@@ -81,14 +84,19 @@ export const projects: ProjectItem[] = [
   {
     id: "cherished-lives",
     title: "Cherished Lives",
-    categories: ["Frontend", "Figma to Code"],
+    categories: ["Full-stack", "SaaS"],
     imageUrl: "projects/cherished-lives.png",
     technologies: [
-      TECH_STACK["next.js"],
+      TECH_STACK.nextjs,
+      TECH_STACK.react,
+      TECH_STACK["redux toolkit"],
+      TECH_STACK["rtk query"],
       TECH_STACK.typescript,
       TECH_STACK.tailwind,
-      TECH_STACK.shadcn,
-      TECH_STACK.react,
+      TECH_STACK.prisma,
+      TECH_STACK.mongodb,
+      TECH_STACK.nextauth,
+      TECH_STACK.express,
     ],
     liveUrl:
       "https://app.cherishedlives.com/dashboard/profiles/6981db020d6f16bc1fa6dc15",
@@ -97,9 +105,9 @@ export const projects: ProjectItem[] = [
     isClientProject: true,
     description:
       "An online memorial platform where users can keep the memories of loved ones.",
-    role: "Frontend Developer",
-    context: "Website development",
-    period: "Late 2025",
+    role: "Full-stack Developer",
+    context: "Web application development",
+    period: "2025 – Present",
     caseStudy: cherishedLivesCaseStudy,
   },
 
