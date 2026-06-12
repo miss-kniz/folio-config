@@ -224,6 +224,7 @@ const SkillsSection = forwardRef<HTMLElement, object>(
                 return (
                   <button
                     key={skill.id}
+                    suppressHydrationWarning
                     className="group absolute z-10 flex items-center justify-center rounded-full transition-all duration-200 focus:outline-none hover:scale-110"
                     style={{
                       width: 50,
