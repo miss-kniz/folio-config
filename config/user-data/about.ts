@@ -200,7 +200,10 @@ const aboutData: AboutData = {
   // ---------- Personal Interests/Hobbies ----------
   hobbies: [
     { label: "Sketching", link: "" },
-    { label: "UX research", link: "" },
+    {
+      label: "UX research",
+      link: "https://www.linkedin.com/posts/miss-kniz_ux-case-study-activity-7418323928466759680-f9Rs?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE8jni4BG4LSmzJu37NqVgJEe4-VukWZPpA",
+    },
     { label: "Experimenting with AI tools", link: "" },
     { label: "Learning new tech", link: "" },
     { label: "Scrolling LinkedIn", link: "https://www.linkedin.com/miss-kniz" },
