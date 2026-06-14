@@ -322,7 +322,7 @@ export default async function ProjectPage({
               className=" uppercase"
             />
             <SimplePara className="max-w-xl mb-8 text-center">
-              The main modules I built end-to-end on the frontend.
+              The main modules I built end-to-end.
             </SimplePara>
             <Stagger
               className="grid grid-cols-1 md:grid-cols-2 gap-4"

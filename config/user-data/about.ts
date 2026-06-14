@@ -32,6 +32,7 @@ export interface EducationItem {
 export interface AboutData {
   // Personal Info
   name: string;
+  alias?: string; // Brand name / nickname shown alongside real name (e.g. "Miss Kniz")
   title: string;
   showCurtain: boolean; // Show decorative curtains in Hero section
   topText?: string; // Optional: small text above name/title in Hero section
@@ -107,7 +108,8 @@ export const portfolioForJob = true; // can be for freelancing the service secti
 
 const aboutData: AboutData = {
   // ---------- Basic Info ----------
-  name: "Mehak Fatima Naqvi - Miss Kniz",
+  name: "Mehak Fatima Naqvi",
+  alias: "Miss Kniz",
   title: "Full Stack Developer",
   showCurtain: true, // Set to false to hide decorative curtains in Hero section
 
@@ -198,7 +200,10 @@ const aboutData: AboutData = {
   // ---------- Personal Interests/Hobbies ----------
   hobbies: [
     { label: "Sketching", link: "" },
-    { label: "UX research", link: "" },
+    {
+      label: "UX research",
+      link: "https://www.linkedin.com/posts/miss-kniz_ux-case-study-activity-7418323928466759680-f9Rs?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE8jni4BG4LSmzJu37NqVgJEe4-VukWZPpA",
+    },
     { label: "Experimenting with AI tools", link: "" },
     { label: "Learning new tech", link: "" },
     { label: "Scrolling LinkedIn", link: "https://www.linkedin.com/miss-kniz" },

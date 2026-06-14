@@ -4,6 +4,7 @@ import "remixicon/fonts/remixicon.css";
 import Script from "next/script";
 import { metadataSEO } from "@/config/seo";
 import { RouteTransition } from "@/components/motion/Reveal";
+import aboutData from "@/config/user-data/about";
 
 export const BASE_URL =
   process.env.NEXT_PUBLIC_BASE_URL || "https://mehak-naqvi.vercel.app/";
@@ -20,7 +21,7 @@ export default function RootLayout({
       <body className="antialiased">
         <RouteTransition>{children}</RouteTransition>
 
-        {/* Structured Data: Directly connects your portfolio to your LinkedIn and GitHub */}
+        {/* Structured Data: auto-derived from config/user-data/about.ts */}
         <Script
           id="structured-data"
           type="application/ld+json"
@@ -29,27 +30,21 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Person",
-              name: "Mehak Fatima Naqvi",
-              alternateName: "miss-kniz",
-              url: "https://mehak-naqvi.vercel.app",
-              image:
-                "https://mehak-naqvi.vercel.app/photo-gallery/portfolio.jpg",
-              jobTitle: "Full-Stack Developer",
-              worksFor: {
-                "@type": "Organization",
-                name: "ThinkBuildSol",
-              },
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: "Faisalabad",
-                addressCountry: "PK",
-              },
-              sameAs: [
-                "https://www.linkedin.com/in/miss-kniz",
-                "https://github.com/miss-kniz",
-              ],
-              description:
-                "Full-stack developer specializing in PostgreSQL, Express, React, and Next.js (PERN stack).",
+              name: aboutData.name,
+              ...(aboutData.alias && { alternateName: aboutData.alias }),
+              url: BASE_URL.replace(/\/$/, ""),
+              image: `${BASE_URL.replace(/\/$/, "")}/photo-gallery/portfolio.jpg`,
+              jobTitle: aboutData.title,
+              ...(aboutData.experience[0]?.company && {
+                worksFor: {
+                  "@type": "Organization",
+                  name: aboutData.experience[0].company.split(" - ")[0].trim(),
+                },
+              }),
+              sameAs: aboutData.socialLinks
+                .filter((s) => Boolean(s.url))
+                .map((s) => s.url as string),
+              description: aboutData.hero.heroPara,
             }),
           }}
         />

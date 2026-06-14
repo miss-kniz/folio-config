@@ -1,9 +1,17 @@
 import { Metadata } from "next";
+import aboutData from "./user-data/about";
+
+const BASE_URL = (
+  process.env.NEXT_PUBLIC_BASE_URL || "https://mehak-naqvi.vercel.app"
+).replace(/\/$/, "");
+
+const pageTitle = aboutData.alias
+  ? `${aboutData.name} | ${aboutData.alias} — ${aboutData.title}`
+  : `${aboutData.name} — ${aboutData.title}`;
 
 export const metadataSEO: Metadata = {
-  title: "Mehak Fatima Naqvi | PERN-Stack Developer (Miss Kniz)",
-  description:
-    "Mehak Fatima Naqvi (miss-kniz) is a React & Next.js developer based in Faisalabad, Pakistan, specializing in the PERN stack and building scalable web apps for startups.",
+  title: pageTitle,
+  description: aboutData.hero.heroPara,
   verification: {
     google: "8cGWQBP5rucbnE3RCQoMp_D6RxaVKbrSaVhm18o_oxE",
   },
@@ -23,7 +31,6 @@ export const metadataSEO: Metadata = {
     "kniz",
     "Full-Stack Developer Faisalabad",
     "PERN Stack Developer",
-    "miss kniz",
     "Top React developer Pakistan",
     "Top Frontend Developer",
     "Talented undergraduate developer",
@@ -34,20 +41,21 @@ export const metadataSEO: Metadata = {
     "Scalable Frontend Architect",
   ],
   alternates: {
-    canonical: "https://mehak-naqvi.vercel.app",
+    canonical: BASE_URL,
   },
   openGraph: {
-    title: "Mehak Fatima Naqvi Portfolio",
-    description:
-      "Frontend-Focused Full-Stack Developer specializing in React, Next.js, and PERN stack.",
-    url: "https://mehak-naqvi.vercel.app",
-    siteName: "Mehak Fatima Naqvi Portfolio",
+    title: aboutData.alias
+      ? `${aboutData.name} | ${aboutData.alias}`
+      : aboutData.name,
+    description: aboutData.hero.heroPara,
+    url: BASE_URL,
+    siteName: `${aboutData.name} Portfolio`,
     images: [
       {
-        url: "https://mehak-naqvi.vercel.app/photo-gallery/portfolio.jpg",
+        url: `${BASE_URL}/photo-gallery/portfolio.jpg`,
         width: 1200,
         height: 630,
-        alt: "Mehak Fatima Naqvi - Full Stack Developer",
+        alt: `${aboutData.name} - ${aboutData.title}`,
       },
     ],
     locale: "en_PK",
