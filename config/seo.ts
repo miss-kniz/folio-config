@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import aboutData from "./user-data/about";
 
 const BASE_URL = (
-  process.env.NEXT_PUBLIC_BASE_URL || "https://mehak-naqvi.vercel.app"
+  process.env.NEXT_PUBLIC_BASE_URL || "https://misskniz.app"
 ).replace(/\/$/, "");
 
 export const metadataSEO: Metadata = {
