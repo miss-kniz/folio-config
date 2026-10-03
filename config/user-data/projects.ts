@@ -58,7 +58,7 @@ export const projects: ProjectItem[] = [
     id: "echome",
     title: "EchoMe",
     categories: ["Full-stack", "SaaS"],
-    imageUrl: "projects/echome.png",
+    imageUrl: "projects/echome-preview.png",
     technologies: [
       TECH_STACK.nextjs,
       TECH_STACK.react,
