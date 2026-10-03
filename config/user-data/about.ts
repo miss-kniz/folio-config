@@ -95,7 +95,7 @@ export interface AboutData {
 
 export const socialLinks = {
   linkedin: "https://www.linkedin.com/in/miss-kniz",
-  instagram: "https://www.instagram.com/miss-kniz",
+  instagram: "https://www.instagram.com/miss.kniz",
   github: "https://www.github.com/miss_kniz",
   medium: "https://medium.com/@miss-kniz",
 };
@@ -234,7 +234,7 @@ const aboutData: AboutData = {
     },
     {
       platform: "Instagram",
-      // url: socialLinks["instagram"],
+      url: socialLinks["instagram"],
       icon: "ri-instagram-fill",
     },
   ],
